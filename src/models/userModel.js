@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
+import passport from 'passport';
 
 let Schema = mongoose.Schema;
 
@@ -22,7 +24,17 @@ UserSchema.statics = {
 
     findByEmail(email) {
         return this.findOne({'local.email': email}).exec();
+    },
+
+    findUserById(id) {
+        return this.findById(id).exec();
     }
-}
+};
+
+UserSchema.methods = {
+    comparePassword(password) {
+        return bcrypt.compare(password, this.local.password);
+    }
+};
 
 module.exports = mongoose.model('user', UserSchema);
