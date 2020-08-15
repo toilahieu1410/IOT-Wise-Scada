@@ -7,8 +7,14 @@ import bodyParser from 'body-parser';
 import connectFlash from 'connect-flash';
 import configSession from './config/session'
 import passport from 'passport';
+import http, { createServer } from 'http';
+import socket_io from 'socket.io';
 
 let app = express();
+
+// Init server with socket.io & express app
+let server = http.createServer(app);
+let io = socket_io(server);
 
 //Connect Mongodb
 ConnectDB();
@@ -35,6 +41,6 @@ initRoutes(app);
 //Use cookie parser
 app.use(cookieParser());
 
-app.listen(process.env.APP_PORT, process.env.APP_HOST, () => {
+server.listen(process.env.APP_PORT, process.env.APP_HOST, () => {
     console.log('Server is running: ' + process.env.APP_PORT);
 })
