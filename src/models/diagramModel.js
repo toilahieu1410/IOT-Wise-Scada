@@ -31,4 +31,11 @@ let DiagramSchema = new Schema({
 
 });
 
+DiagramSchema.statics = {
+    findAllData() {
+        return this.find({}).exec();
+    },
+    
+};
+
 module.exports = mongoose.model('diagram', DiagramSchema);

@@ -1,0 +1,47 @@
+<div class="modal-content" style="">
+    <div class="modal-header" style="background: linear-gradient(90deg, rgba(24,71,207,1) 0%, rgba(9,19,121,0.9556197478991597) 0%, rgba(13,93,210,0.9640231092436975) 100%);">
+      <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+      <h2 class="modal-title" style="text-align: center;"></h2>
+    </div>
+    <h2><%- getDiagram[0].namePLC %></h2>
+    <div class="form-body" style="display:flex;">
+        <div class="modal-body" style="background-color: white;">
+            <div class="col-md-6">
+              <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Nhiệt độ khói thải:</span><span id="dv1" style="min-width: 75px;color:blue;font-weight: bold;"><%= getDataDiagram.nhietDoKhoiThai %></span></p>
+              <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Bể chứa nước:</span><span id="dv2" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.beChuaNuoc %></span></p>
+              <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Bơm dập bụi:</span> <span id="dv3" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.statusBomDapBui %></span></p>
+              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái Bơm 1:</span> <span id="dv4" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.statusBom_1 %></span></p>
+              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái Bơm 2:</span> <span id="dv5" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.statusBom_2 %></span></p>
+              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Quạt hút:</span> <span id="dv6" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.quatHut %></span></p>
+            </div>
+            <div class="col-md-6">
+              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Nhiệt độ nước:</span> <span id="dv7" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.nhietDoNuoc %></span></p>
+              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Áp suất hơi:</span> <span id="dv8" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.apSuatHoi %></span></p>
+              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Bộ hâm nước:</span> <span id="dv9" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.boHamNuoc %></span></p>
+              <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Chân không buồng đốt:</span> <span id="dv10" style="color:blue;font-weight: bold;"></span><%- getDataDiagram.chanKhongBuongDot %></p>
+              <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Buồng đốt TS1:</span><span id="dv11" style="color:blue;font-weight: bold;"><%- getDataDiagram.buongDot_TS1 %></span></p>
+              <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Buồng đốt TS2:</span> <span id="dv12" style="color:blue;font-weight: bold;"><%- getDataDiagram.buongDot_TS2 %></span></p>
+            </div>
+          </div>
+      
+          <div class="modal-body" style="background-color: white;">
+              <div class="col-md-6">
+                <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Áp suất giớ: </span><span id="dv13" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.apSuatGio %></span></p>
+                <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Quạt đẩy: </span><span id="dv14" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.quatDay %></span></p>
+                <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Băng tải 1:</span> <span id="dv15" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.bangTai_1 %></span></p>
+                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Băng tải 2:</span> <span id="dv16" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.bangTai_2 %></span></p>
+                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái băng tải 1:</span> <span id="dv17" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.statusBangTai_1 %></span></p>
+                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái băng tải 2:</span> <span id="dv18" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.statusBangTai_2 %></span></p>
+              </div>
+              <div class="col-md-6">
+                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái quạt đẩy:</span> <span id="dv19" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.statusQuatDay %></span> </p>
+                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái quạt oxy:</span> <span id="dv20" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.statusQuatOxy %></span></p>
+                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái quạt hút:</span> <span id="dv21" style="min-width: 75px;color:blue;font-weight: bold;"><%- getDataDiagram.statusQuatHut %></span></p>
+                <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Lưu lượng tức thời: </span> <span id="dv22" style="color:blue;font-weight: bold;"><%- getDataDiagram.luuLuongTucThoi %></span></p>
+                <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Khối lượng than tức thời: </span><span id="dv23" style="color:blue;font-weight: bold;"><%- getDataDiagram.khoiLuongThanTucThoi %></span></p>
+                <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Khối lượng than cộng dồn:</span> <span id="dv24" style="color:blue;font-weight: bold;"><%- getDataDiagram.khoiLuongThanCongDon %></span></p>
+              </div>
+            </div>
+    </div>
+  
+  </div>

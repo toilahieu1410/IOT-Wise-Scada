@@ -22,8 +22,8 @@ let initRoutes = (app) => {
         failureFlash: true
     }));
 
-    router.get('/homepage', auth.checkLoggedIn, home.getHome)
-    router.get('/logout', auth.checkLoggedIn, auth.getLogout)
+    router.get('/homepage', auth.checkLoggedIn, home.getHome);
+    router.get('/logout', auth.checkLoggedIn, auth.getLogout);
 
     return app.use('/', router);
 };
