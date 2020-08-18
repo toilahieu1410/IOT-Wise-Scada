@@ -22,8 +22,11 @@ let initRoutes = (app) => {
         failureFlash: true
     }));
 
-    router.get('/homepage', auth.checkLoggedIn, home.getHome);
     router.get('/logout', auth.checkLoggedIn, auth.getLogout);
+    router.get('/homepage', auth.checkLoggedIn, home.getHome);
+    router.get('/setup', auth.checkLoggedIn, home.getSetup);
+    router.post('/setup/plc_misubishi_1/updateValue/:id', auth.checkLoggedIn, home.updateSetup);
+    router.post('/setup/plc_misubishi_1/resetValue/:id', auth.checkLoggedIn, home.resetSetup);
 
     return app.use('/', router);
 };
