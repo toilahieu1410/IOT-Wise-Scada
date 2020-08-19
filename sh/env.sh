@@ -12,3 +12,10 @@ export DB_PASSWORD=""
 
 # request
 export RQ_API_NODE_RED=http://10.10.11.222:1880/diagram_plc_mitsubishi
+
+# config MQTT
+export MQTT_CONNECTION=mqtt
+export MQTT_HOST=10.10.11.222
+export MQTT_PORT=1883
+export MQTT_TOPIC_RESET_0=webServerResetData
+export MQTT_TOPIC_SETUP=webServerSendData

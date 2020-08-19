@@ -1,5 +1,9 @@
 import {home} from './../services/index';
 import request from 'request';
+import MqttHandler from './../config/connectMQTT';
+//Connect MQTT
+let mqttClient = new MqttHandler();
+mqttClient.connect();
 
 let getHome = async (req, res) => {
         let getDiagram = await home.getDiagram();
@@ -37,11 +41,13 @@ let getSetup = async(req, res) => {
 
 let updateSetup = async(req, res) => {
     await home.updateSetup(req.params.id, req.body);
+    mqttClient.sendMessageSetup(JSON.stringify(req.body))
     return res.redirect('/setup')
 };
 
 let resetSetup = async(req, res) => {
     await home.resetSetup(req.params.id);
+    mqttClient.sendMessageReset('0')
     return res.redirect('/setup');
 }
 

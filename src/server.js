@@ -9,6 +9,7 @@ import configSession from './config/session'
 import passport from 'passport';
 import http, { createServer } from 'http';
 import socket_io from 'socket.io';
+// import MqttHandler from './config/connectMQTT/mqtt-server';
 
 let app = express();
 
@@ -18,6 +19,10 @@ let io = socket_io(server);
 
 //Connect Mongodb
 ConnectDB();
+
+//Connect MQTT
+// let mqttClient = new MqttHandler();
+// mqttClient.connect(app);
 
 //Config Session
 configSession(app);
