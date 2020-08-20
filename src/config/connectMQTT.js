@@ -6,6 +6,7 @@ class MqttHandler {
   constructor() {
     this.mqttClient = null;
     this.host = MQTT_URI;
+
     // this.username = 'YOUR_USER'; // mqtt credentials if these are needed to connect
     // this.password = 'YOUR_PASSWORD';
   }
@@ -21,7 +22,7 @@ class MqttHandler {
 
     // Connection callback
     this.mqttClient.on('connect', () => {
-      console.log(`MQTT client connected`);
+        console.log('MQTT client connect')
     });
 
     // mqtt subscriptions
@@ -35,6 +36,7 @@ class MqttHandler {
     this.mqttClient.on('close', () => {
       console.log(`MQTT client disconnected`);
     });
+
   }
 
   // Sends a mqtt message to topic: mytopic

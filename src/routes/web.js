@@ -24,9 +24,18 @@ let initRoutes = (app) => {
 
     router.get('/logout', auth.checkLoggedIn, auth.getLogout);
     router.get('/homepage', auth.checkLoggedIn, home.getHome);
+
+    //Setup
     router.get('/setup', auth.checkLoggedIn, home.getSetup);
     router.post('/setup/plc_misubishi_1/updateValue/:id', auth.checkLoggedIn, home.updateSetup);
     router.post('/setup/plc_misubishi_1/resetValue/:id', auth.checkLoggedIn, home.resetSetup);
+    
+    //Chart
+    router.get('/chart/query', auth.checkLoggedIn, home.queryDateTime);
+    router.get('/chart', auth.checkLoggedIn, home.getDataChart );
+
+    //Alarm
+    router.get('/alarm', auth.checkLoggedIn, home.getDataAlarm)
 
     return app.use('/', router);
 };

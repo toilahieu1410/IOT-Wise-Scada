@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wise Scada</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/logo_favicon/favicon-trungquandev.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/no-data-to-display.js"></script>
+</head>
+
+<body>
+    <figure class="">
+        <div id="chart1" name="chart1"></div>
+    </figure>
+
+    <figure class="">
+        <div id="chart2" name="chart2"></div>
+    </figure>
+
+    <figure class="">
+        <div id="chart3" name="chart3"></div>
+    </figure>
+
+    <figure class="">
+        <div id="chart4" name="chart4"></div>
+    </figure>
+
+    <figure class="">
+        <div id="chart5" name="chart5"></div>
+    </figure>
+
+    <figure class="">
+        <div id="chart6" name="chart6"></div>
+    </figure>
+
+    <figure class="">
+        <div id="chart7" name="chart7"></div>
+    </figure>
+</body>
+<script src="js/diagram/request.js"></script>
+<script>
+    let dateTime = ['<%= dateTime %>'];
+    let arrDateTime = dateTime[0].split(',')
+    let nhietDoKhoiThai = [<%= nhietDoKhoiThai %>];
+    let nhietDoNuoc = [<%= nhietDoNuoc %>];
+    let apSuatHoi = [<%= apSuatHoi %>];
+    let chanKhongBuongDot = [<%= chanKhongBuongDot %>];
+    let buongDot_TS1 = [<%= buongDot_TS1 %>];
+    let buongDot_TS2 = [<%= buongDot_TS2 %>];
+    let apSuatGio = [<%= apSuatGio %>];
+    
+</script>
+<script src="js/chart/chart.js"></script>
+
+<style>
+    .highcharts-figure, .highcharts-data-table table {
+    min-width: 360px; 
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+</style>
+</html>

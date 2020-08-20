@@ -1,5 +1,6 @@
 import DiagramModel from './../models/diagramModel';
 import SetupModel from './../models/setupModel';
+import ChartModel from './../models/chartModel';
 import { resolve, reject } from 'bluebird';
 
 let getDiagram = () => {
@@ -39,7 +40,18 @@ let resetSetup = (id) => {
     return new Promise (async (resolve, reject) => {
         try {
             let resetSetup = await SetupModel.resetSetup(id);
-            resolve(resetSetup)
+            resolve(resetSetup);
+        } catch (error) {
+            reject(error);
+        }
+    })
+};
+
+let getDataChart = (query) => {
+    return new Promise (async (resolve, reject) => {
+        try {
+            let getDataChart = await ChartModel.getDataChart(query);
+            resolve(getDataChart);
         } catch (error) {
             reject(error);
         }
@@ -50,5 +62,6 @@ module.exports = {
     getDiagram: getDiagram,
     getSetup: getSetup,
     updateSetup: updateSetup,
-    resetSetup: resetSetup
+    resetSetup: resetSetup,
+    getDataChart: getDataChart
 }

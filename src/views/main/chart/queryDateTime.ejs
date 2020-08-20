@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wise Scada</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/logo_favicon/favicon-trungquandev.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+    <%- include('./../navbar/navbar.ejs') %>
+
+<body>
+    <form action="/chart">
+
+        <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+            <label for="example">Start Date...</label>
+            <input placeholder="Select date" type="text" id="start-date" name="startDate" class="form-control">
+            <i class="fas fa-calendar input-prefix" tabindex=0></i>
+        </div>
+        <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+            <label for="example">End Date...</label>
+            <input placeholder="Select date" type="text" id="end-date" name="endDate" class="form-control">
+            <i class="fas fa-calendar input-prefix" tabindex=0></i>
+          </div>
+
+        <button type="submit" class="btn btn-default" href="/chart" style="background-color: #72A95E;font-size: 18px;color: white;">Search</button>
+
+    </form>
+
+</body>
+<script src="js/diagram/request.js"></script>
+<head>
+    <title>Gaming Login Form Responsive Widget Template  :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Gaming Login Form Widget Tab Form,Login Forms,Sign up Forms,Registration Forms,News letter Forms,Elements"/>
+    <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/css/mdb.min.css"/>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
+    <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-addons-4.19.1.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/mdb-plugins-gathered.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/mdb.min.js"></script>
+    
+    
+    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/popper.min.js"></script>
+    
+    <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/plugins/mdb-plugins-gathered.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+    // Data Picker Initialization
+$('.datepicker').datepicker();
+</script>
+
+    <script>
+        $('#end-date').datepicker({
+    dateFormat: "yy/mm/dd" 
+  });
+
+  $("#start-date").datepicker({
+    dateFormat: "yy/mm/dd",
+    onSelect: function(date) {
+      var date1 = $('#start-date').datepicker('getDate');
+      var date = new Date(Date.parse(date1));
+      date.setDate(date.getDate());
+      var newDate = date.toDateString();
+      newDate = new Date(Date.parse(newDate));
+      $('#end-date').datepicker("option", "minDate", newDate);
+    }
+  });
+
+  $('#endTime').datepicker({
+    dateFormat: "yy/mm/dd" 
+  });
+
+  $("#startTime").datepicker({
+    dateFormat: "yy/mm/dd",
+    onSelect: function(date) {
+      var date2 = $('#startTime').datepicker('getDate');
+      var date = new Date(Date.parse(date2));
+      date.setDate(date.getDate());
+      var newDate = date.toDateString();
+      newDate = new Date(Date.parse(newDate));
+      $('#endTime').datepicker("option", "minDate", newDate);
+    }
+  });
+    </script>
+    <script src="js/style.js"></script>
+    </head>
+</html>
