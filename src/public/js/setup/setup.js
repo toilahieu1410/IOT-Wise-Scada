@@ -1,3 +1,17 @@
+setInterval(function() {
+    $.ajax({
+        url: 'http://10.10.11.222:1880/diagram_plc_mitsubishi',
+        complete: function(json) {
+            data = JSON.parse(json.responseText);
+    
+        },
+        error: function() {
+            console.log('There was an error!');
+        }
+    })
+}, 500)
+
+
 Highcharts.chart('container', {
     chart: {
         type: 'spline',
@@ -10,10 +24,11 @@ Highcharts.chart('container', {
                 // set up the updating of the chart each second
                 var series = this.series[0];
                 setInterval(function () {
+
                     var x = (new Date()).getTime(), // current time
-                        y = Math.random();
+                        y = data.resetThanCongDon;
                     series.addPoint([x, y], true, true);
-                }, 2000);
+                }, 5000);
             }
         }
     },
@@ -76,13 +91,17 @@ Highcharts.chart('container', {
                 time = (new Date()).getTime(),
                 i;
 
-            for (i = -100; i <= 0; i += 1) {
+            for (i = -500; i <= 0; i += 1) {
                 data.push({
-                    x: time + i * 2000,
-                    y: Math.random()
+                    x: time + i * 1000,
+                    y: data.resetThanCongDon
                 });
             }
             return data;
         }())
     }]
 });
+// function liveChart(nameId, timeRequest, nameChart, unitValue, color, data) {
+    
+// }
+
