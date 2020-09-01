@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wise Scada</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/logo_favicon/favicon-trungquandev.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+    <%- include('./../navbar/navbar.ejs') %>
+
+<body>
+
+    <div style="width:calc(100%/5);float: left;padding: 0 15px;">
+        <div class="user-account">
+            <h3 style="text-align: center;padding-top: 10px;margin-bottom: 0;"><i class="fa fa-user" style="margin-right: 5px;"></i></h3>
+                <div style="text-align: left;line-height: 30px;" class="detail-grid">
+                  
+                    <strong style="display: inline-block; min-width: 180px;">Áp suất chạy lò: <%= getSetup[0].apSuatChayLo %></strong><br>
+                    <strong style="display: inline-block; min-width: 180px;">Áp suất dừng lò: <%= getSetup[0].apSuatDungLo %></strong><br>
+                    <strong style="display: inline-block; min-width: 180px;">Thời gian trễ bật quạt hút: <%= getSetup[0].timeStartQuatHut %></strong><br>
+                    <strong style="display: inline-block; min-width: 180px;">Thời gian trễ tắt quạt hút: <%= getSetup[0].timeStopQuatHut %></strong><br>
+                    <strong style="display: inline-block; min-width: 180px;">Thời gian luân phiên bơm: <%= getSetup[0].timeLuanPhienBom %></strong><br>
+                    <strong style="display: inline-block; min-width: 180px;">Khối lượng than cộng dồn: <%= getSetup[0].khoiLuongThanCongDon %></strong><br>
+                    <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Reset than cộng dồn:</span><span id="dv25" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.resetThanCongDon : 'Lỗi kết nối'%></span></p>
+                    
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resetSetupModal">
+                        RESET
+                    </button>
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSetupModal">
+                        Edit Setup
+                    </button>
+                    
+                    <!-- Start Modal Edit -->
+                    <div class="modal fade" id="editSetupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Setup</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/setup/plc_misubishi_1/updateValue/<%= getSetup[0]._id %>" method="post">
+                                    <div class="form-group">
+                                      <label for="exampleInputEmail1">Áp suất chạy lò</label>
+                                      <input type="number" name="apSuatChayLo" class="form-control" id="exampleInputEmail1" value="<%= getSetup[0].apSuatChayLo %>">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputPassword1">Áp suất dừng lò</label>
+                                      <input type="number" name="apSuatDungLo" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].apSuatDungLo %>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Thời gian trễ bật quạt hút</label>
+                                        <input type="number" name="timeStartQuatHut" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeStartQuatHut %>">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleInputPassword1">Thời gian trễ tắt quạt hút</label>
+                                        <input type="number" name="timeStopQuatHut" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeStopQuatHut %>">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleInputPassword1">Thời gian luân phiên bơm</label>
+                                        <input type="number" name="timeLuanPhienBom" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeLuanPhienBom %>">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleInputPassword1">Khối lượng than cộng dồn</label>
+                                        <input type="number" name="khoiLuongThanCongDon" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].khoiLuongThanCongDon %>">
+                                      </div>
+                                  
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- End Modal Edit -->
+
+                    <!-- Start Modal Reset -->
+                    <div class="modal fade" id="resetSetupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Reset</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/setup/plc_misubishi_1/resetValue/<%= getSetup[0]._id %>" method="post">
+                                      <div class="form-group">
+                                        <label for="exampleInputPassword1">Reset than cộng dồn</label>
+                                      </div>
+                                  
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- End Modal Reset -->
+
+            </div>
+        </div>
+    </div>
+  </br>  </br>  </br>  </br>  </br>  </br>  </br>  </br>  </br>  </br>  </br>  </br>  </br>  </br>  </br>
+  
+  <figure>
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Chart showing data updating every second, with old data being removed.
+    </p>
+</figure>
+
+</body>
+<script src="js/diagram/request.js"></script>
+<script src="js/setup/setup.js"></script>
+<style>
+  .highcharts-figure, .highcharts-data-table table {
+  min-width: 320px; 
+  max-width: 800px;
+  margin: 1em auto;
+}
+
+#container {
+  height: 400px;
+}
+
+.highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #EBEBEB;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+  padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+
+</style>
+</html>
