@@ -11,7 +11,7 @@ let getHome = async (req, res) => {
         try {
             request(process.env.RQ_API_NODE_RED, {json: true}, function(error, response, body) {
                 var getDataDiagram = body;
-                return res.render('main/master', {
+                return res.render('main/diagram/diagram', {
                     errors: req.flash('errors'),
                     success: req.flash('success'),
                     user: req.user.local.email,

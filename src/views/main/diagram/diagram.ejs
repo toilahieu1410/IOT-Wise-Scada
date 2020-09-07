@@ -1,50 +1,111 @@
-    <%- include('../navbar/navbar.ejs'); %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wise Scada</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/logo_favicon/favicon-trungquandev.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-  <div class="modal-content" style="">
-    <div class="modal-header" style="background: linear-gradient(90deg, rgba(24,71,207,1) 0%, rgba(9,19,121,0.9556197478991597) 0%, rgba(13,93,210,0.9640231092436975) 100%);">
-      <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-      <h2 class="modal-title" style="text-align: center;"></h2>
-    </div>
-    <h2><%- getDiagram[0].namePLC %></h2>
-    <div class="form-body" style="display:flex;">
-        <div class="modal-body" style="background-color: white;">
-            <div class="col-md-6">
-              <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Nhiệt độ khói thải:</span><span id="dv1" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoKhoiThai : 'Lỗi kết nối'%></span></p>
-              <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Bể chứa nước:</span><span id="dv2" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.beChuaNuoc : 'Lỗi kết nối'%></span></p>
-              <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Bơm dập bụi:</span> <span id="dv3" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBomDapBui : 'Lỗi kết nối'%></span></p>
-              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái Bơm 1:</span> <span id="dv4" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBom_1 : 'Lỗi kết nối'%></span></p>
-              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái Bơm 2:</span> <span id="dv5" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBom_2 : 'Lỗi kết nối'%></span></p>
-              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Quạt hút:</span> <span id="dv6" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatHut : 'Lỗi kết nối'%></span></p>
-            </div>
-            <div class="col-md-6">
-              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Nhiệt độ nước:</span> <span id="dv7" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoNuoc : 'Lỗi kết nối'%></span></p>
-              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Áp suất hơi:</span> <span id="dv8" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatHoi : 'Lỗi kết nối'%></span></p>
-              <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Bộ hâm nước:</span> <span id="dv9" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.boHamNuoc : 'Lỗi kết nối'%></span></p>
-              <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Chân không buồng đốt:</span> <span id="dv10" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.chanKhongBuongDot : 'Lỗi kết nối'%></span></p>
-              <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Buồng đốt TS1:</span><span id="dv11" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS1 : 'Lỗi kết nối'%></span></p>
-              <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Buồng đốt TS2:</span> <span id="dv12" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS2 : 'Lỗi kết nối'%></span></p>
-            </div>
-          </div>
+    <%- include('../alert/alert.ejs') %>
+    <!-- include('navbar'); -->
+
+    <%- include('../navbar/navbar.ejs') %>
+
+      <div class="content-wrapper main-panel">
+        <div class="container-fluid main-content">
+          <div class="row content">
       
-          <div class="modal-body" style="background-color: white;">
-              <div class="col-md-6">
-                <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Áp suất giớ: </span><span id="dv13" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatGio : 'Lỗi kết nối'%></span></p>
-                <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Quạt đẩy: </span><span id="dv14" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatDay : 'Lỗi kết nối'%></span></p>
-                <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Băng tải 1:</span> <span id="dv15" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.bangTai_1 : 'Lỗi kết nối'%></span></p>
-                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Băng tải 2:</span> <span id="dv16" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.bangTai_2 : 'Lỗi kết nối'%></span></p>
-                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái băng tải 1:</span> <span id="dv17" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBangTai_1 : 'Lỗi kết nối'%></span></p>
-                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái băng tải 2:</span> <span id="dv18" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBangTai_2 : 'Lỗi kết nối'%></span></p>
+            <div class="modal-content" style="">
+              <div class="modal-header" style="background: linear-gradient(90deg, rgba(24,71,207,1) 0%, rgba(9,19,121,0.9556197478991597) 0%, rgba(13,93,210,0.9640231092436975) 100%);">
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                <h2 class="modal-title" style="text-align: center;"></h2>
               </div>
-              <div class="col-md-6">
-                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái quạt đẩy:</span> <span id="dv19" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatDay : 'Lỗi kết nối'%></span> </p>
-                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái quạt oxy:</span> <span id="dv20" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatOxy : 'Lỗi kết nối'%></span></p>
-                <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái quạt hút:</span> <span id="dv21" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatHut : 'Lỗi kết nối'%></span></p>
-                <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Lưu lượng tức thời: </span> <span id="dv22" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.luuLuongTucThoi : 'Lỗi kết nối'%></span></p>
-                <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Khối lượng than tức thời: </span><span id="dv23" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanTucThoi : 'Lỗi kết nối'%></span></p>
-                <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Khối lượng than cộng dồn:</span> <span id="dv24" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanCongDon : 'Lỗi kết nối'%></span></p>
+              <h2><%- getDiagram[0].namePLC %></h2>
+              <div class="form-body" style="display:flex;">
+                  <div class="modal-body" style="background-color: white;">
+                      <div class="col-md-6">
+                        <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Nhiệt độ khói thải:</span><span id="dv1" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoKhoiThai : 'Lỗi kết nối'%></span></p>
+                        <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Bể chứa nước:</span><span id="dv2" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.beChuaNuoc : 'Lỗi kết nối'%></span></p>
+                        <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Bơm dập bụi:</span> <span id="dv3" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBomDapBui : 'Lỗi kết nối'%></span></p>
+                        <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái Bơm 1:</span> <span id="dv4" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBom_1 : 'Lỗi kết nối'%></span></p>
+                        <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái Bơm 2:</span> <span id="dv5" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBom_2 : 'Lỗi kết nối'%></span></p>
+                        <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Quạt hút:</span> <span id="dv6" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatHut : 'Lỗi kết nối'%></span></p>
+                      </div>
+                      <div class="col-md-6">
+                        <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Nhiệt độ nước:</span> <span id="dv7" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoNuoc : 'Lỗi kết nối'%></span></p>
+                        <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Áp suất hơi:</span> <span id="dv8" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatHoi : 'Lỗi kết nối'%></span></p>
+                        <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Bộ hâm nước:</span> <span id="dv9" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.boHamNuoc : 'Lỗi kết nối'%></span></p>
+                        <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Chân không buồng đốt:</span> <span id="dv10" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.chanKhongBuongDot : 'Lỗi kết nối'%></span></p>
+                        <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Buồng đốt TS1:</span><span id="dv11" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS1 : 'Lỗi kết nối'%></span></p>
+                        <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Buồng đốt TS2:</span> <span id="dv12" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS2 : 'Lỗi kết nối'%></span></p>
+                      </div>
+                    </div>
+                
+                    <div class="modal-body" style="background-color: white;">
+                        <div class="col-md-6">
+                          <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Áp suất giớ: </span><span id="dv13" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatGio : 'Lỗi kết nối'%></span></p>
+                          <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Quạt đẩy: </span><span id="dv14" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatDay : 'Lỗi kết nối'%></span></p>
+                          <p class="dv-4"  ><span style="min-width: 130px;display: inline-block;color: black;">Băng tải 1:</span> <span id="dv15" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.bangTai_1 : 'Lỗi kết nối'%></span></p>
+                          <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Băng tải 2:</span> <span id="dv16" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.bangTai_2 : 'Lỗi kết nối'%></span></p>
+                          <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái băng tải 1:</span> <span id="dv17" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBangTai_1 : 'Lỗi kết nối'%></span></p>
+                          <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái băng tải 2:</span> <span id="dv18" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBangTai_2 : 'Lỗi kết nối'%></span></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái quạt đẩy:</span> <span id="dv19" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatDay : 'Lỗi kết nối'%></span> </p>
+                          <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái quạt oxy:</span> <span id="dv20" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatOxy : 'Lỗi kết nối'%></span></p>
+                          <p class="dv-7"  ><span style="min-width: 130px;display: inline-block;color: black;">Trạng thái quạt hút:</span> <span id="dv21" style="min-width: 75px;color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatHut : 'Lỗi kết nối'%></span></p>
+                          <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Lưu lượng tức thời: </span> <span id="dv22" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.luuLuongTucThoi : 'Lỗi kết nối'%></span></p>
+                          <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Khối lượng than tức thời: </span><span id="dv23" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanTucThoi : 'Lỗi kết nối'%></span></p>
+                          <p class="dv-10" ><span style="min-width: 130px;display: inline-block;color: black;">Khối lượng than cộng dồn:</span> <span id="dv24" style="color:blue;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanCongDon : 'Lỗi kết nối'%></span></p>
+                        </div>
+                      </div>
               </div>
-            </div>
-    </div>
-  
-  </div> 
+            
+            </div> 
+      </div>
+      </div>
+    
+      </div> 
+  </div>
+    <!-- content -->
+
+   
+</body>
+<script src="js/diagram/request.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <!--Libraries-->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  <script src="bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+  <script src="bower_components/AlertifyJS/build/alertify.js"></script>
+  <script src="bower_components/moment/min/moment.min.js"></script>
+  <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
+  <script src="bower_components/emojionearea/dist/emojionearea.min.js"></script>
+  <script src="bower_components/peerjs/peer.min.js"></script>
+  <script src="bower_components/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="bower_components/photoset-grid/jquery.photoset-grid.min.js"></script>
+  <script src="bower_components/jquery-colorbox/jquery.colorbox-min.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+
+      <!-- My js-->
+  <script src="js/cdn/diagram/jquery.min2.1.1.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</html>
+
+
+
 
