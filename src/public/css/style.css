@@ -433,9 +433,6 @@ label:focus,
   font-size: 14px;
 }
 
-.dropdown-menu {
-  background-color: #333;
-}
 
 .dropdown-menu>li>a {
   width: 100%;
@@ -1274,4 +1271,541 @@ label:focus,
 
 #user-profile-modal input:hover, #user-profile-modal input:focus {
   border-color: #576574
+}
+
+/************************ CSS interface WISE IOT ***********************************/
+
+h3.title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.modal-header {
+  font-size: 16px;
+  font-weight: 700;
+  align-items: center !important;
+}
+h5.title-target {
+  font-size: 16px;
+}
+.notification h5 {
+  font-size: 16px;
+}
+.modal-dialog .modal-content {
+  border-radius: 10px !important;
+  background-color: rgb(43 43 43 / 54%) ;
+}
+
+textarea {
+  width: 100%;
+  background-color: #6b757f47;
+  color:white;
+  border: none;
+  border-radius: 4px;
+  outline:none;
+  box-shadow:0 9px 13px rgba(0,0,0,0.30), 4px 4px 4px 0px rgba(0,0,0,0.22);
+}
+input {
+  color:white;
+  background-color:  #6b757f47;
+  border: none;
+  border-radius: 4px;
+  outline:none;
+  box-shadow:0 9px 13px rgba(0,0,0,0.30), 4px 4px 4px 0px rgba(0,0,0,0.22);
+}
+
+
+.k-auto-scrollable::-webkit-scrollbar {
+  width: 3px;
+}
+
+.k-auto-scrollable::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 4px;
+}
+
+.k-auto-scrollable::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+input::placeholder {
+  color:white;
+}
+select {
+  width: 100%;
+  color:white;
+  background-color: #3473ab94;
+  border: none;
+  border-radius: 4px;
+  outline:none;
+  box-shadow:0 9px 13px rgba(0,0,0,0.30), 4px 4px 4px 0px rgba(0,0,0,0.22);
+}
+.form-target-all {
+  margin-top:20px;
+}
+.primary-color {
+  background-color: #11423794!important;
+}
+.dropdown-menu.dropdown-show {
+  min-width: 350px;
+  right: 0;
+  left: auto;
+}
+.thead-2 th input,.thead-2 th select{
+  font-size: 14px;
+}
+.notification {
+  justify-content: space-between;
+  display:flex;
+  border-bottom:1px solid #ccc;
+  align-items: center;
+  padding-bottom: 5px;
+}
+.md-form {
+  display: flex;
+  align-items: center;
+}
+.md-form .form-control {
+  margin:0;
+}
+table.table th, table.table td {
+  /* padding:0; */
+}
+
+.btn {
+  margin: 0;
+}
+table.table thead th {
+  border-top: 1px solid #dee2e6;
+  background-color: #234a8ad9 ;
+  color:#fff;
+  font-size: 16px;
+}
+span.count-symbol {
+  background-color: #ff0033;
+  color: white;
+  top: -5px;
+  position: absolute;
+  left: 15px;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+}
+span.count-symbol b {
+  left: 2px;
+  text-align: center;
+  top: -6px;
+  font-size: 11px;
+  position: relative; 
+}
+.header-title {
+  width:100%;
+  text-align:center;
+}
+.header-title h3, .header-title p {
+  margin: 0;
+}
+.md-img-avatar {
+  margin-right: 10px;
+}
+
+.dropdown .dropdown-menu, .dropup .dropdown-menu, .dropleft .dropdown-menu, .dropright .dropdown-menu {
+  padding: .8rem;
+}
+.side-nav .collapsible>li a#toggle {
+  text-align: center;
+}
+/* *********************** CSS Sidebar SMALL ****************************/
+.side-nav.wide.slim .collapsible a span {
+  display: none;
+}
+.side-nav.wide.slim .collapsible a img {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  /* height: 100%; */
+  /* height: 40px; */
+  align-items: center;
+  vertical-align: middle;
+}
+.side-nav.wide.slim .collapsible>li{
+  text-align: center;
+  padding: 0;
+}
+/* *********************** END CSS Sidebar SMALL ****************************/
+
+/* *********************** CSS Sidebar BIG ****************************/
+.side-nav.wide .collapsible a span {
+  display: inline;
+}
+.side-nav.wide.slim .collapsible a img {
+
+}
+.side-nav.wide .collapsible a {
+  line-height: 60px;
+}
+.side-nav.wide .collapsible>li {
+  padding:0 25px;
+  text-align: left;
+}
+.side-nav>ul {
+  max-height: 100vh;
+}
+.side-nav.wide {
+  background-color:transparent  !important;
+  -webkit-transition-timing-function: linear, linear, ease;
+  transition-timing-function: linear, linear, ease;
+  -webkit-transition-duration: .3s, .3s, .33s;
+  transition-duration: .3s, .3s, .33s;
+  -webkit-transition-property: top, bottom, width;
+  transition-property: top, bottom, width;
+}
+/* *********************** END CSS Sidebar BIG ****************************/
+
+.side-nav.wide.slim {
+  display: inline-block;
+  width: 5rem !important;
+  /* right: 5rem !important; */
+  height: 100vh;
+  background-color:#11423794 !important;
+  -webkit-transition-timing-function: linear, linear, ease;
+  transition-timing-function: linear, linear, ease;
+  -webkit-transition-duration: .3s, .3s, .33s;
+  transition-duration: .3s, .3s, .33s;
+  -webkit-transition-property: top, bottom, width;
+  transition-property: top, bottom, width;
+}
+.collapsible-accordion li {
+    text-align:center;
+}
+ .side-nav.wide.slim .collapsible a {
+    padding: 0;
+} 
+.side-nav {
+    position: relative;
+    height: 100vh;
+}
+.rgba-blue-strong, .rgba-blue-strong:after {
+    background-color: transparent;
+}
+.side-nav.wide.slim .collapsible .sv-slim-icon {
+    width:auto;
+    height: auto;
+}
+/* .side-nav.wide.slim .collapsible a {
+    display: inline;
+} */
+.side-nav .collapsible>li a.collapsible-header:hover {
+    background-color: transparent;
+}
+.side-nav .collapsible>li {
+    /* padding:10px 5px; */
+}
+.side-nav.wide .collapsible a {
+  outline: none;
+    padding-left: 0;
+}
+.side-nav .collapsible>li:hover, .side-nav .collapsible>li:focus {
+    transition: all 250ms linear;
+    box-shadow: 1px 1px 2px rgba(255, 255, 255, 1);
+  /* padding:10px 5px; */
+  background-color: #1f6958 ;
+}
+.side-nav .collapsible a {
+    height: 60px;
+}
+.side-nav .collapsible a p {
+    display: none;
+}
+.side-nav .collapsible {
+
+  margin-top: 0;
+}
+
+
+.main-panel {
+  -webkit-transition: width 0.25s ease, margin 0.25s ease;
+  transition: width 0.25s ease, margin 0.25s ease;
+  width: calc(100% - 260px);
+  min-height: calc(100vh - 70px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.content-wrapper {
+  padding: 1.75rem 1.75rem;
+  width: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.page-body-wrapper {
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding-left: 0;
+  padding-right: 0;
+}
+.table {
+  color:white !important;
+}
+.table-hover tbody tr:hover {
+  color:#fff !important;
+}
+.md-img-avatar .dropdown-menu.show {
+  display: none !important;
+}
+.md-img-avatar:hover .dropdown-show {
+  background-color: #114237eb !important;
+}
+.nav-item .dropdown-show {
+  background-color: #00000040 !important ;
+}
+label {
+  display: inline-block;
+  margin-bottom: 0 !important;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  border: 1px solid transparent;
+}
+.waves-effect {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  overflow: inherit;
+  overflow: inherit;
+}
+label:hover {
+color: #fff;
+cursor: pointer;
+}
+.tabs-change section {
+display: none;
+padding: 20px 0 0;
+border-top: 1px solid #ddd;
+}
+.tabs-change input {
+display: none;
+}
+.tabs-change input:checked + label {
+  transition: all 250ms linear;
+  margin-bottom: 0;
+color: #fff ;
+border: 1px solid #ddd;
+/* border-top: 2px solid orange; */
+border-bottom: 1px solid #fff;
+box-shadow:inset 0px 1px 4px 2px rgba(0, 0, 0, 0.2), inset -4px -4px 8px 0 rgba(255, 255, 255, 0.5) ;
+}
+.tabs-change #tab1:checked ~ #content1,
+.tabs-change #tab2:checked ~ #content2,
+.tabs-change #tab3:checked ~ #content3,
+.tabs-change #tab4:checked ~ #content4 {
+display: block;
+}
+.form-work-all .form-work-group {
+  background-color: rgb(16 37 34 / 32%);
+}
+.modal-dialog.modal-notify .modal-body {
+  color:white;
+}
+.form-work-group {
+  background-color: rgba(0,0,0, 0.3);
+  box-shadow: 0 5px 30px rgba(0,0,0,0.30), 0 11px 10px rgba(0,0,0,0.22);
+  border-radius: 5px;
+  padding:20px ;
+
+  transition: all 0.3s;
+}
+.form-work-body p:first-child {
+  position: relative;
+  bottom: -2px;
+}
+.text-content input {
+  min-height: 50px;
+  display: block;
+}
+.form-work-group  p{
+  color:#fff;
+}
+.form-work-group:hover {
+  transform: scale(1.05);
+  transition: .3s;
+}
+.date-left span {
+  color:#fff;
+}
+.user-check p {
+  margin-left: 5px;
+}
+/*  CSS cho label input checkbox*/
+.form-checkbox {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
+}
+label.check-title {
+  font-weight: 500;
+  box-shadow: none !important;
+  min-height: 45px;
+  text-align: left;
+  display: flex;
+  line-height: 1.2;
+  font-size:16px;
+  padding:0;
+  border:none !important;
+}
+label.check-title p {
+  display: inline-table;
+  position: relative;
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  transform-origin: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  vertical-align: -6px;
+  margin-right: 10px;
+  transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89);
+}
+label.check-title p:before {
+  content: "";
+  width: 0px;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+  position: absolute;
+  transform: rotate(44deg);
+  top: 7px;
+  left: 5px;
+  transition: width 50ms ease 50ms;
+  transform-origin: 0% 0%;
+}
+label.check-title p:after {
+  content: "";
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+  position: absolute;
+  transform: rotate(305deg);
+  top: 12px;
+  left: 7px;
+  transition: width 50ms ease;
+  transform-origin: 0% 0%;
+}
+label.check-title:hover p:before {
+  width: 5px;
+  transition: width 100ms ease;
+}
+label.check-title:hover p:after {
+  width: 10px;
+  transition: width 150ms ease 100ms;
+}
+
+input[type="checkbox"]:checked + label.check-title p {
+  background-color: #0f203c ;
+  transform: scale(1.25);
+}
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+  opacity: 1;
+}
+input[type="checkbox"]:checked + label.check-title p:after {
+  width: 10px;
+  background: #fff;
+  transition: width 150ms ease 100ms;
+}
+input[type="checkbox"]:checked + label.check-title p:before {
+  width: 5px;
+  background: #fff;
+  transition: width 150ms ease 100ms;
+}
+input[type="checkbox"]:checked + label.check-title:hover p {
+  background-color: #0f203c;
+  transform: scale(1.25);
+}
+input[type="checkbox"]:checked + label.check-title:hover p:after {
+  width: 10px;
+  background: #ffff;
+  transition: width 150ms ease 100ms;
+}
+input[type="checkbox"]:checked + label.check-title:hover p:before {
+  width: 5px;
+  background: #fff;
+  transition: width 150ms ease 100ms;
+}
+.dropdown-item {
+  color:#fff !important;
+  padding: 0.6rem 1.5rem !important;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+  background-color: #143961de !important;
+}
+
+.form-checkbox {
+  padding-bottom: 10px;
+}
+.form-work-all {
+  position: relative;
+}
+.form-work-header {
+  background-color: #6b757f47;
+  color: #fff;
+  position: absolute;
+  width: 92%;
+  left: -5%;
+  box-shadow: 0 9px 13px rgba(0,0,0,0.30), 4px 4px 4px 0px rgba(0,0,0,0.22);
+  top: -5%;
+  border-radius: 2px;
+}
+.form-work-header h4 {
+  font-size: 18px;
+  text-indent: 25px;
+  margin: 5px 0;
+}
+.form-work-body {
+  margin-top:20px;
+}
+.form-work-body p {
+  font-size: 16px;
+}
+.form-department label {
+  padding:0 ;
+}
+.form-department span {
+  min-width:80px;
+  display: inline-block;
+}
+.user-content {
+  font-size: 12px;
+}
+.form-content-header {
+  align-items: baseline;
+}
+.form-content-header h4 {
+  padding-bottom: 5px;
+}
+.form-content-header span, .form-content-header h4 {
+  font-size: 16px;
+}
+.dropdown .dropdown-menu.dropdown-primary .dropdown-item:hover, .dropdown .dropdown-menu.dropdown-primary .dropdown-item:active, .dropdown .dropdown-menu.dropdown-primary .dropdown-item.active, .dropup .dropdown-menu.dropdown-primary .dropdown-item:hover, .dropup .dropdown-menu.dropdown-primary .dropdown-item:active, .dropup .dropdown-menu.dropdown-primary .dropdown-item.active, .dropleft .dropdown-menu.dropdown-primary .dropdown-item:hover, .dropleft .dropdown-menu.dropdown-primary .dropdown-item:active, .dropleft .dropdown-menu.dropdown-primary .dropdown-item.active, .dropright .dropdown-menu.dropdown-primary .dropdown-item:hover, .dropright .dropdown-menu.dropdown-primary .dropdown-item:active, .dropright .dropdown-menu.dropdown-primary .dropdown-item.active {
+  background-color: #23846eeb !important;
+  border-radius: .125rem;
+  -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
 }
