@@ -1,187 +1,90 @@
- <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Wise Scada</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" href="/homepage">Diagram<span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="/setup">Setup</a>
-        <a class="nav-link" href="/chart/query">Chart</a>
-        <a class="nav-link" href="/alarm">Alarm</a>
-        <a class="nav-link" href="#">Report</a>
-      </div>
+
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="#"><img src="images/logo_favicon/logo-Wise.png" style="width:100px"/></a>
+  
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="header-title" style="color:white">
+    <h3 class="title" style="font-family: 'Montserrat', sans-serif;font-weight:700;font-size:28px;text-transform: uppercase;">Công ty cổ phần công nghệ Hợp Long</h3>
+    <p style="font-size:20px;">Always Ready To Be Different</p>
+  </div>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav" style="min-width: 250px;">
+
+    <div class="md-img-avatar">
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link" href="#"><%- user %></a>
+      <a class="nav-link" href="/logout">Logout</a>
+    </div>
+  </div>
+
     </div>
 
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="#"><%- user %></a>
-          <a class="nav-link" href="/logout">Logout</a>
-        </div>
-      </div>
-  </nav>  -->
-
-  <nav class="navbar navbar-expand-lg navbar-dark primary-color">
-
-    <!-- Navbar brand -->
-    <a class="navbar-brand" href="#"><img src="images/logo_favicon/logo-Wise.png" style="width:100px"/></a>
+  </div>
+  <!-- Collapsible content -->
+  </nav>
+  <div class="page-body-wrapper">
+    <div id="slide-out" class="side-nav side wide slim">
+      <ul class="custom-scrollbar">
     
-    <!-- Collapse button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="header-title" style="color:white">
-      <h3 class="title" style="font-family: 'Montserrat', sans-serif;font-weight:700;font-size:28px;text-transform: uppercase;">Công ty cổ phần công nghệ Hợp Long</h3>
-      <p style="font-size:20px;">Always Ready To Be Different</p>
-    </div>
-  
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="basicExampleNav" style="min-width: 250px;">
-      
-      <!-- Links -->
-      <!-- <ul class="navbar-nav mr-auto">
-  
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    
-      </ul> -->
-      <div class="md-img-avatar">
-      <!-- <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false" style="background-color:#4286f5;border-radius: 50%;font-weight: 600;color:white;padding: 10px;">
-      MH
-    </a> -->
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="#"><%- user %></a>
-        <a class="nav-link" href="/logout">Logout</a>
-      </div>
-    </div>
-  
-      </div>
-      <style>
-    .nav-checkout {
-          display: none;
-      }
-      .md-img-avatar:hover .dropdown-show {
-      display: block;
-      position: absolute;
-      top: 75%;
-      right: 11%;
-      z-index: 100;
-      
-      }
-      </style>
-
-      <!-- <div class="md-form my-0" style="border-bottom:1px solid #fff">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" style="border:1px solid transparent">
-      <i class="fa fa-search" style="color:white"></i>
-      </div> -->
-      <!-- Links -->
-    
+        <!-- Side navigation links -->
+        <li>
+        <ul class="collapsible collapsible-accordion">
+          <li class="item">
      
-    </div>
-    <!-- Collapsible content -->
-    </nav>
-    <div class="page-body-wrapper">
-      <div id="slide-out" class="side-nav side wide slim">
-        <ul class="custom-scrollbar">
-      
-          <!-- Side navigation links -->
-          <li>
-          <ul class="collapsible collapsible-accordion">
-            <li class="item">
-       
 
-              <a class="collapsible-header waves-effect arrow-r " href="/homepage">
-                <img src="images/icons/icon_wise-white/1.png" style="width:40px"/>
-                 <p>Diagram</p>
-              </a>
-            
-            </li>
-            <li class="item">
-              <a class="collapsible-header waves-effect arrow-r" href="/setup">
-                <img src="images/icons/icon_wise-white/2.png" style="width:40px"/>
-                <p>Setup</p>
-              </a>
-            <!-- <div class="collapsible-body">
-              <ul>
-              <li><a href="#" class="waves-effect">
-                <span class="sv-slim"> FB </span>
-                <span class="sv-normal">For bloggers</span></a>
-              </li>
-              <li><a href="#" class="waves-effect">
-                <span class="sv-slim"> FA </span>
-                <span class="sv-normal">For authors</span></a>
-              </li>
-              </ul>
-            </div> -->
-            </li>
-            <li class="item">
-              <a class="collapsible-header waves-effect arrow-r" href="/chart/query">
-                <img src="images/icons/icon_wise-white/3.png" style="width:40px"/>
-                <p>Chart</p>
-              </a>
-            </li>
-            <li class="item">
-              <a class="collapsible-header waves-effect arrow-r" href="/alarm">
-                <img src="images/icons/icon_wise-white/4.png" style="width:40px"/>
-                <p>Alarm</p> 
-              </a>
-      
-            </li>
-            <li class="item">
-              <a class="collapsible-header waves-effect arrow-r" href="/alarm">
-                <img src="images/icons/icon_wise-white/4.png" style="width:40px"/>
-                <p>Report</p> 
-              </a>
-      
-            </li>
- 
-          </ul>
+            <a class="collapsible-header waves-effect arrow-r " href="/homepage">
+              <img src="images/icons/icon_wise-white/1.png" style="width:40px"/>
+               <p>Diagram</p>
+            </a>
+          
           </li>
-          <!--/. Side navigation links -->
-        </ul>
+          <li class="item">
+            <a class="collapsible-header waves-effect arrow-r" href="/setup">
+              <img src="images/icons/icon_wise-white/2.png" style="width:40px"/>
+              <p>Setup</p>
+            </a>
+
 
     </div>
     <!-- Noi dung body can them vao day-->
     <div class="content-wrapper main-panel">
 
-  
-    </div> 
-</div>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-      <!--Libraries-->
-      <script src="bower_components/jquery/dist/jquery.min.js"></script>
-      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-      <script src="bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-      <script src="bower_components/AlertifyJS/build/alertify.js"></script>
-      <script src="bower_components/moment/min/moment.min.js"></script>
-      <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
-      <script src="bower_components/emojionearea/dist/emojionearea.min.js"></script>
-      <script src="bower_components/peerjs/peer.min.js"></script>
-      <script src="bower_components/sweetalert2/dist/sweetalert2.all.min.js"></script>
-      <script src="bower_components/photoset-grid/jquery.photoset-grid.min.js"></script>
-      <script src="bower_components/jquery-colorbox/jquery.colorbox-min.js"></script>
-      <script src="socket.io/socket.io.js"></script>
+          </li>
+          <li class="item">
+            <a class="collapsible-header waves-effect arrow-r" href="/chart/query">
+              <img src="images/icons/icon_wise-white/3.png" style="width:40px"/>
+              <p>Chart</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="collapsible-header waves-effect arrow-r" href="/alarm">
+              <img src="images/icons/icon_wise-white/4.png" style="width:40px"/>
+              <p>Alarm</p> 
+            </a>
+    
+          </li>
+          <li class="item">
+            <a class="collapsible-header waves-effect arrow-r" href="/alarm">
+              <img src="images/icons/icon_wise-white/4.png" style="width:40px"/>
+              <p>Report</p> 
+            </a>
+    
+          </li>
 
-          <!-- My js-->
-      <script src="js/cdn/diagram/jquery.min2.1.1.js"></script>
+        </ul>
+        </li>
+        <!--/. Side navigation links -->
+      </ul>
 
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </div>
 
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
