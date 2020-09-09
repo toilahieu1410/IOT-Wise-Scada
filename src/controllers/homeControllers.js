@@ -8,6 +8,7 @@ mqttClient.connect();
 
 let getHome = async (req, res) => {
         let getDiagram = await home.getDiagram();
+        let getSetup = await home.getSetup();
         try {
             request(process.env.RQ_API_NODE_RED, {json: true}, function(error, response, body) {
                 var getDataDiagram = body;
@@ -16,6 +17,7 @@ let getHome = async (req, res) => {
                     success: req.flash('success'),
                     user: req.user.local.email,
                     getDiagram: getDiagram,
+                    getSetup: getSetup,
                     getDataDiagram: getDataDiagram
                 })
             })

@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
     setInterval(function() {
@@ -44,3 +45,17 @@ $("#dv25").html(getDataDiagram.resetThanCongDon);
     })
     }, 500);
 });
+// flexFont = function () {
+//     var divs = document.getElementsByClassName("main-panel");
+//     for(var i = 0; i < divs.length; i++) {
+//         var relFontsize = divs[i].offsetWidth*0.05;
+//         divs[i].style.fontSize = relFontsize+'px';
+//     }
+// };
+// window.onload = function(event) {
+//     flexFont();
+// };
+// window.onresize = function(event) {
+//     flexFont();
+// };
+
