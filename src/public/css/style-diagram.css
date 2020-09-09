@@ -1,0 +1,75 @@
+.form-body {
+  position: absolute;
+  right:30px;
+}
+.measure-body {
+  max-width: 550px;
+}
+.measure-body .title-name {
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  height: 85px;
+  width:100%;
+  text-align: center;
+  background: #1142371f;
+  position: relative;
+
+  -webkit-perspective: 1000;
+  /* display: flex; */
+}
+.title-name .number {
+  font-size: 30px;
+  color:#fff;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.4);
+};
+.measure-body .title-name span{
+  color: #fff;
+}
+.title-name span {
+  min-height: 45px;
+  color: #fff !important;
+}
+.hidden-form1,.hidden-form2,.hidden-form3,.hidden-form4 {
+  z-index: 9;
+  display: none;
+  position:absolute;
+
+ }
+.hidden-form1 .item,.hidden-form2 .item,.hidden-form3 .item,.hidden-form4 .item {
+  width: 500px;
+  height: 50px;
+}
+
+.handle:hover {
+  cursor: move;
+}
+
+.item > * {
+position: relative;
+
+}
+
+.handle {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 50px;
+}
+.form-chart-diagram {
+  background-color: #58585840;
+  color:#fff;
+  position: relative;
+  z-index: 9;
+  font-size: 30px;
+}
+#chart-diagram1 {
+  background-color: #58585840;
+}
+
+/******************************* form-modal-apsuat ***********************************/
+.user-account {
+  position: absolute;
+}
+.fade:not(.show) {
+  opacity: 1;
+}
