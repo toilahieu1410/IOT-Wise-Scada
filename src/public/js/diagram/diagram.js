@@ -229,7 +229,7 @@ Highcharts.chart('chart-diagram3', {
                 setInterval(function () {
 
                     var x = (new Date()).getTime(), // current time
-                        y = data.buongDot_TS1;
+                        y = data.nhietDoNuoc;
                     series.addPoint([x, y], true, true);
                 }, 5000);
             }
@@ -305,7 +305,7 @@ Highcharts.chart('chart-diagram3', {
             for (i = -500; i <= 0; i += 1) {
                 data.push({
                     x: time + i * 1000,
-                    y: data.buongDot_TS1
+                    y: data.nhietDoNuoc
                 });
             }
             return data;
@@ -329,7 +329,7 @@ Highcharts.chart('chart-diagram4', {
                 setInterval(function () {
 
                     var x = (new Date()).getTime(), // current time
-                        y = data.luuLuongTucThoi;
+                        y = data.nhietDoNuoc;
                     series.addPoint([x, y], true, true);
                 }, 5000);
             }
@@ -405,7 +405,7 @@ Highcharts.chart('chart-diagram4', {
             for (i = -500; i <= 0; i += 1) {
                 data.push({
                     x: time + i * 1000,
-                    y: data.luuLuongTucThoi
+                    y: data.nhietDoNuoc
                 });
             }
             return data;
