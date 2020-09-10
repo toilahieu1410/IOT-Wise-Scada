@@ -2,6 +2,76 @@
   position: absolute;
   right:30px;
 }
+.form-work-all {
+  position: relative;
+}
+.form-work-header {
+  background-color: #6b757f47;
+  color: #fff;
+  position: absolute;
+  width: 92%;
+  left: -5%;
+  box-shadow: 0 9px 13px rgba(0,0,0,0.30), 4px 4px 4px 0px rgba(0,0,0,0.22);
+  top: -5%;
+  border-radius: 2px;
+}
+.form-work-header h4 {
+  font-size: 18px;
+  text-indent: 25px;
+  margin: 5px 0;
+}
+.form-work-body {
+  margin-top:20px;
+}
+.form-work-body p {
+  font-size: 16px;
+}
+.form-department label {
+  padding:0 ;
+}
+.form-department span {
+  min-width:80px;
+  display: inline-block;
+}
+.user-content {
+  font-size: 12px;
+}
+.form-content-header {
+  align-items: baseline;
+}
+.form-content-header h4 {
+  padding-bottom: 5px;
+}
+.form-content-header span, .form-content-header h4 {
+  font-size: 16px;
+}
+.dropdown .dropdown-menu.dropdown-primary .dropdown-item:hover, .dropdown .dropdown-menu.dropdown-primary .dropdown-item:active, .dropdown .dropdown-menu.dropdown-primary .dropdown-item.active, .dropup .dropdown-menu.dropdown-primary .dropdown-item:hover, .dropup .dropdown-menu.dropdown-primary .dropdown-item:active, .dropup .dropdown-menu.dropdown-primary .dropdown-item.active, .dropleft .dropdown-menu.dropdown-primary .dropdown-item:hover, .dropleft .dropdown-menu.dropdown-primary .dropdown-item:active, .dropleft .dropdown-menu.dropdown-primary .dropdown-item.active, .dropright .dropdown-menu.dropdown-primary .dropdown-item:hover, .dropright .dropdown-menu.dropdown-primary .dropdown-item:active, .dropright .dropdown-menu.dropdown-primary .dropdown-item.active {
+  background-color: #23846eeb !important;
+  border-radius: .125rem;
+  -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+}
+#form-fan {
+  position: relative;
+  top: 44em;
+  left: 19em;
+}
+#form-fan-mini1 {
+  position: relative;
+  top: 44em;
+  left: 43em;
+}
+#form-fan-mini2 {
+  position: relative;
+  top: 44em;
+  left: 63em;
+}
+.detail-grid {
+  box-shadow: inset 0 4px 2px rgba(255,255,255,0.1), 0 4px 4px rgba(0,0,0,0.5), 0 7px 7px 1px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    color: white;
+    padding: 15px;
+}
 .measure-body {
   max-width: 550px;
 }
@@ -69,6 +139,7 @@ position: relative;
 /******************************* form-modal-apsuat ***********************************/
 .user-account {
   position: absolute;
+  min-width: 300px;
 }
 .fade:not(.show) {
   opacity: 1;
