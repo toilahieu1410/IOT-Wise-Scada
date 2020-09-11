@@ -45,13 +45,13 @@ let getSetup = async(req, res) => {
 let updateSetup = async(req, res) => {
     await home.updateSetup(req.params.id, req.body);
     mqttClient.sendMessageSetup(JSON.stringify(req.body))
-    return res.redirect('/setup')
+    return res.redirect('/homepage')
 };
 
 let resetSetup = async(req, res) => {
     await home.resetSetup(req.params.id);
     mqttClient.sendMessageReset('0')
-    return res.redirect('/setup');
+    return res.redirect('/homepage');
 };
 
 let queryDateTime = async(req, res) => {

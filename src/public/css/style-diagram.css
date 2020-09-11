@@ -119,13 +119,13 @@ p {
   justify-content: center;
   align-items: center;
 }
-.hidden-form1,.hidden-form2,.hidden-form3,.hidden-form4 {
+.hidden-form1,.hidden-form2,.hidden-form3,.hidden-form4,.hidden-form5,.hidden-form6,.hidden-form7,.hidden-form8,.hidden-form9,.hidden-form10,.hidden-form11,.hidden-form12,.hidden-form13,.hidden-form14,.hidden-form15 {
   z-index: 9;
   display: none;
   position:absolute;
 
  }
-.hidden-form1 .item,.hidden-form2 .item,.hidden-form3 .item,.hidden-form4 .item {
+.hidden-form1 .item,.hidden-form2 .item,.hidden-form3 .item,.hidden-form4 .item,.hidden-form5 .item,.hidden-form6 .item,.hidden-form7 .item,.hidden-form8 .item,.hidden-form9 .item,.hidden-form10 .item,.hidden-form11 .item,.hidden-form12 .item,.hidden-form13 .item,.hidden-form14 .item,.hidden-form15 .item {
   width: 500px;
   height: 50px;
 }

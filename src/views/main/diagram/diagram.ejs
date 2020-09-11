@@ -8,27 +8,11 @@
     <link rel="shortcut icon" href="images/logo_favicon/favicon-trungquandev.png" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/css/mdb.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-diagram.css">
-
-    <!-- <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-addons-4.19.1.min.css"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/mdb-plugins-gathered.min.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/jquery.min.js"></script>
-    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/mdb.min.js"></script>
-    
-    
-    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/popper.min.js"></script>
-    
-    <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/plugins/mdb-plugins-gathered.min.js"></script>
-
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -76,7 +60,7 @@
           <% } %>
 
         </div>
-            <div class="form-content">
+            <div class="form-content" >
               <div class="item">
                 <div class="handle">
                   <div class="user-account">
@@ -97,16 +81,10 @@
                             <strong style="display: inline-block; min-width: 220px;font-size:18px">Khối lượng than cộng dồn: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].khoiLuongThanCongDon %></span><br>
                             <strong style="display: inline-block; min-width: 220px;font-size:18px;float: left;">Reset than cộng dồn:</strong>
                             <a href="#" data-toggle="modal" data-target="#resetSetupModal" style="font-size:18px;font-weight:bold;color:#fff;display: flex;">
-                              <span><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.resetThanCongDon : 'Lỗi kết nối'%></span>
+                              <span id="dv1"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.resetThanCongDon : 'Lỗi kết nối'%></span>
                               <img src="../images/icons/icon_wise-white/overload.png" width="25px">
                             </a>
-                            <!-- Button trigger modal -->
-                         
-        
-                            <!-- <button type="button" class="wise_btn wise_btn-action" data-toggle="modal" data-target="#editSetupModal">
-                              <img src="../images/icons/icon_wise-white/edit.png" width="25px">
-                                Edit Setup
-                            </button> -->
+                     
                         </div>
                       </div>
                     </div>
@@ -162,6 +140,7 @@
                                           </div>
                                         </div>
                                       </div>
+                                      
                                     </div>
                                     <div class="form-group">
                                       <div class="col-md-12">
@@ -172,6 +151,8 @@
                                           </div>
                                         </div>
                                       </div>
+                                    
+                                      
                                     </div>
                                     <div class="form-group">
                                       <div class="col-md-12">
@@ -220,177 +201,242 @@
                         </div>
                     </div>
                     <!-- End Modal Reset -->
-              <div class="form-body" >
+              <div class="form-body col-md-6" >
                 <!-- <h2><%- getDiagram[0].namePLC %></h2> -->
           
-                  <div class="measure-body" >
-                    <div class="col-md-12">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <p class="title-name click-btn1" >
-                            <img src="../images/icons/icon-scada/nhietDoKhoiThai_white.png" width="50px">
-                            <span id="dv1" style="font-weight:bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoKhoiThai : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Nhiệt độ </br> khói thải</span>
-
-                            
-                             <div class="hidden-form1">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Nhiệt độ khói thải</div>
-                                  
-                                </div>
-                                <div id="chart-diagram1"></div>
+                <div class="measure-body" >
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <p class="title-name click-btn1" >
+                          <img src="../images/icons/icon-scada/nhietDoKhoiThai_white.png" width="50px">
+                          <span id="dv1" style="font-weight:bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoKhoiThai : 'Lỗi kết nối'%></span>
+                          <span style="width:100%" class="title-parameter">Nhiệt độ </br> khói thải</span>
+                           <div class="hidden-form1">
+                            <div class="item">
+                              <div class="handle">
+                                <div class="form-chart-diagram">Nhiệt độ khói thải</div>
                               </div>
-                            </div> 
-                          </p>
-                          <p class="title-name">
-                            <img src="../images/icons/icon-scada/beChuaNuoc_white.png" width="50px">
-                            <span id="dv2" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.beChuaNuoc : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Bể chứa </br> nước</span>
-                            
-                          </p>
-                          <p class="title-name" >
-                            <img src="../images/icons/icon-scada/bomDapBui_white.png" width="50px">
-                            <span id="dv3" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBomDapBui : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Bơm dập </br> bụi</span>
-                          </p>
-                          <!-- <p class="title-name" ><span style="min-width: 130px;display: inline-block;">Trạng thái Bơm 1:</span> <span id="dv4" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBom_1 : 'Lỗi kết nối'%></span></p>
-                          <p class="title-name" ><span style="min-width: 130px;display: inline-block;">Trạng thái Bơm 2:</span> <span id="dv5" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBom_2 : 'Lỗi kết nối'%></span></p> -->
-                          <p class="title-name">
-                            <img src="../images/icons/icon-scada/quatHut_white.png" width="50px">
-                            <span id="dv6" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatHut : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Quạt hút</span> 
-                          </p>
-                          <p class="title-name click-btn2">
-                            <img src="../images/icons/icon-scada/nhietDoNuoc_white.png" width="50px">
-                            <span id="dv7" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoNuoc : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Nhiệt độ </br> nước</span>
-                            <div class="hidden-form2">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Nhiệt độ nước</div>
-                                </div>
-                                <div id="chart-diagram2"></div>
-                              </div>
+                              <div id="chart-diagram1"></div>
                             </div>
-                          </p>
-                          <p class="title-name" >
-                            <img src="../images/icons/icon-scada/apSuatHoi_white.png" width="50px">
-                            <span id="dv8" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatHoi : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Áp suất </br> hơi</span>
-                          </p>
-                          <p class="title-name" >
-                            <img src="../images/icons/icon-scada/boHamNuoc_white.png" width="50px">
-                            <span id="dv9" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.boHamNuoc : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Bộ hâm </br> nước</span>
-                          </p>
-                          <p class="title-name" >
-                            <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="50px">
-                            <span id="dv10" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.chanKhongBuongDot : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Buồng đốt</span>
-                            
-                          </p>
-                         
-                          <!-- <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Băng tải 1:</span> <span id="dv15" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.bangTai_1 : 'Lỗi kết nối'%></span></p>
-                          <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Băng tải 2:</span> <span id="dv16" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.bangTai_2 : 'Lỗi kết nối'%></span></p> -->
-                        </div>
-                    
-                        <div class="col-md-12">
-                          <p class="title-name click-btn3" >
-                            <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="50px">
-                            <span id="dv11" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS1 : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Buồng đốt </br> TS1</span>
-                            
-                            <div class="hidden-form3">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Buồng đốt TS1</div>
-                                </div>
-                                <div id="chart-diagram3"></div>
+                          </div> 
+                        </p>
+
+                        <p class="title-name click-btn2">
+                          <img src="../images/icons/icon-scada/beChuaNuoc_white.png" width="50px">
+                          <span id="dv2" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.beChuaNuoc : 'Lỗi kết nối'%></span>
+                          <span style="width:100%" class="title-parameter">Bể chứa </br> nước</span>
+                          <div class="hidden-form2">
+                            <div class="item">
+                              <div class="handle">
+                                <div class="form-chart-diagram">Bể chứa nước</div>
                               </div>
-                            </div> 
-                          </p>
-                          <p class="title-name">
-                            <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="50px">
-                            <span id="dv12" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS2 : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Buồng đốt </br> TS2</span>
-                            
-                          </p>
-                          <p class="title-name">
-                            <img src="../images/icons/icon-scada/apSuatGio_white.png" width="50px">
-                            <span id="dv13" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatGio : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Áp suất </br> gió </span>
-                            
-                          </p>
-                          <p class="title-name">
-                            <img src="../images/icons/icon-scada/quatDay_white.png" width="50px">
-                            <span id="dv14" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatDay : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Quạt đẩy </span>
-                            
-                          </p>
-                          <!-- <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Trạng thái băng tải 1:</span> <span id="dv17" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBangTai_1 : 'Lỗi kết nối'%></span></p>
-                          <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Trạng thái băng tải 2:</span> <span id="dv18" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBangTai_2 : 'Lỗi kết nối'%></span></p> -->
-                          <!-- <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Trạng thái quạt đẩy:</span> <span id="dv19" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatDay : 'Lỗi kết nối'%></span> </p>
-                          <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Trạng thái quạt oxy:</span> <span id="dv20" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatOxy : 'Lỗi kết nối'%></span></p>
-                          <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Trạng thái quạt hút:</span> <span id="dv21" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatHut : 'Lỗi kết nối'%></span></p> -->
-                          <p class="title-name click-btn4" >
-                            <img src="../images/icons/icon-scada/luuLuongNuoc_white.png" width="50px">
-                            <span id="dv22" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.luuLuongTucThoi : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Lưu lượng </br> tức thời </span>
-                            
-                            <div class="hidden-form4">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Lưu lượng tức thời</div>
-                                </div>
-                                <div id="chart-diagram4"></div>
+                              <div id="chart-diagram2"></div>
+                            </div>
+                          </div> 
+                        </p>
+
+                        <p class="title-name click-btn3" >
+                          <img src="../images/icons/icon-scada/bomDapBui_white.png" width="50px">
+                          <span id="dv3" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBomDapBui : 'Lỗi kết nối'%></span>
+                          <span style="width:100%" class="title-parameter">Bơm dập </br> bụi</span>
+                          <div class="hidden-form3">
+                            <div class="item">
+                              <div class="handle">
+                                <div class="form-chart-diagram">Bơm dập bụi</div>
                               </div>
-                            </div> 
-                          </p>
-                          <p class="title-name">
-                            <img src="../images/icons/icon-scada/thanTucThoi_white.png" width="50px">
-                            <span id="dv23" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanTucThoi : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Than tức thời </span>
-                            
-                          </p>
-                          <p class="title-name">
-                            <img src="../images/icons/icon-scada/thanCongDon_white.png" width="50px">
-                            <span id="dv24" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanCongDon : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Than cộng dồn</span>
-                            
-                          </p>
-                          <p class="title-name">
-                            <img src="../images/icons/icon-scada/luuLuongNuoc_white.png" width="50px">
-                            <span id="dv20" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatOxy : 'Lỗi kết nối'%></span>
-                            <span style="width:100%" class="title-parameter">Status</span>
-                            
-                          </p>
+                              <div id="chart-diagram3"></div>
+                            </div>
+                          </div>
+                        </p>
+                        
+                        <p class="title-name click-btn4">
+                          <img src="../images/icons/icon-scada/quatHut_white.png" width="50px">
+                          <span id="dv6" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatHut : 'Lỗi kết nối'%></span>
+                          <span style="width:100%" class="title-parameter">Quạt hút</span>
+                          <div class="hidden-form4">
+                            <div class="item">
+                              <div class="handle">
+                                <div class="form-chart-diagram">Quạt hút</div>
+                              </div>
+                              <div id="chart-diagram4"></div>
+                            </div>
+                          </div>
+                        </p>
+
+                        <p class="title-name click-btn5">
+                          <img src="../images/icons/icon-scada/nhietDoNuoc_white.png" width="50px">
+                          <span id="dv7" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoNuoc : 'Lỗi kết nối'%></span>
+                          <span style="width:100%" class="title-parameter">Nhiệt độ </br> nước</span>
+                          <div class="hidden-form5">
+                            <div class="item">
+                              <div class="handle">
+                                <div class="form-chart-diagram">Nhiệt độ nước</div>
+                              </div>
+                              <div id="chart-diagram5"></div>
+                            </div>
+                          </div>
+                        </p>
+
+                        <p class="title-name click-btn6" >
+                          <img src="../images/icons/icon-scada/apSuatHoi_white.png" width="50px">
+                          <span id="dv8" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatHoi : 'Lỗi kết nối'%></span>
+                          <span style="width:100%" class="title-parameter">Áp suất </br> hơi</span>
+                          <div class="hidden-form6">
+                            <div class="item">
+                              <div class="handle">
+                                <div class="form-chart-diagram">Áp suất hơi</div>
+                              </div>
+                              <div id="chart-diagram6"></div>
+                            </div>
+                          </div>
+                        </p>
+
+                        <p class="title-name click-btn7" >
+                          <img src="../images/icons/icon-scada/boHamNuoc_white.png" width="50px">
+                          <span id="dv9" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.boHamNuoc : 'Lỗi kết nối'%></span>
+                          <span style="width:100%" class="title-parameter">Bộ hâm </br> nước</span>
+                          <div class="hidden-form7">
+                            <div class="item">
+                              <div class="handle">
+                                <div class="form-chart-diagram">Bộ hâm nước</div>
+                              </div>
+                              <div id="chart-diagram7"></div>
+                            </div>
+                          </div>
+                        </p>
+
+                        <p class="title-name click-btn8" >
+                          <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="50px">
+                          <span id="dv10" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.chanKhongBuongDot : 'Lỗi kết nối'%></span>
+                          <span style="width:100%" class="title-parameter">Buồng đốt</span>
+                          <div class="hidden-form8">
+                            <div class="item">
+                              <div class="handle">
+                                <div class="form-chart-diagram">Buồng đốt</div>
+                              </div>
+                              <div id="chart-diagram8"></div>
+                            </div>
+                          </div>
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                      <p class="title-name click-btn9" >
+                        <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="50px">
+                        <span id="dv11" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS1 : 'Lỗi kết nối'%></span>
+                        <span style="width:100%" class="title-parameter">Buồng đốt </br> TS1</span>
+                        <div class="hidden-form9">
+                          <div class="item">
+                            <div class="handle">
+                              <div class="form-chart-diagram">Buồng đốt TS1</div>
+                            </div>
+                            <div id="chart-diagram9"></div>
+                          </div>
+                        </div> 
+                      </p>
+
+                      <p class="title-name click-btn10">
+                        <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="50px">
+                        <span id="dv12" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS2 : 'Lỗi kết nối'%></span>
+                        <span style="width:100%" class="title-parameter">Buồng đốt </br> TS2</span>
+                        <div class="hidden-form10">
+                          <div class="item">
+                            <div class="handle">
+                              <div class="form-chart-diagram">Buồng đốt TS2</div>
+                            </div>
+                            <div id="chart-diagram10"></div>
+                          </div>
                         </div>
-                      
+                      </p>
+
+                      <p class="title-name click-btn11">
+                        <img src="../images/icons/icon-scada/apSuatGio_white.png" width="50px">
+                        <span id="dv13" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatGio : 'Lỗi kết nối'%></span>
+                        <span style="width:100%" class="title-parameter">Áp suất </br> gió </span>
+                        <div class="hidden-form11">
+                          <div class="item">
+                            <div class="handle">
+                              <div class="form-chart-diagram">Áp suất gió</div>
+                            </div>
+                            <div id="chart-diagram11"></div>
+                          </div>
+                        </div>
+                      </p>
+
+                      <p class="title-name click-btn12">
+                        <img src="../images/icons/icon-scada/quatDay_white.png" width="50px">
+                        <span id="dv14" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatDay : 'Lỗi kết nối'%></span>
+                        <span style="width:100%" class="title-parameter">Quạt đẩy </span>
+                        <div class="hidden-form12">
+                          <div class="item">
+                            <div class="handle">
+                              <div class="form-chart-diagram">Quạt đẩy</div>
+                            </div>
+                            <div id="chart-diagram12"></div>
+                          </div>
+                        </div>
+                      </p>
+
+                      <p class="title-name click-btn13" >
+                        <img src="../images/icons/icon-scada/luuLuongNuoc_white.png" width="50px">
+                        <span id="dv22" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.luuLuongTucThoi : 'Lỗi kết nối'%></span>
+                        <span style="width:100%" class="title-parameter">Lưu lượng </br> tức thời </span>
+                        <div class="hidden-form13">
+                          <div class="item">
+                            <div class="handle">
+                              <div class="form-chart-diagram">Lưu lượng tức thời</div>
+                            </div>
+                            <div id="chart-diagram13"></div>
+                          </div>
+                        </div>
+
+                      </p>
+                      <p class="title-name click-btn14">
+                        <img src="../images/icons/icon-scada/thanTucThoi_white.png" width="50px">
+                        <span id="dv23" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanTucThoi : 'Lỗi kết nối'%></span>
+                        <span style="width:100%" class="title-parameter">Than tức thời </span>
+                        <div class="hidden-form14">
+                          <div class="item">
+                            <div class="handle">
+                              <div class="form-chart-diagram">Than tức thời</div>
+                            </div>
+                            <div id="chart-diagram14"></div>
+                          </div>
+                        </div>
+                      </p>
+
+                      <p class="title-name click-btn15">
+                        <img src="../images/icons/icon-scada/thanCongDon_white.png" width="50px">
+                        <span id="dv24" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanCongDon : 'Lỗi kết nối'%></span>
+                        <span style="width:100%" class="title-parameter">Than cộng dồn</span>
+                        <div class="hidden-form15">
+                          <div class="item">
+                            <div class="handle">
+                              <div class="form-chart-diagram">Than cộng dồn</div>
+                            </div>
+                            <div id="chart-diagram15"></div>
+                          </div>
+                        </div>
+                      </p>
+
+                      <p class="title-name">
+                        <img src="../images/icons/icon-scada/luuLuongNuoc_white.png" width="50px">
+                        <span id="dv20" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatOxy : 'Lỗi kết nối'%></span>
+                        <span style="width:100%" class="title-parameter">Status</span>
+                      </p>
+                    </div>
+                     
+
                       </div>
                     </div>
                   </div>
               </div>
-            
-            </div> 
+            </div>
         </div>
       </div>
 
    
 </body>
-<script>
-  var target = document.getElementsByClassName('page-body-wrapper');
-var targetBox = document.getElementsByClassName('measure-body');
-
-targetBox.addEventListener('click', mouseClicked);
-
-function mouseClicked (event){
-  var xposition = (event.clientX - target.offsetLeft - target.offsetWidth/2);
-  var yposition = (event.clientY - target.offsetTop - target.offsetHeight/2);
-  target.style.transform = "translate("+ xposition + "px," + yposition + "px)";
-  console.log(event);
-}
-</script>
 <!-- <script>
   $(document).ready( function(){
       $(window).on("load", function(){
@@ -421,8 +467,8 @@ function mouseClicked (event){
       <!-- My js-->
   <!-- <script src="js/cdn/diagram/jquery.min2.1.1.js"></script> -->
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </html>
 
 
