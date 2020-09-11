@@ -18,7 +18,6 @@ $("#dv7").html(getDataDiagram.nhietDoNuoc);
 $("#dv8").html(getDataDiagram.apSuatHoi);
 $("#dv9").html(getDataDiagram.boHamNuoc);
 
-//LVMSB1
 $("#dv10").html(getDataDiagram.chanKhongBuongDot);
 $("#dv11").html(getDataDiagram.buongDot_TS1);
 $("#dv12").html(getDataDiagram.buongDot_TS2);
@@ -45,17 +44,5 @@ $("#dv25").html(getDataDiagram.resetThanCongDon);
     })
     }, 500);
 });
-// flexFont = function () {
-//     var divs = document.getElementsByClassName("main-panel");
-//     for(var i = 0; i < divs.length; i++) {
-//         var relFontsize = divs[i].offsetWidth*0.05;
-//         divs[i].style.fontSize = relFontsize+'px';
-//     }
-// };
-// window.onload = function(event) {
-//     flexFont();
-// };
-// window.onresize = function(event) {
-//     flexFont();
-// };
+
 
