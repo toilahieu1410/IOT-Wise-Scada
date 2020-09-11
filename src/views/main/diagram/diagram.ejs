@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="images/logo_favicon/favicon-trungquandev.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-diagram.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -64,133 +67,195 @@
                   <div class="user-account">
                     <!-- <h3 style="text-align: center;padding-top: 10px;margin-bottom: 0;"><i class="fa fa-user" style="margin-right: 5px;"></i></h3> -->
                         <div style="text-align: left;line-height: 30px;" class="detail-grid">
-                          
-                            <strong style="display: inline-block; min-width: 180px;">Áp suất chạy lò: <%= getSetup[0].apSuatChayLo %></strong><br>
-                            <strong style="display: inline-block; min-width: 180px;">Áp suất dừng lò: <%= getSetup[0].apSuatDungLo %></strong><br>
-                            <strong style="display: inline-block; min-width: 180px;">Thời gian trễ bật quạt hút: <%= getSetup[0].timeStartQuatHut %></strong><br>
-                            <strong style="display: inline-block; min-width: 180px;">Thời gian trễ tắt quạt hút: <%= getSetup[0].timeStopQuatHut %></strong><br>
-                            <strong style="display: inline-block; min-width: 180px;">Thời gian luân phiên bơm: <%= getSetup[0].timeLuanPhienBom %></strong><br>
-                            <strong style="display: inline-block; min-width: 180px;">Khối lượng than cộng dồn: <%= getSetup[0].khoiLuongThanCongDon %></strong><br>
-                            <p class="dv-4"><span style="min-width: 130px;display: inline-block;">Reset than cộng dồn:</span><span id="dv25" style="min-width: 75px;font-weight: bold;"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.resetThanCongDon : 'Lỗi kết nối'%></span></p>
+                          <div class="header-title" style="display:flex;justify-content:space-between;border-bottom:2px solid #ffffff40">
+                            <h4 class="title-number">Tiêu đề</h4>
+                            <a href="#" class="waves-light" data-toggle="modal" data-target="#editSetupModal" style="float: right;">
+                              <img src="../images/icons/icon_wise-white/edit.png" width="25px" >
+                            </a>
+                          </div>
+                       
+                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Áp suất chạy lò: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].apSuatChayLo %></span><br>
+                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Áp suất dừng lò: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].apSuatDungLo %></span><br>
+                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian trễ bật quạt hút: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeStartQuatHut %></span><br>
+                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian trễ tắt quạt hút:</strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeStopQuatHut %></span><br>
+                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian luân phiên bơm: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeLuanPhienBom %></span><br>
+                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Khối lượng than cộng dồn: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].khoiLuongThanCongDon %></span><br>
+                            <strong style="display: inline-block; min-width: 220px;font-size:18px;float: left;">Reset than cộng dồn:</strong>
+                            <a href="#" data-toggle="modal" data-target="#resetSetupModal" style="font-size:18px;font-weight:bold;color:#fff;display: flex;">
+                              <span><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.resetThanCongDon : 'Lỗi kết nối'%></span>
+                              <img src="../images/icons/icon_wise-white/overload.png" width="25px">
+                            </a>
+                     
                             
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resetSetupModal">
-                                RESET
-                            </button>
+                         
         
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSetupModal">
+                            <!-- <button type="button" class="wise_btn wise_btn-action" data-toggle="modal" data-target="#editSetupModal">
+                              <img src="../images/icons/icon_wise-white/edit.png" width="25px">
                                 Edit Setup
-                            </button>
-                            
-                            <!-- Start Modal Edit -->
-                            <div class="modal fade" id="editSetupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Edit Setup</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <form action="/setup/plc_misubishi_1/updateValue/<%= getSetup[0]._id %>" method="post">
-                                          <div class="form-group">
-                                            <label for="exampleInputEmail1">Áp suất chạy lò</label>
-                                            <input type="number" name="apSuatChayLo" class="form-control" id="exampleInputEmail1" value="<%= getSetup[0].apSuatChayLo %>">
-                                          </div>
-                                          <div class="form-group">
-                                            <label for="exampleInputPassword1">Áp suất dừng lò</label>
-                                            <input type="number" name="apSuatDungLo" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].apSuatDungLo %>">
-                                          </div>
-                                          <div class="form-group">
-                                              <label for="exampleInputPassword1">Thời gian trễ bật quạt hút</label>
-                                              <input type="number" name="timeStartQuatHut" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeStartQuatHut %>">
-                                            </div>
-                                            <div class="form-group">
-                                              <label for="exampleInputPassword1">Thời gian trễ tắt quạt hút</label>
-                                              <input type="number" name="timeStopQuatHut" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeStopQuatHut %>">
-                                            </div>
-                                            <div class="form-group">
-                                              <label for="exampleInputPassword1">Thời gian luân phiên bơm</label>
-                                              <input type="number" name="timeLuanPhienBom" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeLuanPhienBom %>">
-                                            </div>
-                                            <div class="form-group">
-                                              <label for="exampleInputPassword1">Khối lượng than cộng dồn</label>
-                                              <input type="number" name="khoiLuongThanCongDon" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].khoiLuongThanCongDon %>">
-                                            </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                      <button type="submit" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </form>
-                                </div>
-                                </div>
-                            </div>
-                            <!-- End Modal Edit -->
-        
-                            <!-- Start Modal Reset -->
-                            <div class="modal fade" id="resetSetupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Reset</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="/setup/plc_misubishi_1/resetValue/<%= getSetup[0]._id %>" method="post">
-                                              <div class="form-group">
-                                                <label for="exampleInputPassword1">Reset than cộng dồn</label>
-                                              </div>
-                                          
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </form>
-                                </div>
-                                </div>
-                            </div>
-                            <!-- End Modal Reset -->
-        
+                            </button> -->
+                        </div>
+                      </div>
                     </div>
-                </div>
                   </div>
-              </div>
-              
-              <div class="form-body" >
+                       <!-- Start Modal Edit -->
+                    <div class="modal fade" id="editSetupModal" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                          <h5 class="modal-title" id="myModalLabel">Edit Setup</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <img src="../images/icons/icon_wise-white/close.png" width="25px">
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                              <form action="/setup/plc_misubishi_1/updateValue/<%= getSetup[0]._id %>" method="post" class="form-horizonal">
+                                  <div class="form-group">
+                                    <div class="col-md-12">
+                                      <div class="row">
+                                        <label for="exampleInputEmail1" class="control-label col-md-6">Áp suất chạy lò</label>
+                                        <div class="col-md-6">
+                                          <input type="number" name="apSuatChayLo" class="form-control" id="exampleInputEmail1" value="<%= getSetup[0].apSuatChayLo %>">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="col-md-12">
+                                      <div class="row">
+                                        <label for="exampleInputPassword1" class="control-label col-md-6">Áp suất dừng lò</label>
+                                        <div class="col-md-6">
+                                          <input type="number" name="apSuatDungLo" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].apSuatDungLo %>">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="col-md-12">
+                                      <div class="row">
+                                        <label for="exampleInputPassword1" class="control-label col-md-6">Thời gian trễ bật quạt hút</label>
+                                        <div class="col-md-6">
+                                          <input type="number" name="timeStartQuatHut" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeStartQuatHut %>">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                    <div class="form-group">
+                                      <div class="col-md-12">
+                                        <div class="row">
+                                          <label for="exampleInputPassword1" class="control-label col-md-6">Thời gian trễ tắt quạt hút</label>
+                                          <div class="col-md-6">
+                                            <input type="number" name="timeStopQuatHut" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeStopQuatHut %>">
+                                          </div>
+                                        </div>
+                                      </div>
+                                      
+                                      
+                                    </div>
+                                    <div class="form-group">
+                                      <div class="col-md-12">
+                                        <div class="row">
+                                          <label for="exampleInputPassword1" class="control-label col-md-6">Thời gian luân phiên bơm</label>
+                                          <div class="col-md-6">
+                                            <input type="number" name="timeLuanPhienBom" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeLuanPhienBom %>">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    
+                                      
+                                    </div>
+                                    <div class="form-group">
+                                      <div class="col-md-12">
+                                        <div class="row">
+                                          <label for="exampleInputPassword1" class="control-label col-md-6">Khối lượng than cộng dồn</label>
+                                          <div class="col-md-6">
+                                            <input type="number" name="khoiLuongThanCongDon" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].khoiLuongThanCongDon %>">
+                                          </div>
+                                        </div>
+                                      </div>
+                                     
+                                      
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save changes</button>
+                            </div>
+                        </form>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Modal Edit -->
+
+                    <!-- Start Modal Reset -->
+                    <div class="modal fade" id="resetSetupModal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Reset</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <img src="../images/icons/icon_wise-white/close.png" width="25px">
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/setup/plc_misubishi_1/resetValue/<%= getSetup[0]._id %>" method="post">
+                                      <div class="form-group">
+                                        <label for="exampleInputPassword1">Reset than cộng dồn</label>
+                                      </div>
+                                  
+                            </div>
+                            <div class="modal-footer">
+                            <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save changes</button>
+                            </div>
+                        </form>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- End Modal Reset -->
+              <div class="form-body col-md-6" >
                 <!-- <h2><%- getDiagram[0].namePLC %></h2> -->
+          
                   <div class="measure-body" >
                     <div class="col-md-12">
                       <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-12">
                           <p class="title-name click-btn1" >
-                            <span style="display: inline-block;width:100%"  >Nhiệt độ khói thải</span>
-                            <span id="dv1" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoKhoiThai : 'Lỗi kết nối'%></span>
+                            <img src="../images/icons/icon-scada/nhietDoKhoiThai_white.png" width="50px">
+                            <span id="dv1" style="font-weight:bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoKhoiThai : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Nhiệt độ </br> khói thải</span>
+
+                            
                              <div class="hidden-form1">
                               <div class="item">
                                 <div class="handle">
                                   <div class="form-chart-diagram">Nhiệt độ khói thải</div>
+                                  
                                 </div>
                                 <div id="chart-diagram1"></div>
                               </div>
                             </div> 
                           </p>
-                          <p class="title-name" ><span style="display: inline-block;width:100%">Bể chứa nước</span><span id="dv2" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.beChuaNuoc : 'Lỗi kết nối'%></span></p>
-                          <p class="title-name" ><span style="display: inline-block;width:100%">Bơm dập bụi</span> <span id="dv3" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBomDapBui : 'Lỗi kết nối'%></span></p>
+                          <p class="title-name">
+                            <img src="../images/icons/icon-scada/beChuaNuoc_white.png" width="50px">
+                            <span id="dv2" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.beChuaNuoc : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Bể chứa </br> nước</span>
+                            
+                          </p>
+                          <p class="title-name" >
+                            <img src="../images/icons/icon-scada/bomDapBui_white.png" width="50px">
+                            <span id="dv3" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBomDapBui : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Bơm dập </br> bụi</span>
+                          </p>
                           <!-- <p class="title-name" ><span style="min-width: 130px;display: inline-block;">Trạng thái Bơm 1:</span> <span id="dv4" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBom_1 : 'Lỗi kết nối'%></span></p>
                           <p class="title-name" ><span style="min-width: 130px;display: inline-block;">Trạng thái Bơm 2:</span> <span id="dv5" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBom_2 : 'Lỗi kết nối'%></span></p> -->
-                          <p class="title-name" ><span style="display: inline-block;width:100%">Quạt hút</span> <span id="dv6" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatHut : 'Lỗi kết nối'%></span></p>
-
-                          
-                        </div>
-                        <div class="col-md-3">
+                          <p class="title-name">
+                            <img src="../images/icons/icon-scada/quatHut_white.png" width="50px">
+                            <span id="dv6" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatHut : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Quạt hút</span> 
+                          </p>
                           <p class="title-name click-btn2">
-                            <span style="display: inline-block;width:100%">Nhiệt độ nước</span>
-                            <span id="dv7" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoNuoc : 'Lỗi kết nối'%></span>
+                            <img src="../images/icons/icon-scada/nhietDoNuoc_white.png" width="50px">
+                            <span id="dv7" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.nhietDoNuoc : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Nhiệt độ </br> nước</span>
                             <div class="hidden-form2">
                               <div class="item">
                                 <div class="handle">
@@ -200,17 +265,33 @@
                               </div>
                             </div>
                           </p>
-                          <p class="title-name" ><span style="display: inline-block;width:100%">Áp suất hơi</span> <span id="dv8" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatHoi : 'Lỗi kết nối'%></span></p>
-                          <p class="title-name" ><span style="display: inline-block;width:100%">Bộ hâm nước</span> <span id="dv9" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.boHamNuoc : 'Lỗi kết nối'%></span></p>
-                          <p class="title-name" ><span style="display: inline-block;width:100%">Buồng đốt</span> <span id="dv10" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.chanKhongBuongDot : 'Lỗi kết nối'%></span></p>
+                          <p class="title-name" >
+                            <img src="../images/icons/icon-scada/apSuatHoi_white.png" width="50px">
+                            <span id="dv8" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatHoi : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Áp suất </br> hơi</span>
+                          </p>
+                          <p class="title-name" >
+                            <img src="../images/icons/icon-scada/boHamNuoc_white.png" width="50px">
+                            <span id="dv9" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.boHamNuoc : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Bộ hâm </br> nước</span>
+                          </p>
+                          <p class="title-name" >
+                            <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="50px">
+                            <span id="dv10" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.chanKhongBuongDot : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Buồng đốt</span>
+                            
+                          </p>
                          
                           <!-- <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Băng tải 1:</span> <span id="dv15" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.bangTai_1 : 'Lỗi kết nối'%></span></p>
                           <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Băng tải 2:</span> <span id="dv16" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.bangTai_2 : 'Lỗi kết nối'%></span></p> -->
                         </div>
-                        <div class="col-md-3">
+                    
+                        <div class="col-md-12">
                           <p class="title-name click-btn3" >
-                            <span style="display: inline-block;width:100%">Buồng đốt TS1</span>
-                            <span id="dv11" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS1 : 'Lỗi kết nối'%></span>
+                            <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="50px">
+                            <span id="dv11" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS1 : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Buồng đốt </br> TS1</span>
+                            
                             <div class="hidden-form3">
                               <div class="item">
                                 <div class="handle">
@@ -220,20 +301,34 @@
                               </div>
                             </div> 
                           </p>
-                          <p class="title-name" ><span style="display: inline-block;width:100%">Buồng đốt TS2</span> <span id="dv12" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS2 : 'Lỗi kết nối'%></span></p>
-                          <p class="title-name"  ><span style="display: inline-block;width:100%">Áp suất gió </span><span id="dv13" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatGio : 'Lỗi kết nối'%></span></p>
-                          <p class="title-name"  ><span style="display: inline-block;width:100%">Quạt đẩy </span><span id="dv14" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatDay : 'Lỗi kết nối'%></span></p>
+                          <p class="title-name">
+                            <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="50px">
+                            <span id="dv12" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.buongDot_TS2 : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Buồng đốt </br> TS2</span>
+                            
+                          </p>
+                          <p class="title-name">
+                            <img src="../images/icons/icon-scada/apSuatGio_white.png" width="50px">
+                            <span id="dv13" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.apSuatGio : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Áp suất </br> gió </span>
+                            
+                          </p>
+                          <p class="title-name">
+                            <img src="../images/icons/icon-scada/quatDay_white.png" width="50px">
+                            <span id="dv14" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.quatDay : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Quạt đẩy </span>
+                            
+                          </p>
                           <!-- <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Trạng thái băng tải 1:</span> <span id="dv17" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBangTai_1 : 'Lỗi kết nối'%></span></p>
                           <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Trạng thái băng tải 2:</span> <span id="dv18" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBangTai_2 : 'Lỗi kết nối'%></span></p> -->
                           <!-- <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Trạng thái quạt đẩy:</span> <span id="dv19" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatDay : 'Lỗi kết nối'%></span> </p>
                           <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Trạng thái quạt oxy:</span> <span id="dv20" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatOxy : 'Lỗi kết nối'%></span></p>
                           <p class="title-name"  ><span style="min-width: 130px;display: inline-block;">Trạng thái quạt hút:</span> <span id="dv21" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatHut : 'Lỗi kết nối'%></span></p> -->
-
-                        </div>
-                        <div class="col-md-3">
                           <p class="title-name click-btn4" >
-                            <span style="display: inline-block;width:100%">Lưu lượng tức thời </span>
-                            <span id="dv22" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.luuLuongTucThoi : 'Lỗi kết nối'%></span>
+                            <img src="../images/icons/icon-scada/luuLuongNuoc_white.png" width="50px">
+                            <span id="dv22" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.luuLuongTucThoi : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Lưu lượng </br> tức thời </span>
+                            
                             <div class="hidden-form4">
                               <div class="item">
                                 <div class="handle">
@@ -243,10 +338,26 @@
                               </div>
                             </div> 
                           </p>
-                          <p class="title-name" ><span style="display: inline-block;width:100%">Than tức thời </span><span id="dv23" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanTucThoi : 'Lỗi kết nối'%></span></p>
-                          <p class="title-name" ><span style="display: inline-block;width:100%">Than cộng dồn</span> <span id="dv24" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanCongDon : 'Lỗi kết nối'%></span></p>
-                          <p class="title-name" ><span style="display: inline-block;width:100%">Status</span> <span id="dv20" style="display:inline-block;font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatOxy : 'Lỗi kết nối'%></span></p>
+                          <p class="title-name">
+                            <img src="../images/icons/icon-scada/thanTucThoi_white.png" width="50px">
+                            <span id="dv23" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanTucThoi : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Than tức thời </span>
+                            
+                          </p>
+                          <p class="title-name">
+                            <img src="../images/icons/icon-scada/thanCongDon_white.png" width="50px">
+                            <span id="dv24" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.khoiLuongThanCongDon : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Than cộng dồn</span>
+                            
+                          </p>
+                          <p class="title-name">
+                            <img src="../images/icons/icon-scada/luuLuongNuoc_white.png" width="50px">
+                            <span id="dv20" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatOxy : 'Lỗi kết nối'%></span>
+                            <span style="width:100%" class="title-parameter">Status</span>
+                            
+                          </p>
                         </div>
+                      
                       </div>
                     </div>
                   </div>
@@ -270,14 +381,13 @@
 </script> -->
 <script src="js/diagram/request.js"></script>
 <script src="js/diagram/diagram.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
   <!--Libraries-->
 
 
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-  <script src="bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+  <!-- <script src="bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script> -->
   <script src="bower_components/AlertifyJS/build/alertify.js"></script>
   <script src="bower_components/moment/min/moment.min.js"></script>
   <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
@@ -290,8 +400,7 @@
   <!-- <script src="js/cdn/diagram/jquery.min2.1.1.js"></script> -->
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script> -->
 </html>
 
 

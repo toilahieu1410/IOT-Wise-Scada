@@ -1265,7 +1265,9 @@ label:focus,
 }
 
 .modal-header {
-  background-color: #ECEFF3;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
 }
 
 #user-profile-modal input:hover, #user-profile-modal input:focus {
@@ -1568,12 +1570,11 @@ span.count-symbol b {
 }
 label {
   display: inline-block;
-  margin-bottom: 0 !important;
-  padding: 15px 25px;
   font-weight: 600;
   text-align: center;
   color: #fff;
   border: 1px solid transparent;
+  line-height:1.3;
 }
 .waves-effect {
   position: relative;
