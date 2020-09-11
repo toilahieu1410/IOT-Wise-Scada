@@ -1,7 +1,6 @@
 # config app
 export APP_HOST=localhost
 export APP_PORT=8002
-
 # config Database env
 export DB_CONNECTION=mongodb
 export DB_HOST=10.10.15.20
