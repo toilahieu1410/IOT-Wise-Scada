@@ -13,36 +13,42 @@
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/mdb-plugins-gathered.min.css">
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/jquery.min.js"></script>
   <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/mdb.min.js"></script>
-  
-  
   <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/popper.min.js"></script>
-  
   <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/plugins/mdb-plugins-gathered.min.js"></script>
 
 </head>
     <%- include('./../navbar/navbar.ejs') %>
 
 <body>
-    <form action="/chart">
-
-        <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
-            <label for="example">Start Date...</label>
-            <input placeholder="Select date" type="text" id="start-date" name="startDate" class="form-control" autocomplete="off">
-            <i class="fas fa-calendar input-prefix" tabindex=0></i>
+  <div class="modal-backdrop fade in" style="opacity: 0.6;"></div>
+    <form action="/chart" style="position: relative;z-index: 1111; min-width: 600px;margin:60px auto;padding:20px;background-color:#3476844f ;height: max-content;border-radius: 4px;  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">
+      <div class="query-header text-center" style="display:flex;">
+        
+        <h3 class="query-title w-100 font-weight-bold" style="width:100%;color: white;">Date Time</h4>
+          <a href="/homepage" type="button"  class="close" title="Close" style="color:white;opacity: 1;">
+            <img src="../images/icons/icon_wise-white/close.png" width="25">
+          </a>
+      </div>
+        <div class="query-datetime" style="padding:10px 80px;text-align:center">
+          <div  class="form-group input-with-post-icon datepicker" style="display:flex;position: relative;">
+        
+            <label   style="font-size: 20px;min-width: 100px;">Start Date</label>
+            <input id="date-picker-example"  type="text" style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="start-date" name="startDate" class="form-control datepicker" autocomplete="off">
+            <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
         </div>
-        <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
-            <label for="example">End Date...</label>
-            <input placeholder="Select date" type="text" id="end-date" name="endDate" class="form-control" autocomplete="off">
-            <i class="fas fa-calendar input-prefix" tabindex=0></i>
+        <div  class="form-group input-with-post-icon datepicker" style="display:flex;position: relative;">
+          <label   style="font-size: 20px;min-width: 100px;">End Date</label>
+            <input   type="text" style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="end-date" name="endDate" class="form-control datepicker" autocomplete="off">
+             <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
           </div>
 
-        <button type="submit" class="btn btn-default" href="/chart" style="background-color: #72A95E;font-size: 18px;color: white;">Search</button>
-
+        <button type="submit" class="btn btn-search"  href="/chart" style="background-color: #114237ab;font-size: 16px;color: white;margin:1rem 0"><img width="25" src="../images/icons/icon_wise-white/search.png"/>Search</button>
+        </div>
     </form>
 
 </body>
@@ -55,11 +61,13 @@ $('.datepicker').datepicker();
 
     <script>
         $('#end-date').datepicker({
-    dateFormat: "yy/mm/dd" 
+    dateFormat: "yy/mm/dd" ,
+    
   });
 
   $("#start-date").datepicker({
     dateFormat: "yy/mm/dd",
+    allowInputToggle: true,
     onSelect: function(date) {
       var date1 = $('#start-date').datepicker('getDate');
       var date = new Date(Date.parse(date1));
@@ -76,6 +84,7 @@ $('.datepicker').datepicker();
 
   $("#startTime").datepicker({
     dateFormat: "yy/mm/dd",
+    allowInputToggle: true,
     onSelect: function(date) {
       var date2 = $('#startTime').datepicker('getDate');
       var date = new Date(Date.parse(date2));
