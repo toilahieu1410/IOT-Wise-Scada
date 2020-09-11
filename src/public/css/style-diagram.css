@@ -78,7 +78,6 @@ p {
 .measure-body {
 }
 .measure-body .title-name {
-  z-index: 99;
   float: left;
   margin-right:10px;
   display: inline-block;
