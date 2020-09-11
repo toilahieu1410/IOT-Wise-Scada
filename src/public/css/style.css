@@ -28,7 +28,10 @@ body {
 .alertify-notifier .ajs-message.ajs-error {
   color: #fff;
 }
-
+.side-nav {
+  webkit-transform: translateX(0); 
+     transform: translateX(0); 
+}
 .custom-background-btn-primary {
   background-color: #2ECC71;
   border-color: #2ECC71;

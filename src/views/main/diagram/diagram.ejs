@@ -8,12 +8,27 @@
     <link rel="shortcut icon" href="images/logo_favicon/favicon-trungquandev.png" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/css/mdb.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-diagram.css">
+
+    <!-- <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-addons-4.19.1.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/mdb-plugins-gathered.min.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/mdb.min.js"></script>
+    
+    
+    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/popper.min.js"></script>
+    
+    <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/plugins/mdb-plugins-gathered.min.js"></script>
+
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -61,7 +76,7 @@
           <% } %>
 
         </div>
-            <div class="form-content" >
+            <div class="form-content">
               <div class="item">
                 <div class="handle">
                   <div class="user-account">
@@ -85,8 +100,6 @@
                               <span><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.resetThanCongDon : 'Lỗi kết nối'%></span>
                               <img src="../images/icons/icon_wise-white/overload.png" width="25px">
                             </a>
-                     
-                            
                             <!-- Button trigger modal -->
                          
         
@@ -149,8 +162,6 @@
                                           </div>
                                         </div>
                                       </div>
-                                      
-                                      
                                     </div>
                                     <div class="form-group">
                                       <div class="col-md-12">
@@ -161,8 +172,6 @@
                                           </div>
                                         </div>
                                       </div>
-                                    
-                                      
                                     </div>
                                     <div class="form-group">
                                       <div class="col-md-12">
@@ -211,7 +220,7 @@
                         </div>
                     </div>
                     <!-- End Modal Reset -->
-              <div class="form-body col-md-6" >
+              <div class="form-body" >
                 <!-- <h2><%- getDiagram[0].namePLC %></h2> -->
           
                   <div class="measure-body" >
@@ -369,6 +378,19 @@
 
    
 </body>
+<script>
+  var target = document.getElementsByClassName('page-body-wrapper');
+var targetBox = document.getElementsByClassName('measure-body');
+
+targetBox.addEventListener('click', mouseClicked);
+
+function mouseClicked (event){
+  var xposition = (event.clientX - target.offsetLeft - target.offsetWidth/2);
+  var yposition = (event.clientY - target.offsetTop - target.offsetHeight/2);
+  target.style.transform = "translate("+ xposition + "px," + yposition + "px)";
+  console.log(event);
+}
+</script>
 <!-- <script>
   $(document).ready( function(){
       $(window).on("load", function(){

@@ -32,6 +32,7 @@ configViewEngine(app);
 
 //Enable post data for request
 app.use(bodyParser.urlencoded({extended: true}));
+app.use('/static', express.static(__dirname + 'src/public'));
 
 //Enable Flash message
 app.use(connectFlash());
