@@ -230,7 +230,7 @@ outline:none;
   color: #fff;
   background-color:#0062cc;
   border-color:#005cbf}
-.wise_btn-action:not(: disabled): not(.disabled).active:focus,.wise_btn-action: not(: disabled): not(.disabled):active:focus,.show>.wise_btn-action.dropdown-toggle:focus {
+.wise_btn-action:not(:disabled):not(.disabled).active:focus,.wise_btn-action:not(:disabled):not(.disabled):active:focus,.show>.wise_btn-action.dropdown-toggle:focus {
   box-shadow: 0 0 0 .2rem rgba(38,143,255,.5)
 }
 
@@ -260,6 +260,7 @@ outline:none;
 .wise_btn-add:not(:disabled):not(.disabled).active:focus,.wise_btn-add:not(:disabled):not(.disabled):active:focus,.show>.wise_btn-add.dropdown-toggle:focus {
   box-shadow: 0 0 0 .2rem rgba(38,143,255,.5)
 }
+
 /************************ END Button action ***************************/
 
 /************************ 3. Dropdown ***************************/
