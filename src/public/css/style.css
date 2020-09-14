@@ -1380,7 +1380,7 @@ table.table th, table.table td {
 }
 table.table thead th {
   border-top: 1px solid #dee2e6;
-  background-color: #1142377a !important ;
+  background-color: #114a3d !important;
   color:#fff;
   font-size: 16px;
 }
@@ -1777,4 +1777,12 @@ text.highcharts-credits {
 }
 .highcharts-container {
   width: 100% !important;
+  height: 100% !important;
+}
+svg.highcharts-root {
+  width: 100% !important;
+
+}
+rect.highcharts-button-box {
+  fill: transparent;
 }

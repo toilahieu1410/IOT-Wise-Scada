@@ -70,6 +70,7 @@
 Highcharts.chart('chart1', {
     chart: {
         backgroundColor:'#0c0b0b40', 
+        defaultSeriesType: 'areaspline'
     },
     title: {
         text: 'Buồng đốt',
@@ -115,7 +116,7 @@ Highcharts.chart('chart1', {
     exporting: {
         buttons: {
             contextButton: {
-                symbol: 'url(../images/icons/icon_wise-blue/download.png)',
+                symbol: 'url(../images/icons/icon_wise-white/icon-download.png)',
                 symbolSize: 38,
                 symbolY: 30,
                 symbolX: 32
@@ -178,6 +179,7 @@ Highcharts.chart('chart2', {
     chart: {
         type: 'pie',
         backgroundColor:'#0c0b0b40', 
+        defaultSeriesType: 'areaspline'
     },
 
     title: {
@@ -190,7 +192,7 @@ Highcharts.chart('chart2', {
     exporting: {
         buttons: {
             contextButton: {
-                symbol: 'url(../images/icons/icon_wise-blue/download.png)',
+                symbol: 'url(../images/icons/icon_wise-white/icon-download.png)',
                 symbolSize: 38,
                 symbolY: 30,
                 symbolX: 32
@@ -296,6 +298,7 @@ Highcharts.chart('chart3', {
     chart: {
         type: 'column',
          backgroundColor:'#0c0b0b40',
+         defaultSeriesType: 'areaspline'
     },
     title: {
         text: 'Biểu đồ áp suất',
@@ -313,7 +316,7 @@ Highcharts.chart('chart3', {
     exporting: {
         buttons: {
             contextButton: {
-                symbol: 'url(../images/icons/icon_wise-blue/download.png)',
+                symbol: 'url(../images/icons/icon_wise-white/icon-download.png)',
                 symbolSize: 38,
                 symbolY: 30,
                 symbolX: 32
@@ -387,7 +390,7 @@ Highcharts.chart('chart4', {
     exporting: {
         buttons: {
             contextButton: {
-                symbol: 'url(../images/icons/icon_wise-blue/download.png)',
+                symbol: 'url(../images/icons/icon_wise-white/icon-download.png)',
                 symbolSize: 38,
                 symbolY: 30,
                 symbolX: 32
@@ -473,6 +476,7 @@ Highcharts.chart('chart5', {
     chart: {
         type: 'area',
         backgroundColor:'#0c0b0b40',
+        defaultSeriesType: 'areaspline'
     },
     legend: {
         itemStyle: {
@@ -495,7 +499,7 @@ Highcharts.chart('chart5', {
     exporting: {
         buttons: {
             contextButton: {
-                symbol: 'url(../images/icons/icon_wise-blue/download.png)',
+                symbol: 'url(../images/icons/icon_wise-white/icon-download.png)',
                 symbolSize: 38,
                 symbolY: 30,
                 symbolX: 32

@@ -26,8 +26,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-table">
-                            <div class="table-responsive">
-                                <table class="table" style="min-height: 400px;overflow-y: auto;">
+                            <div class="table-responsive" style="max-height: 400px;">
+                                <table class="table" >
                                     <thead>
                                         <tr>
                                             <th style="min-width: 50px;">STT</th>
@@ -37,12 +37,12 @@
                                             <th style="min-width: 80px;">Áp suất hơi (*C)</th>
                                             <th style="min-width: 80px;">Chân không buồng đốt (*C)</th>
                                             <th style="min-width: 80px;">Buồng đốt TS1 (*C)</th>
-                                            <th style="min-width: 130px;">Buồng đốt TS2 (*C)</th>
-                                            <th syle="min-width: 80px;">Áp suất gió (*C)</th>
+                                            <th style="min-width: 80px;">Buồng đốt TS2 (*C)</th>
+                                            <th style="min-width: 130px;">Áp suất gió (*C)</th>
                                           
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody style="overflow-y: auto;">
                                         <tr >
                                           <td align="center">1</td>
                                           <td> 565</td>
@@ -54,6 +54,50 @@
                                           <td>448</td>
                                           <td>565</td>
                                         </tr>
+                                        <tr >
+                                            <td align="center">1</td>
+                                            <td> 565</td>
+                                            <td>66</td>
+                                            <td>35643</td>
+                                            <td>65</td>
+                                            <td>655</td>
+                                            <td>26562</td>
+                                            <td>448</td>
+                                            <td>565</td>
+                                          </tr>
+                                          <tr >
+                                            <td align="center">1</td>
+                                            <td> 565</td>
+                                            <td>66</td>
+                                            <td>35643</td>
+                                            <td>65</td>
+                                            <td>655</td>
+                                            <td>26562</td>
+                                            <td>448</td>
+                                            <td>565</td>
+                                          </tr>
+                                          <tr >
+                                            <td align="center">1</td>
+                                            <td> 565</td>
+                                            <td>66</td>
+                                            <td>35643</td>
+                                            <td>65</td>
+                                            <td>655</td>
+                                            <td>26562</td>
+                                            <td>448</td>
+                                            <td>565</td>
+                                          </tr>
+                                          <tr >
+                                            <td align="center">1</td>
+                                            <td> 565</td>
+                                            <td>66</td>
+                                            <td>35643</td>
+                                            <td>65</td>
+                                            <td>655</td>
+                                            <td>26562</td>
+                                            <td>448</td>
+                                            <td>565</td>
+                                          </tr>
                                         <tr >
                                             <td align="center">1</td>
                                             <td> 11</td>
@@ -233,6 +277,25 @@
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
-
+table thead th {
+    position: sticky;
+    top:0;
+    z-index: 9;
+}
+.table-responsive::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+.table-responsive::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #cccccc96;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+.table-responsive::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 5px; 
+     border-radius: 5px; 
+}
 </style>
 </html>
