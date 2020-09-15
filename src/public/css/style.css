@@ -1445,8 +1445,11 @@ span.count-symbol b {
 .side-nav.wide.slim .collapsible a img {
 
 }
+.side-nav .collapsible a {
+  height: 80px;
+}
 .side-nav.wide .collapsible a {
-  line-height: 60px;
+  line-height: 80px;
 }
 .side-nav.wide .collapsible>li {
   padding:0 25px;
@@ -1483,6 +1486,7 @@ span.count-symbol b {
     text-align:center;
 }
  .side-nav.wide.slim .collapsible a {
+   display: flex;
     padding: 0;
 } 
 .side-nav {
@@ -1515,9 +1519,7 @@ span.count-symbol b {
   /* padding:10px 5px; */
   background-color: #1f6958 ;
 }
-.side-nav .collapsible a {
-    height: 60px;
-}
+
 .side-nav .collapsible a p {
     display: none;
 }
