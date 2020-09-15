@@ -1,124 +1,104 @@
 /******************************* JS click move item  *************************************/
-function hightChart (name, dataRequest) {
 
-            Highcharts.chart(name, {
-            chart: {
-                type: 'spline',
-                zoomType: 'x',
-                backgroundColor:'#0c0b0b40', 
+// let socket = io();
+socket.on('requestApi', function abc(getDataDiagram) {
 
-                animation: Highcharts.svg, // don't animate in old IE
-                marginRight: 10,
-                events: {
-                    load: function () {
+})
 
-                        // set up the updating of the chart each second
-                        var series = this.series[0];
-                        setInterval(function () {
-                            var x = (new Date()).getTime(), // current time
-                                y = dataRequest
-                            series.addPoint([x, y], true, true);
-                        }, 5000);
-                    }
-                }
-            },
+// Highcharts.chart('chart-diagram1', {
+//     chart: {
+//         type: 'spline',
+//         zoomType: 'x',
+//         backgroundColor:'#0c0b0b40', 
 
-            time: {
-                useUTC: false
-            },
+//         animation: Highcharts.svg, // don't animate in old IE
+//         marginRight: 10,
+//         events: {
+//             load: function () {
 
-            // title: {
-            //     text: 'Live random data'
-            // },
+//                 // set up the updating of the chart each second
+//                 var series = this.series[0];
+//                 setInterval(function () {
+//                     var x = (new Date()).getTime(), // current time
+//                         y = getDataDiagram.nhietDoKhoiThai
+//                     series.addPoint([x, y], true, true);
+//                 }, 5000);
+//             }
+//         }
+//     },
 
-            accessibility: {
-                announceNewData: {
-                    enabled: true,
-                    minAnnounceInterval: 15000,
-                    announcementFormatter: function (allSeries, newSeries, newPoint) {
-                        if (newPoint) {
-                            return 'New point added. Value: ' + newPoint.y;
-                        }
-                        return false;
-                    }
-                }
-            },
+//     time: {
+//         useUTC: false
+//     },
+
+//     accessibility: {
+//         announceNewData: {
+//             enabled: true,
+//             minAnnounceInterval: 15000,
+//             announcementFormatter: function (allSeries, newSeries, newPoint) {
+//                 if (newPoint) {
+//                     return 'New point added. Value: ' + newPoint.y;
+//                 }
+//                 return false;
+//             }
+//         }
+//     },
+
+//     xAxis: {
+//         type: 'datetime',
+//         tickPixelInterval: 150,
+//         style: {
+//             color: "#fff"
+//             }
+//     },
+
+//     yAxis: {
+//         title: {
+//             text: 'Value',
+//             style: {
+//                 color: "#fff"
+//                 }
+//         },
+//         plotLines: [{
+//             value: 0,
+//             width: 1,
+//             color: '#808080'
+//         }]
+//     },
+
+//     tooltip: {
+//         headerFormat: '<b>{series.name}</b><br/>',
+//         pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}',
         
-            xAxis: {
-                type: 'datetime',
-                tickPixelInterval: 150,
-                style: {
-                    color: "#fff"
-                 }
-            },
-        
-            yAxis: {
-                title: {
-                    text: 'Value',
-                    style: {
-                        color: "#fff"
-                     }
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-        
-            tooltip: {
-                headerFormat: '<b>{series.name}</b><br/>',
-                pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}',
-              
-            },
-        
-            legend: {
-                enabled: false
-            },
-        
-            exporting: {
-                enabled: false
-            },
-        
-            series: [{
-                name: 'Random data',
-          
-                data: (function () {
-                    // generate an array of random data
-                    var data = [],
-                        time = (new Date()).getTime(),
-                        i;
-        
-                    for (i = -500; i <= 0; i += 1) {
-                        data.push({
-                            x: time + i * 1000,
-                            y: dataRequest
-                        });
-                    }
-                    return data;
-                }())
-            }]
-        })
+//     },
 
-}
+//     legend: {
+//         enabled: false
+//     },
 
-setInterval(function() {
-    $.ajax({
-        url: 'http://10.10.11.222:1880/diagram_plc_mitsubishi',
-        complete: function(json) {
-            data = JSON.parse(json.responseText);
+//     exporting: {
+//         enabled: false
+//     },
 
-        },
-        error: function() {
-            console.log('There was an error!');
-        }
-    })
-}, 500)
-hightChart('chart-diagram1', 'data.nhietDoKhoiThai')
+//     series: [{
+//         name: 'Random data',
+    
+//         data: (function () {
+//             // generate an array of random data
+//             var data = [],
+//                 time = (new Date()).getTime(),
+//                 i;
 
-// hightChart('chart-diagram2', 'data.nhietDoKhoiThai', 5000, 15000)
-
-
+//             for (i = -500; i <= 0; i += 1) {
+//                 data.push({
+//                     x: time + i * 1000,
+//                     y: getDataDiagram.nhietDoKhoiThai
+//                 });
+//             }
+//             return data;
+//         }())
+//     }]
+// })
 
 $(document).ready(function(){
     $(".click-btn1").click(function(){

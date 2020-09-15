@@ -11,7 +11,7 @@ let getHome = async (req, res) => {
         let getSetup = await home.getSetup();
         try {
             request(process.env.RQ_API_NODE_RED, {json: true}, function(error, response, body) {
-                var getDataDiagram = body;
+                let getDataDiagram = body;
                 return res.render('main/diagram/diagram', {
                     errors: req.flash('errors'),
                     success: req.flash('success'),
@@ -30,7 +30,7 @@ let getSetup = async(req, res) => {
     let getSetup = await home.getSetup();
     try {
         request(process.env.RQ_API_NODE_RED, {json: true}, function(error, response, body) {
-            var getDataDiagram = body;
+            let getDataDiagram = body;
             return res.render('main/setup/setup', {
                 user: req.user.local.email,
                 getSetup: getSetup,
