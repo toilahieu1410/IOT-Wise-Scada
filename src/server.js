@@ -5,10 +5,12 @@ import ConnectDB from './config/connectDB';
 import initRoutes from './routes/web';
 import bodyParser from 'body-parser';
 import connectFlash from 'connect-flash';
-import configSession from './config/session'
+import session from './config/session'
 import passport from 'passport';
 import http, { createServer } from 'http';
 import socket_io from 'socket.io';
+import initSockets from './sockets/index';
+import configSocketIo from './config/socketio';
 // import MqttHandler from './config/connectMQTT/mqtt-server';
 
 let app = express();
@@ -25,7 +27,7 @@ ConnectDB();
 // mqttClient.connect(app);
 
 //Config Session
-configSession(app);
+session.config(app);
 
 //Config View Engine
 configViewEngine(app);
@@ -43,6 +45,12 @@ app.use(passport.session());
 
 //Init all routes
 initRoutes(app);
+
+// config for socketio
+configSocketIo(io, cookieParser, session.sessionStore);
+
+//Init all sockets
+initSockets(io);
 
 //Use cookie parser
 app.use(cookieParser());

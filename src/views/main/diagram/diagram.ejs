@@ -29,19 +29,13 @@
 
       <div class="content-wrapper main-panel" style="margin: 2.75rem 5rem;background:url(../images/background/nha-may.png);background-repeat: no-repeat;background-size: contain;background-position:bottom ;">
         <div class="container-fluid main-content" >
-          <div class="row content" style="">
+          <div class="row content">
      
-            <!-- <div id="form-fan" class="form-fan">
-              <% if (getDataDiagram.statusQuatOxy === 0) { %>
-                <img src="../images/background/quat-01.png" width="50" style="position: absolute;" class="test"/>
-              
-              <% } else { %>
-                <img src="../images/background/quat.gif" width="50" style="position: absolute;" class="test"/>
-              <% } %>
+            <div id="form-fan" class="form-fan">
               </div>
 
           <div id="form-fan-mini1" class="form-fan-mini1">
-                      
+
             <% if (getDataDiagram.statusQuatDay === 0) { %>
               <img src="../images/background/quat-01.png" width="50" style="position: absolute;" class="test"/>
             
@@ -59,7 +53,8 @@
             <img src="../images/background/quat.gif" width="50" style="position: absolute;" class="test"/>
           <% } %>
 
-        </div> -->
+        </div>
+
             <div class="form-content" >
               <div class="item">
                 <div class="handle">
@@ -81,7 +76,7 @@
                             <strong style="display: inline-block; min-width: 220px;font-size:18px">Khối lượng than cộng dồn: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].khoiLuongThanCongDon %></span><br>
                             <strong style="display: inline-block; min-width: 220px;font-size:18px;float: left;">Reset than cộng dồn:</strong>
                             <a href="#" data-toggle="modal" data-target="#resetSetupModal" style="font-size:18px;font-weight:bold;color:#fff;display: flex;">
-                              <span id="dv1"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.resetThanCongDon : 'Lỗi kết nối'%></span>
+                              <span id="dv25"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.resetThanCongDon : 'Lỗi kết nối'%></span>
                               <img src="../images/icons/icon_wise-white/overload.png" width="25px">
                             </a>
                      
@@ -214,6 +209,9 @@
                             <div class="item">
                               <div class="handle">
                                 <div class="form-chart-diagram">Nhiệt độ khói thải</div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <img src="../images/icons/icon_wise-white/close.png" width="25px">
+                                </button>
                               </div>
                               <div id="chart-diagram1"></div>
                             </div>
@@ -445,8 +443,7 @@
       });//window load
   });//document ready
 </script> -->
-<script src="js/diagram/request.js"></script>
-<script src="js/diagram/diagram.js"></script>
+
 
   <!--Libraries-->
 
@@ -461,6 +458,9 @@
   <!-- <script src="bower_components/photoset-grid/jquery.photoset-grid.min.js"></script> -->
   <script src="bower_components/jquery-colorbox/jquery.colorbox-min.js"></script>
   <script src="socket.io/socket.io.js"></script>
+
+  <script src="js/diagram/request.js"></script>
+  <script src="js/diagram/diagram.js"></script>
 
       <!-- My js-->
   <!-- <script src="js/cdn/diagram/jquery.min2.1.1.js"></script> -->

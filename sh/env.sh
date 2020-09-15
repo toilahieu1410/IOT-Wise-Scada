@@ -12,6 +12,10 @@ export DB_PASSWORD=""
 # request
 export RQ_API_NODE_RED=http://10.10.11.222:1880/diagram_plc_mitsubishi
 
+# config session key & secret
+export SESSION_KEY="express.sid"
+export SESSION_SECRET="mySecret"
+
 # config MQTT
 export MQTT_CONNECTION=mqtt
 export MQTT_HOST=10.10.11.222
