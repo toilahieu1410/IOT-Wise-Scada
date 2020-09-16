@@ -30,7 +30,6 @@
                                 <table class="table" >
                                     <thead>
                                         <tr>
-                                            <th style="min-width: 50px;">STT</th>
                                             <th style="min-width: 80px;">Time</th>
                                             <th style="min-width: 130px;">Nhiệt độ khói thải (*C)</th>
                                             <th style="min-width: 130px;">Nhiệt độ nước (*C)</th>
@@ -43,127 +42,19 @@
                                         </tr>
                                     </thead>
                                     <tbody style="overflow-y: auto;">
-                                        <tr >
-                                          <td align="center">1</td>
-                                          <td> 565</td>
-                                          <td>66</td>
-                                          <td>35643</td>
-                                          <td>65</td>
-                                          <td>655</td>
-                                          <td>26562</td>
-                                          <td>448</td>
-                                          <td>565</td>
-                                        </tr>
-                                        <tr >
-                                            <td align="center">1</td>
-                                            <td> 565</td>
-                                            <td>66</td>
-                                            <td>35643</td>
-                                            <td>65</td>
-                                            <td>655</td>
-                                            <td>26562</td>
-                                            <td>448</td>
-                                            <td>565</td>
-                                          </tr>
-                                          <tr >
-                                            <td align="center">1</td>
-                                            <td> 565</td>
-                                            <td>66</td>
-                                            <td>35643</td>
-                                            <td>65</td>
-                                            <td>655</td>
-                                            <td>26562</td>
-                                            <td>448</td>
-                                            <td>565</td>
-                                          </tr>
-                                          <tr >
-                                            <td align="center">1</td>
-                                            <td> 565</td>
-                                            <td>66</td>
-                                            <td>35643</td>
-                                            <td>65</td>
-                                            <td>655</td>
-                                            <td>26562</td>
-                                            <td>448</td>
-                                            <td>565</td>
-                                          </tr>
-                                          <tr >
-                                            <td align="center">1</td>
-                                            <td> 565</td>
-                                            <td>66</td>
-                                            <td>35643</td>
-                                            <td>65</td>
-                                            <td>655</td>
-                                            <td>26562</td>
-                                            <td>448</td>
-                                            <td>565</td>
-                                          </tr>
-                                        <tr >
-                                            <td align="center">1</td>
-                                            <td> 11</td>
-                                            <td>2452</td>
-                                            <td>33</td>
-                                            <td>464</td>
-                                            <td>2542</td>
-                                            <td>33</td>
-                                            <td>44</td>
-                                            <td>655</td>
-                                          </tr>
-                                          <tr >
-                                            <td align="center">1</td>
-                                            <td> 11</td>
-                                            <td>22</td>
-                                            <td>33</td>
-                                            <td>4644</td>
-                                            <td>242</td>
-                                            <td>33</td>
-                                            <td>644</td>
-                                            <td>55</td>
-                                          </tr>
-                                          <tr >
-                                            <td align="center">1</td>
-                                            <td> 11</td>
-                                            <td>22</td>
-                                            <td>3463</td>
-                                            <td>55</td>
-                                            <td>22</td>
-                                            <td>363</td>
-                                            <td>464</td>
-                                            <td>55</td>
-                                          </tr>
-                                          <tr >
-                                            <td align="center">1</td>
-                                            <td> 11</td>
-                                            <td>22</td>
-                                            <td>33</td>
-                                            <td>55</td>
-                                            <td>22</td>
-                                            <td>343</td>
-                                            <td>444</td>
-                                            <td>55</td>
-                                          </tr>
-                                          <tr >
-                                            <td align="center">1</td>
-                                            <td> 11</td>
-                                            <td>22</td>
-                                            <td>633</td>
-                                            <td>55</td>
-                                            <td>226</td>
-                                            <td>33</td>
-                                            <td>44</td>
-                                            <td>565</td>
-                                          </tr>
-                                          <tr >
-                                            <td align="center">1</td>
-                                            <td> 11</td>
-                                            <td>22</td>
-                                            <td>343</td>
-                                            <td>55</td>
-                                            <td>22</td>
-                                            <td>33</td>
-                                            <td>44</td>
-                                            <td>556</td>
-                                          </tr>
+                                        <% getDataChart.forEach(item => { %>
+                                            <tr >
+                                                <td><%= moment(item.createdAt).format('DD/MM hh:mm a') %></td>
+                                                <td class="text-center"><%= item.nhietDoKhoiThai %></td>
+                                                <td class="text-center"><%= item.nhietDoNuoc %></td>
+                                                <td class="text-center"><%= item.apSuatHoi %></td>
+                                                <td class="text-center"><%= item.chanKhongBuongDot %></td>
+                                                <td class="text-center"><%= item.buongDot_TS1 %></td>
+                                                <td class="text-center"><%= item.buongDot_TS2 %></td>
+                                                <td class="text-center"><%= item.apSuatGio %></td>
+                                              </tr>
+                                        <% }) %>
+                                          
                                           
                                     </tbody>
                                   </table>
@@ -239,7 +130,9 @@
     let buongDot_TS1 = [<%= buongDot_TS1 %>];
     let buongDot_TS2 = [<%= buongDot_TS2 %>];
     let apSuatGio = [<%= apSuatGio %>];
-    
+    let sumNhietDoKhoiThai = <%= sumNhietDoKhoiThai %>;
+    let sumNhietDoNuoc = <%= sumNhietDoNuoc %>;
+    let sumApSuatHoi = <%= sumApSuatHoi %>;
 </script>
 <script src="js/chart/chart.js"></script>
 

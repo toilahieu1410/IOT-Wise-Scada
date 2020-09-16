@@ -24,49 +24,47 @@
        
           <section id="content1">
             <div class="row">
+            <% getDataAlarm.forEach(item => { %>
               <div style="padding: 0 15px;width: calc(100%/5);float: left;">
                 <div class="user-account">
-                    <h3 style="text-align: center;">LVMSB1 - Current-A</h3>
-                        <div style="text-align: left;line-height: 30px;" class="detail-grid">
-                            <!-- <strong style="display: inline-block;"><i class="fa fa-circle" style="font-size: 24px;margin:0 10px 0 3px ; color:blue"></i></strong><span>1Voltage-AB- 388.5 V1</span><br>
-                            <strong style="display: inline-block;"></strong><span>38.5 V</span><br>
-                            <strong style="display: inline-block;"></strong><span>21/05/2020-08:39:44 am</span><br>
-                            <strong style="display: inline-block;">Report</strong><span> 15/09/2020-10:15:39 am</span><br>
-                            <strong style="display: inline-block;">Setting</strong><span>12</span><br> -->
+                    <h3 style="text-align: center;"><%= item.device %></h3>
+                    <div style="text-align: left;line-height: 30px;" class="detail-grid">
 
-                            <p><i class="fa fa-circle" style="font-size: 24px;color:red;margin-right: 15px;"></i><span>Voltage-AB- 388.5 V1</span></p>
-                            <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span>38.5 V</span> </p>
-                            <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;"><span>1/05/2020-08:39:44 am</span></p>
-                            <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"><span>15/09/2020-10:15:39 am</span></p>
-                            <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;"><span>hoplongtech@gmail.com</span></p>
-                            <div class="label-border" style="padding:5px;box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);background-color: #2b6d7bd1"><a href="#"><label></label></a></div>
-                            <p></p>
-                            <div class="action-button" style="text-align:right">
-                                <a href="#">
-                        
-                                  <button title="Edit" onclick="document.getElementById('5ec5dbe01f41500980bee473').style.display='block'" type="button" class="btn btn-default" style="background-color: #0eaf04d1;"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
+                        <p><i class="fa fa-circle" style="font-size: 24px;color:red;margin-right: 15px;"></i><span><%= item.type %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.value %></span> </p>
+                        <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.userId %></span></p>
+                        <div class="label-border" style="padding:5px;box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);background-color: #2b6d7b1a"><a href="#"><label><%= item.note %></label></a></div>
+                        <p></p>
+                        <div class="action-button" style="text-align:right">
+                            <a href="#">
+                    
+                              <button title="Edit" onclick="document.getElementById('<%= item._id %>').style.display='block'" type="button" class="btn btn-default" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
 
-                                  </a> &nbsp;
-                                  <a onclick="return confirmDelete('Are you sure want to permanently delete this message?')" href="/alarm/remove/LVMSB1/5ec5dbe01f41500980bee473">
-                                <button title="Delete" type="button" class="btn btn-default" style="background-color: #0eaf04d1">       <img src="../images/icons/icon_wise-white/delete.png" style="width: 22px;height: 22px;"></button>
-                                    </a>
-                              </div>
-                        </div>
+                              </a> &nbsp;
+                              <a onclick="return confirmDelete('Are you sure want to permanently delete this message?')" href="#">
+                            <button title="Delete" type="button" class="btn btn-default" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)">       <img src="../images/icons/icon_wise-white/delete.png" style="width: 22px;height: 22px; "></button>
+                                </a>
+                          </div>
+                    </div>
+                  
+                    
                 </div>
             </div>
     
         <!-- Start Modal -->
-        <div id="5ec5dbe01f41500980bee473" class="modal fade in" data-easein="expandIn" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true" style="opacity: 1;">
+        <div id="<%= item._id %>" class="modal fade in" data-easein="expandIn" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true" style="opacity: 1;">
             <div class="modal-backdrop fade in" style="opacity: 0.6;"></div>
             <div class="modal-dialog">
               <form class="modal-content"  method="post">
                   <div class="modal-header">
-                      <button type="button" onclick="document.getElementById('5ec5dbe01f41500980bee473').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
+                      <button type="button" onclick="document.getElementById('<%= item._id %>').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
                           <img src="../images/icons/icon_wise-white/close.png" width="25">
                       </button>
                       <h3 class="modal-title" style="width: 100%;text-align: center;">
                         <i class="fa fa-user" style="margin-right:5px"></i>
-                       123 -456
+                        <%= item.device %>
                       </h3>
              
                   </div>
@@ -75,15 +73,13 @@
                      
                       <div class="detail-grid">
                
-                        <p><i class="fa fa-circle" style="font-size: 24px;margin:0 10px 0 3px;"></i><label>22</label></p>
-                        <p><img src="/static/images/img-icon/overload.png" style="width: 25px;height: 25px;margin-right: 5px;"> 44</p>
-                        <p><img src="/static/images/img-icon/createAt.png" style="width: 25px;height: 25px;margin-right: 5px;">  <span>1/05/2020-08:39:44 am </span></p>
-                        <p><img src="/static/images/img-icon/update.png" style="width: 25px;height: 25px;margin-right: 5px;"> <span>   1/05/2020-08:39:44 am
-                         </span>
-                        </p>
-                        <p><img src="/static/images/img-icon/users.png" style="width: 25px;height: 25px;"> <span> 111</span></p>
+                        <p><i class="fa fa-circle" style="font-size: 24px;margin:0 10px 0 3px;"></i><label><%= item.type %></label></p>
+                        <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 25px;height: 25px;margin-right: 5px;"><%= item.value %></p>
+                        <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 25px;height: 25px;margin-right: 5px;">  <span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 25px;height: 25px;margin-right: 5px;"> <span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
+                        <p><img src="/static/images/img-icon/users.png" style="width: 25px;height: 25px;"> <span><%= item.userId %></span></p>
                         <p>
-                          <a href = "#"><div class="label-border" style="padding:5px;box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);background-color: #2b6d7bf0;"><textarea name="Note" type="text" rows="2" style="width:100%;color: #000;border-bottom: 2px solid #fff !important; outline: none; background-color: transparent; border: none;font-size: 18px;color: white;">oke</textarea></div></a>
+                          <a href = "#"><div class="label-border" style="padding:5px;box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);background-color: #2b6d7b1a;"><textarea name="Note" type="text" rows="2" style="width:100%;color: #000;border-bottom: 2px solid #fff !important; outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
                         </p>
   
                         <div class="col-md-12" style="text-align: center;">
@@ -98,6 +94,7 @@
               </div>
           </div>
           <!-- End Modal -->
+          <% }) %>
           </div>
           </section>
             

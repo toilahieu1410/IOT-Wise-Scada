@@ -1,6 +1,7 @@
 import DiagramModel from './../models/diagramModel';
 import SetupModel from './../models/setupModel';
 import ChartModel from './../models/chartModel';
+import AlarmModel from './../models/alarmModel';
 import { resolve, reject } from 'bluebird';
 
 let getDiagram = () => {
@@ -58,10 +59,23 @@ let getDataChart = (query) => {
     })
 }
 
+let getDataAlarm = () => {
+    return new Promise( async(resolve, reject) => {
+        try {
+            let dataAlarm = await AlarmModel.findAllAlarm();
+
+            resolve(dataAlarm);
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
 module.exports = {
     getDiagram: getDiagram,
     getSetup: getSetup,
     updateSetup: updateSetup,
     resetSetup: resetSetup,
-    getDataChart: getDataChart
+    getDataChart: getDataChart,
+    getDataAlarm: getDataAlarm
 }
