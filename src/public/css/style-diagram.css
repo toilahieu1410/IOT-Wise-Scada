@@ -1,6 +1,6 @@
 .form-body {
   position: absolute;
-  right:30px;
+  right:0px;
 }
 p {
   margin-bottom: 0;
@@ -56,18 +56,18 @@ p {
 }
 #form-fan {
   position: relative;
-  top: 44em;
-  left: 19em;
+  top: 35em;
+  left: 26em;
 }
 #form-fan-mini1 {
   position: relative;
-  top: 44em;
-  left: 43em;
+  top: 35em;
+  left: 57em;
 }
 #form-fan-mini2 {
   position: relative;
-  top: 44em;
-  left: 63em;
+  top: 35em;
+  left: 74em;
 }
 .detail-grid {
   box-shadow: inset 0 4px 2px rgba(255,255,255,0.1), 0 4px 4px rgba(0,0,0,0.5), 0 7px 7px 1px rgba(0,0,0,0.3);
@@ -79,7 +79,7 @@ p {
 }
 .measure-body .title-name {
   float: left;
-  margin-right:10px;
+  margin-right:8px;
   display: inline-block;
   border-radius: 5px;
   cursor: pointer;
@@ -95,14 +95,14 @@ p {
   /* display: flex; */
 }
 .title-name .number {
-  line-height: 50px;
-  font-size: 32px;
+  display: block;
+  line-height: 28px;
+  font-size: 28px;
   color:#fff;
   text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.4);
 }
 .title-name img {
-  height: 48px;
-  float: left;
+  height: 35px;
   margin-right: 5px;
 }
 .measure-body .title-name span{
@@ -111,7 +111,7 @@ p {
 .title-name span {
   font-size: 14px;
   line-height:1.2;
-  min-height: 50px;
+  min-height: 30px;
 }
 .title-name span.title-parameter {
   color: #fff;
@@ -169,6 +169,21 @@ position: relative;
   display: flex;
   flex-direction: column;
 }
+label.control-label.col-md-7 {
+  margin-bottom: 0;
+  vertical-align: middle;
+  display: flex;
+  align-items: flex-end;
+}
+.modal-footer {
+  padding-top:0px;
+}
+.modal-footer button {
+  background-color: #1563518f;
+}
+.modal-footer button:hover {
+  background-color: #1563518f;
+}
 /******************************* form-modal-apsuat ***********************************/
 .user-account {
   position: absolute;
@@ -177,8 +192,26 @@ position: relative;
 .fade:not(.show) {
   opacity: 1;
 }
+.form-group .wise_btn-action {
+  display: block;
+  font-size: 20px;
+  width: 80px;
+  margin: 0 auto;
+  height: 80px;
+  border-radius: 50%;
+}
+.modal-dialog {
+ 
+}
+.modal-header {
+  border-bottom: 1px solid #dee2e630;
+}
+.modal-footer {
+  border-bottom: none;
+}
 .modal.fade .modal-dialog {
   transform: translate(0, 0);
+  max-width: 400px;
 }
 .modal-dialog .close {
   opacity: 1;
@@ -193,6 +226,23 @@ position: relative;
   border-bottom: 2px solid;
   box-shadow: none;
   border-radius: 0;
+}
+.resetSetup {
+  position: relative;
+  left:-25px;
+  font-size:18px;
+  font-weight:bold;
+  color:#fff;
+  border:none;
+  padding:0 10px;
+  display: flex;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  border-radius: 4px;
+  background-color: #1f69584a;
+}
+.resetSetup:hover {
+  background-color: #247764;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
 }
 
 /************************ 2. Button action ***************************/

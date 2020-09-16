@@ -69,3 +69,7 @@ display: block;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+.modal.fade .modal-dialog {
+  z-index: 1111;
+  transform: translate(0, 0);
+}
