@@ -34,9 +34,9 @@ socket.on('requestApi', function (getDataDiagram) {
     $("#dv25").html(getDataDiagram.resetThanCongDon);
 
     if(getDataDiagram.statusQuatOxy === 0) {
-        $('#form-fan').html('<img src="../images/background/quat-01.png" width="50" style="position: absolute;" class="test"/>')
+        $('#form-fan').html('<img src="../images/background/quat-01.png" width="90" style="position: absolute;" class="test"/>')
     } else {
-        $('#form-fan').html('<img src="../images/background/quat.gif" width="50" style="position: absolute;" class="test"/>')
+        $('#form-fan').html('<img src="../images/background/quat.gif" width="90" style="position: absolute;" class="test"/>')
     }
 
     if(getDataDiagram.statusQuatDay === 0) {
