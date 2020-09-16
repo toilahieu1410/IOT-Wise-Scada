@@ -1295,7 +1295,7 @@ h5.title-target {
 }
 .modal-dialog .modal-content {
   border-radius: 10px !important;
-  background-color: rgb(43 43 43 / 54%) ;
+  background-color: rgb(31 99 89 / 38%) ;
 }
 
 textarea {
@@ -1765,6 +1765,12 @@ input[type="checkbox"]:checked + label.check-title:hover p:before {
 .picker__box .picker__header .picker__date-display {
   background-color:#347684 ;
 }
+.modal-footer button {
+  background-color: #1563518f;
+}
+.modal-footer button:hover {
+  background-color: #1563518f;
+}
 /**************************** FORM DATE-TIME *************************/
 .chart-query {
   padding:0 15px;
@@ -1787,3 +1793,104 @@ svg.highcharts-root {
 rect.highcharts-button-box {
   fill: transparent;
 }
+
+/************************ 2. Button action ***************************/
+.wise_btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+@media (prefers-reduced-motion: reduce) {
+  .wise_btn {
+  transition: none}
+}
+
+.wise_btn-action {
+background:#234a8ad9 ;
+color:#fff;
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    transition: all 0.3s;
+  transform: scale(1);
+}
+
+.wise_btn-action:hover {
+background-color:#1a52abd9;
+color:#fff;
+transform: scale(1.05);
+  transition: .3s;
+}
+.wise_btn-action.focus,.wise_btn-action:focus {
+  box-shadow: 0 0 0 .2rem rgba(38,143,255,.5);
+outline:none;
+}
+.wise_btn-action:not(:disabled):not(.disabled).active,.wise_btn-action:not(:disabled):not(.disabled):active,.show>.wise_btn-action.dropdown-toggle {
+  color: #fff;
+  background-color:#0062cc;
+  border-color:#005cbf}
+.wise_btn-action:not(:disabled):not(.disabled).active:focus,.wise_btn-action:not(:disabled):not(.disabled):active:focus,.show>.wise_btn-action.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .2rem rgba(38,143,255,.5)
+}
+
+/**** button them, khoi tao ****/
+.wise_btn-add {
+background:#234a8ad9 ;
+color:#fff;
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    transition: all 0.3s;
+  transform: scale(1);
+}
+
+.wise_btn-add:hover {
+background-color:#1a52abd9;
+color:#fff;
+transform: scale(1.05);
+  transition: .3s;
+}
+.wise_btn-add.focus,.wise_btn-add:focus {
+  box-shadow: 0 0 0 .2rem rgba(38,143,255,.5);
+outline:none;
+}
+.wise_btn-add:not(:disabled):not(.disabled).active,.wise_btn-add:not(:disabled):not(.disabled):active,.show>.wise_btn-add.dropdown-toggle {
+  color: #fff;
+  background-color:#0062cc;
+  border-color:#005cbf}
+.wise_btn-add:not(:disabled):not(.disabled).active:focus,.wise_btn-add:not(:disabled):not(.disabled):active:focus,.show>.wise_btn-add.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .2rem rgba(38,143,255,.5)
+}
+.highcharts-grid.highcharts-yaxis-grid path.highcharts-grid-line {
+  stroke: #cccccc59;
+}
+
+/************************ END Button action ***************************/
+
+/************************ 3. Dropdown ***************************/
+/************************ END Dropdown action ***************************/
+
+/* .btn-primary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc}
+.btn-primary.focus,.btn-primary:focus {
+  box-shadow: 0 0 0 .2rem rgba(38,143,255,.5)}
+.btn-primary.disabled,.btn-primary: disabled {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff}
+.btn-primary: not(: disabled): not(.disabled).active,.btn-primary: not(: disabled): not(.disabled):active,.show>.btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf}
+.btn-primary: not(: disabled): not(.disabled).active:focus,.btn-primary: not(: disabled): not(.disabled):active:focus,.show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .2rem rgba(38,143,255,.5)} */

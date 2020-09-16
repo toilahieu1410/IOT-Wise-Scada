@@ -40,7 +40,7 @@
                         <div class="action-button" style="text-align:right">
                             <a href="#">
                     
-                              <button title="Edit" onclick="document.getElementById('<%= item._id %>').style.display='block'" type="button" class="btn btn-default" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
+                              <button title="Edit" onclick="document.getElementById('<%= item._id %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
 
                               </a> &nbsp;
                               <a onclick="return confirmDelete('Are you sure want to permanently delete this message?')" href="#">
@@ -54,18 +54,19 @@
             </div>
     
         <!-- Start Modal -->
-        <div id="<%= item._id %>" class="modal fade in" data-easein="expandIn" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true" style="opacity: 1;">
-            <div class="modal-backdrop fade in" style="opacity: 0.6;"></div>
-            <div class="modal-dialog">
+        <div id="<%= item._id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true" >
+            <div class="modal-backdrop fade " style="opacity: 0.6;"></div> 
+            <div class="modal-dialog" style="z-index: 1111;top:10%;">
               <form class="modal-content"  method="post">
-                  <div class="modal-header">
-                      <button type="button" onclick="document.getElementById('<%= item._id %>').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
-                          <img src="../images/icons/icon_wise-white/close.png" width="25">
-                      </button>
-                      <h3 class="modal-title" style="width: 100%;text-align: center;">
+                  <div class="modal-header" style="display:flex;justify-content:center">
+                    <h3 class="modal-title" style="width: 100%;text-align: center;color:#fff">
                         <i class="fa fa-user" style="margin-right:5px"></i>
                         <%= item.device %>
                       </h3>
+                      <button type="button" onclick="document.getElementById('<%= item._id %>').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
+                          <img  src="../images/icons/icon_wise-white/close.png" width="25">
+                      </button>
+                   
              
                   </div>
                   <div class="modal-body">
@@ -73,13 +74,55 @@
                      
                       <div class="detail-grid">
                
-                        <p><i class="fa fa-circle" style="font-size: 24px;margin:0 10px 0 3px;"></i><label><%= item.type %></label></p>
+                        <p><i class="fa fa-circle" style="font-size: 24px;color:red;margin-right: 15px;"></i><span><%= item.type %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.value %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;">  <span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= item.userId %></span></p>
+                        <p>
+                          <a href = "#"><div class="label-border" ><textarea name="Note" type="text" rows="2" style="box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;width:100%;color: #000;outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
+                        </p>
+  
+                        <div class="modal-footer col-md-12" style="text-align: center;">
+                          
+                          <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save</button>
+                        </div>
+                  
+                      
+                      </div>
+                  </div>
+                  </div>
+             </form>
+              </div>
+          </div>
+
+          <div id="test" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true" >
+            <div class="modal-backdrop fade " style="opacity: 0.6;"></div> 
+            <div class="modal-dialog" style="z-index: 1111;">
+              <form class="modal-content"  method="post">
+                  <div class="modal-header" style="display:flex;justify-content:center">
+                    <h3 class="modal-title" style="width: 100%;text-align: center;color:#fff">
+                        <i class="fa fa-user" style="margin-right:5px"></i>
+                        <%= item.device %>
+                      </h3>
+                      <button type="button" onclick="document.getElementById('<%= item._id %>').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
+                          <img  src="../images/icons/icon_wise-white/close.png" width="25">
+                      </button>
+                   
+             
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-grid-title" style="color:white;">
+                     
+                      <div class="detail-grid">
+               
+                        <p><i class="fa fa-circle" style="color:#fff"></i><label><%= item.type %></label></p>
                         <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 25px;height: 25px;margin-right: 5px;"><%= item.value %></p>
                         <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 25px;height: 25px;margin-right: 5px;">  <span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
                         <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 25px;height: 25px;margin-right: 5px;"> <span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
-                        <p><img src="/static/images/img-icon/users.png" style="width: 25px;height: 25px;"> <span><%= item.userId %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/users.png" style="width: 25px;height: 25px;"> <span><%= item.userId %></span></p>
                         <p>
-                          <a href = "#"><div class="label-border" style="padding:5px;box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);background-color: #2b6d7b1a;"><textarea name="Note" type="text" rows="2" style="width:100%;color: #000;border-bottom: 2px solid #fff !important; outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
+                          <a href = "#"><div class="label-border" ><textarea name="Note" type="text" rows="2" style="box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;width:100%;color: #000;outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
                         </p>
   
                         <div class="col-md-12" style="text-align: center;">
@@ -97,7 +140,16 @@
           <% }) %>
           </div>
           </section>
-            
+            <script>
+     $(function(){
+
+                $('.btn-edit').click(function(){
+                $('test').modal('show');
+                return false;
+                })
+
+                });
+            </script>
           <section id="content2">
               <div class="table-responsive">
                   <table class="table">

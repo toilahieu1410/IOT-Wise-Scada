@@ -6,7 +6,7 @@ label {
   margin: 0 0 -1px;
   padding: 10px;
   font-weight: 600;
-  text-align: center;
+  text-align: left;
   color: #bbb;
   border: 1px solid transparent;
 }
@@ -72,4 +72,14 @@ display: block;
 .modal.fade .modal-dialog {
   z-index: 1111;
   transform: translate(0, 0);
+}
+.fade:not(.show) {
+  opacity: 1;
+}
+.detail-grid {
+  font-size: 20px;
+}
+.modal-dialog {
+  max-width: 400px;
+
 }
