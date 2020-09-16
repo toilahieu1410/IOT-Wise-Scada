@@ -38,12 +38,12 @@
           <div  class="form-group input-with-post-icon datepicker" style="display:flex;position: relative;">
         
             <label   style="font-size: 20px;min-width: 100px;">Start Date</label>
-            <input id="date-picker-example"  type="text" style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="start-date" name="startDate" class="form-control datepicker" autocomplete="off">
+            <input id="date-picker-example" style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="start-date" name="startDate" class="form-control datepicker" autocomplete="off">
             <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
         </div>
         <div  class="form-group input-with-post-icon datepicker" style="display:flex;position: relative;">
           <label   style="font-size: 20px;min-width: 100px;">End Date</label>
-            <input   type="text" style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="end-date" name="endDate" class="form-control datepicker" autocomplete="off">
+            <input    style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="end-date" name="endDate" class="form-control datepicker" autocomplete="off">
              <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
           </div>
 
@@ -53,10 +53,15 @@
 
 </body>
 <script src="./../js/diagram/request.js"></script>
-
 <script>
+  $('.datepicker input').click(function(event){
+   $('.datepicker').data("DateTimePicker").show();
+});
+</script>
+<script>
+  $('.datepicker').pickadate();
     // Data Picker Initialization
-$('.datepicker').datepicker();
+
 </script>
 
     <script>
