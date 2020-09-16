@@ -82,7 +82,8 @@ Highcharts.chart('chart1', {
     },
     legend: {
         itemStyle: {
-           color: '#fff'
+           color: '#fff',
+           borderColor:'red'
         },
 
      
@@ -91,7 +92,8 @@ Highcharts.chart('chart1', {
         categories: arrDateTime,
         labels: {
             style: {
-                color: '#fff'
+                color: '#fff',
+                borderColor:'red'
             }
         },
     },
