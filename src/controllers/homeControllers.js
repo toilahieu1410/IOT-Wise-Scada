@@ -2,6 +2,8 @@ import {home} from './../services/index';
 import request from 'request';
 import MqttHandler from './../config/connectMQTT';
 import moment from 'moment';
+import _ from 'lodash';
+
 //Connect MQTT
 let mqttClient = new MqttHandler();
 mqttClient.connect();
@@ -70,6 +72,7 @@ let getDataChart = async(req, res) => {
     let buongDot_TS1 = [];
     let buongDot_TS2 = [];
     let apSuatGio = [];
+
     for(let i=0; i < getDataChart.length; i++) {
         let j = moment(getDataChart[i].createdAt).format('DD/MM-hh:mm a')
         dateTime.push(j);
@@ -81,8 +84,13 @@ let getDataChart = async(req, res) => {
         buongDot_TS2.push(getDataChart[i].buongDot_TS2);
         apSuatGio.push(getDataChart[i].apSuatGio);
     }
+
+    let sumNhietDoKhoiThai = _.sum(nhietDoKhoiThai);
+    let sumNhietDoNuoc = _.sum(nhietDoNuoc);
+    let sumApSuatHoi = _.sum(apSuatHoi);
     return res.render('main/chart/chart', {
         user: req.user.local.email,
+        getDataChart: getDataChart,
         nhietDoKhoiThai: nhietDoKhoiThai,
         nhietDoNuoc: nhietDoNuoc,
         apSuatHoi: apSuatHoi,
@@ -90,13 +98,20 @@ let getDataChart = async(req, res) => {
         buongDot_TS1: buongDot_TS1,
         buongDot_TS2: buongDot_TS2,
         apSuatGio: apSuatGio,
-        dateTime: dateTime
+        sumNhietDoKhoiThai: sumNhietDoKhoiThai,
+        sumNhietDoNuoc: sumNhietDoNuoc,
+        sumApSuatHoi: sumApSuatHoi,
+        dateTime: dateTime,
+        moment: moment
     })
 };
 
 let getDataAlarm = async(req, res) => {
+    let getDataAlarm = await home.getDataAlarm();
     return res.render('main/alarm/alarm', {
-        user: req.user.local.email
+        user: req.user.local.email,
+        getDataAlarm: getDataAlarm,
+        moment: moment
     })
 }
 

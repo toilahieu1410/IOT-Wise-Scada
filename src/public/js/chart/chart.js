@@ -67,10 +67,12 @@
 // hightChart('chart6', 'Buồng đốt TS2', arrDateTime, buongDot_TS2, 'Buồng đốt TS2', '(°C)');
 // hightChart('chart7', 'Áp suất gió', arrDateTime, apSuatGio, 'Áp suất gió', '(mmH2O)');
 
+// Buong dot
 Highcharts.chart('chart1', {
     chart: {
         backgroundColor:'#0c0b0b40', 
-        defaultSeriesType: 'areaspline'
+        defaultSeriesType: 'areaspline',
+        zoomType: 'x'
     },
     title: {
         text: 'Buồng đốt',
@@ -86,7 +88,7 @@ Highcharts.chart('chart1', {
      
   },
     xAxis: {
-        categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums'],
+        categories: arrDateTime,
         labels: {
             style: {
                 color: '#fff'
@@ -102,7 +104,7 @@ Highcharts.chart('chart1', {
     },
     labels: {
         items: [{
-            html: 'Total fruit consumption',
+            html: '',
             style: {
                 left: '50px',
                 top: '18px',
@@ -126,23 +128,23 @@ Highcharts.chart('chart1', {
     series: [{
         type: 'column',
         name: 'Nhiệt độ khói thải',
-        data: [3, 2, 1, 3, 4],
+        data: nhietDoKhoiThai,
         color:'#09564594',
     }, {
         type: 'column',
         name: 'Nhiệt độ nước',
-        data: [2, 3, 5, 7, 6],
+        data: nhietDoNuoc,
         color:'#666aea85'
     }, {
         type: 'column',
         name: 'Áp suất hơi',
-        data: [4, 3, 3, 9, 0],
+        data: apSuatHoi,
         color:'#b7ea669e'
     }, {
         type: 'spline',
         name: 'Áp suất gió',
         color:'#f7a35c',
-        data: [3, 2.67, 3, 6.33, 3.33],
+        data: apSuatGio,
         marker: {
             lineWidth: 2,
             lineColor: Highcharts.getOptions().colors[3],
@@ -153,18 +155,18 @@ Highcharts.chart('chart1', {
         name: 'Total consumption',
         data: [{
             name: 'Nhiệt độ khói thải',
-            y: 13,
+            y: sumNhietDoKhoiThai,
             color:'#09564594',
         }, {
             name: 'Nhiệt độ nước',
-            y: 23,
+            y: sumNhietDoNuoc,
             color:'#666aea85'
         }, {
             name: 'Áp suất hơi',
-            y: 19,
+            y: sumApSuatHoi,
             color:'#b7ea669e'
         }],
-        center: [100, 80],
+        center: [100, 0],
         size: 100,
         showInLegend: false,
         dataLabels: {
@@ -173,7 +175,7 @@ Highcharts.chart('chart1', {
     }]
 });
 
-// Create the chart
+// Bieu do nhiet do
 Highcharts.chart('chart2', {
 
     chart: {
@@ -219,7 +221,7 @@ Highcharts.chart('chart2', {
 
     tooltip: {
         // headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<b>{point.y:.2f}%</b> of total<br/>'
+        pointFormat: '<b>{point.y:.2f}'
     },
 
     series: [
@@ -229,21 +231,21 @@ Highcharts.chart('chart2', {
             data: [
                 {
                     name: "Nhiệt độ khói thải",
-                    y: 62.74,
+                    y: sumNhietDoKhoiThai,
                     drilldown: "Nhiệt độ khói thải",
                     color:'#09564594',
                 },
                 {
                     name: "Nhiệt độ nước",
-                    y: 10.57,
+                    y: sumNhietDoNuoc,
                     drilldown: "Nhiệt độ nước",
                     color:'#666aea85'
                 },
               
                 {
-                    name: "Chân không buồng đốt",
-                    y: 7.62,
-                    drilldown: 'Chân không buồng đốt',
+                    name: "Áp suất hơi",
+                    y: sumApSuatHoi,
+                    drilldown: 'Áp suất hơi',
                     color:'#b7ea669e'
                 }
             ]
@@ -293,12 +295,13 @@ Highcharts.chart('chart2', {
     }
 });
 
-
+// Bieu do ap suat
 Highcharts.chart('chart3', {
     chart: {
         type: 'column',
          backgroundColor:'#0c0b0b40',
-         defaultSeriesType: 'areaspline'
+         defaultSeriesType: 'areaspline',
+         zoomType: 'x'
     },
     title: {
         text: 'Biểu đồ áp suất',
@@ -324,7 +327,7 @@ Highcharts.chart('chart3', {
         }
     },
     xAxis: {
-        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas'],
+        categories: arrDateTime,
         labels: {
             style: {
                 color: '#fff'
@@ -356,22 +359,23 @@ Highcharts.chart('chart3', {
     },
     series: [{
         name: 'Nhiệt độ nước',
-        data: [5, 3, 4, 7, 2],
+        data: nhietDoNuoc,
         color:'#2ecc50a6',
     }, {
         name: 'Nhiệt độ khói thải',
-        data: [2, 2, 3, 2, 1],
+        data: nhietDoKhoiThai,
         color:'#ea843cb5'
     }, {
         name: 'Áp suất hơi',
-        data: [3, 4, 4, 2, 5],
+        data: apSuatHoi,
         color:'#464fb96e'
     }]
 });
 
+// Bieu do chan khong buong dot
 Highcharts.chart('chart4', {
     chart: {
-        zoomType: 'xy',
+        zoomType: 'x',
         backgroundColor:'#0c0b0b40',
     },
     title: {
@@ -399,8 +403,7 @@ Highcharts.chart('chart4', {
     },
 
     xAxis: [{
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        categories: arrDateTime,
         crosshair: true,
         labels: {
             style: {
@@ -417,14 +420,14 @@ Highcharts.chart('chart4', {
             }
         },
         title: {
-            text: 'Temperature',
+            text: 'Áp suất gió',
             style: {
                 color: Highcharts.getOptions().colors[1]
             }
         }
     }, { // Secondary yAxis
         title: {
-            text: 'Rainfall',
+            text: 'Chân không buồng đốt',
             style: {
                 color: Highcharts.getOptions().colors[0]
             }
@@ -440,31 +443,31 @@ Highcharts.chart('chart4', {
     tooltip: {
         shared: true
     },
-    legend: {
-        layout: 'vertical',
-        align: 'left',
-        x: 120,
-        verticalAlign: 'top',
-        y: 100,
-        floating: true,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || // theme
-            'rgba(255,255,255,0.25)'
-    },
+    // legend: {
+    //     layout: 'vertical',
+    //     align: 'left',
+    //     x: 120,
+    //     verticalAlign: 'top',
+    //     y: 100,
+    //     floating: true,
+    //     backgroundColor:
+    //         Highcharts.defaultOptions.legend.backgroundColor ||
+    //         'rgba(255,255,255,0.25)'
+    // },
     series: [{
-        name: 'Rainfall',
+        name: 'Chân không buồng đốt',
         type: 'column',
         yAxis: 1,
-        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+        data: chanKhongBuongDot,
         tooltip: {
-            valueSuffix: ' mm'
+            valueSuffix: '°C'
         },
         color:'#52bb3f7a'
 
     }, {
-        name: 'Temperature',
+        name: 'Áp suất gió',
         type: 'spline',
-        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        data: apSuatGio,
         tooltip: {
             valueSuffix: '°C'
         },
@@ -472,6 +475,7 @@ Highcharts.chart('chart4', {
     }]
 });
 
+// Buong dot TS1
 Highcharts.chart('chart5', {
     chart: {
         type: 'area',
@@ -491,11 +495,7 @@ Highcharts.chart('chart5', {
             color: "#fff"
             }
     },
-    // subtitle: {
-    //     text: 'Sources: <a href="https://thebulletin.org/2006/july/global-nuclear-stockpiles-1945-2006">' +
-    //         'thebulletin.org</a> &amp; <a href="https://www.armscontrol.org/factsheets/Nuclearweaponswhohaswhat">' +
-    //         'armscontrol.org</a>'
-    // },
+
     exporting: {
         buttons: {
             contextButton: {

@@ -3,14 +3,20 @@ import mongoose from 'mongoose';
 let Schema = mongoose.Schema;
 
 let AlarmSchema = new Schema({
-    namePLC: String,
+    device: String,
+    type: String,
+    value: Number,
     createdAt: Date,
     updatedAt: Date,
-    lever: Number,
-    alarm: String,
-    tag: String,
-    description: String,
-    message: String
+    userId: String,
+    isDone: Boolean,
+    note: String
 });
 
-module.exports = mongoose.model('diagram', AlarmSchema);
+AlarmSchema.statics = {
+    findAllAlarm() {
+        return this.find({}).exec();
+    }
+}
+
+module.exports = mongoose.model('alarm', AlarmSchema);
