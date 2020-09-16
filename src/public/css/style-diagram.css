@@ -106,7 +106,7 @@ p {
   margin-right: 5px;
 }
 .measure-body .title-name span{
-  color: #a9ff02bf;
+  color: #f7ce04de;
 }
 .title-name span {
   font-size: 14px;
@@ -269,7 +269,7 @@ label.control-label.col-md-7 {
 }
 
 .wise_btn-action {
-background:#234a8ad9 ;
+background:#2477648c ;
 color:#fff;
 box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     transition: all 0.3s;
@@ -277,7 +277,7 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .wise_btn-action:hover {
-background-color:#1a52abd9;
+background-color:#247764cc;
 color:#fff;
 transform: scale(1.05);
   transition: .3s;

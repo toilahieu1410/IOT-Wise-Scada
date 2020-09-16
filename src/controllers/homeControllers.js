@@ -12,17 +12,13 @@ let getHome = async (req, res) => {
         let getDiagram = await home.getDiagram();
         let getSetup = await home.getSetup();
         try {
-            request(process.env.RQ_API_NODE_RED, {json: true}, function(error, response, body) {
-                let getDataDiagram = body;
                 return res.render('main/diagram/diagram', {
                     errors: req.flash('errors'),
                     success: req.flash('success'),
                     user: req.user.local.email,
                     getDiagram: getDiagram,
-                    getSetup: getSetup,
-                    getDataDiagram: getDataDiagram
+                    getSetup: getSetup
                 })
-            })
         } catch (error) {
             res.status(500).send(error);
         }
@@ -31,14 +27,11 @@ let getHome = async (req, res) => {
 let getSetup = async(req, res) => {
     let getSetup = await home.getSetup();
     try {
-        request(process.env.RQ_API_NODE_RED, {json: true}, function(error, response, body) {
-            let getDataDiagram = body;
             return res.render('main/setup/setup', {
                 user: req.user.local.email,
                 getSetup: getSetup,
                 getDataDiagram: getDataDiagram
             })
-        })
     } catch (error) {
         res.status(500).send(error);
     }
