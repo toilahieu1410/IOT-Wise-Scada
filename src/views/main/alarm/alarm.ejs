@@ -25,7 +25,7 @@
           <section id="content1">
             <div class="row">
             <% getDataAlarm.forEach(item => { %>
-              <div style="padding: 0 15px;width: calc(100%/5);float: left;">
+              <div style="padding: 0 15px;width: calc(100%/5);float: left;margin-bottom: 15px;">
                 <div class="user-account">
                     <h3 style="text-align: center;"><%= item.device %></h3>
                     <div style="text-align: left;line-height: 30px;" class="detail-grid">
@@ -140,16 +140,7 @@
           <% }) %>
           </div>
           </section>
-            <script>
-     $(function(){
 
-                $('.btn-edit').click(function(){
-                $('test').modal('show');
-                return false;
-                })
-
-                });
-            </script>
           <section id="content2">
               <div class="table-responsive">
                   <table class="table">
