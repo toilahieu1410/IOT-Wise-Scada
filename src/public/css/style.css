@@ -1472,7 +1472,7 @@ span.count-symbol b {
   display: inline-block;
   width: 5rem !important;
   /* right: 5rem !important; */
-  height: calc(100vh - 80px);
+   height: calc(100vh - 80px); 
   background-color:#11423794 !important;
   -webkit-transition-timing-function: linear, linear, ease;
   transition-timing-function: linear, linear, ease;
@@ -1490,7 +1490,7 @@ span.count-symbol b {
 } 
 .side-nav {
     position: relative;
-    height: 100vh;
+   
 }
 .rgba-blue-strong, .rgba-blue-strong:after {
     background-color: transparent;
