@@ -79,13 +79,24 @@ let getCountAlarm = () => {
             reject(error);
         }
     })
-}
+};
 
 let removeIdAlarm = (id) => {
     return new Promise( async(resolve, reject) => {
         try {
             let removeIdAlarm = await AlarmModel.removeIdAlarm(id);
             resolve(removeIdAlarm);
+        } catch (error) {
+            reject(error);
+        }
+    })
+};
+
+let editIdAlarm = (id, data, user) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let editIdAlarm = await AlarmModel.editIdAlarm(id, data, user);
+            resolve(editIdAlarm);
         } catch (error) {
             reject(error);
         }
@@ -100,5 +111,6 @@ module.exports = {
     getDataChart: getDataChart,
     getDataAlarm: getDataAlarm,
     removeIdAlarm: removeIdAlarm,
-    getCountAlarm: getCountAlarm
+    getCountAlarm: getCountAlarm,
+    editIdAlarm: editIdAlarm
 }

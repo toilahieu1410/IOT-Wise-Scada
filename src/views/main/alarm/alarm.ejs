@@ -57,7 +57,7 @@
         <div id="<%= item._id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true" >
             <div class="modal-backdrop fade " style="opacity: 0.6;"></div> 
             <div class="modal-dialog" style="z-index: 1111;top:10%;">
-              <form class="modal-content"  method="post">
+              <form class="modal-content" action="/alarm/edit/<%= item._id %>"  method="post">
                   <div class="modal-header" style="display:flex;justify-content:center">
                     <h3 class="modal-title" style="width: 100%;text-align: center;color:#fff">
                         <i class="fa fa-user" style="margin-right:5px"></i>
@@ -80,7 +80,7 @@
                         <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
                         <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= item.userId %></span></p>
                         <p>
-                          <a href = "#"><div class="label-border" ><textarea name="Note" type="text" rows="2" style="box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;width:100%;color: #000;outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
+                          <a href = "#"><div class="label-border" ><textarea name="note" type="text" rows="2" style="box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;width:100%;color: #000;outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
                         </p>
   
                         <div class="modal-footer col-md-12" style="text-align: center;">
@@ -187,34 +187,7 @@
     </div>
 
 <!-- Start Pages -->
-<% if (pages > 0) { %>
-  <ul class="pagination text-center">
-      <% if (current == 1) { %>
-          <li class="disabled"><a>First</a></li>
-      <% } else { %>
-          <li><a href="#">First</a></li>
-      <% } %>
-      <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
-      <% if (i !== 1) { %>
-          <li class="disabled"><a>...</a></li>
-      <% } %>
-      <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
-          <% if (i == current) { %>
-              <li class="active"><a><%= i %></a></li>
-          <% } else { %>
-              <li><a href="#"><%= i %></a></li>
-          <% } %>
-          <% if (i == Number(current) + 4 && i < pages) { %>
-              <li class="disabled"><a>...</a></li>
-          <% } %>
-      <% } %>
-      <% if (current == pages) { %>
-          <li class="disabled"><a>Last</a></li>
-      <% } else { %>
-          <li><a href="#">Last</a></li>
-      <% } %>
-  </ul>
-<% } %>
+
 <!-- End Pages -->
 
 </body>
