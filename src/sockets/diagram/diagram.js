@@ -1,5 +1,5 @@
 import request from 'request';
-
+// import {pushSocketIdToArray, emitNotifyToArray, removeSocketIdFromArray} from '../../helpers/socketHelper';
 let diagram = (io) => {
     io.on('connection', () => {
         setInterval(function () {
@@ -8,8 +8,13 @@ let diagram = (io) => {
                 io.sockets.emit('requestApi', dataRequest);
             })
         }, 500)
-        
+        // socket.on('disconnect', () => {
+        //     // Xoa socket khi tat may
+        //     clients = removeSocketIdFromArray(clients, socket.request.user.id, socket);
+        // })
     });
+
+    
 }
 
 module.exports = diagram;

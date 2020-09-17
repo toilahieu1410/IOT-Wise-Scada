@@ -35,7 +35,8 @@ let initRoutes = (app) => {
     router.get('/chart', auth.checkLoggedIn, home.getDataChart );
 
     //Alarm
-    router.get('/alarm', auth.checkLoggedIn, home.getDataAlarm)
+    router.get('/alarm/:page', auth.checkLoggedIn, home.getDataAlarm);
+    router.get('/alarm/remove/:id', auth.checkLoggedIn, home.removeIdAlarm);
 
     return app.use('/', router);
 };
