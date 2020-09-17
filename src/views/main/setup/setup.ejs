@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="images/logo_favicon/favicon-trungquandev.png" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-alarm.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -20,13 +21,212 @@
 
 <body>
 
+    <div class="content-wrapper" >
+      <div class="add-account-email" style="text-align: right;position: absolute;z-index: 99;right:0;display: flex;">
+        <a href="/add-account" class="btn btn-default" style="padding:0;background-color: transparent;" title="Add new account"><img src="../images/icons/icon_wise-white/add-account1.png" style="width: 80px;height: 80px;"></a>
   
-  <figure>
-    <div id="container"></div>
-    <p class="highcharts-description">
-        Chart showing data updating every second, with old data being removed.
-    </p>
-</figure>
+    </div> 
+        <main style="margin-top: 25px;">
+
+            <input id="tab1" type="radio" name="tabs" checked>
+            <label for="tab1"><i class="fa fa-chart-bar" style="font-size: 26px;color:#fff"></i></label>
+              
+            <input id="tab2" type="radio" name="tabs">
+            <label for="tab2"><i class="fa fa-table" style="font-size: 26px;color:#fff"></i> </label>
+       
+          <section id="content1">
+            <div class="row">
+              <div style="padding: 0 15px;width: calc(100%/5);float: left;margin-bottom: 15px;">
+                <div class="user-account" style="padding-top: 15px;">
+                    <h3 style="text-align: center;"><i class="fa fa-user" style="margin-right:5px"></i>Account - 1</h3>
+                    <div style="text-align: left;line-height: 30px;" class="detail-grid">
+                      
+                        <p><img src="../images/icons/icon_wise-white/email.png" style="width: 30px;height: 30px;margin-right: 15px;"><span> sumirubber@gmail.com</span> </p>
+                        <p><img src="../images/icons/icon_wise-white/user1.png" style="width: 30px;height: 30px;margin-right: 15px;"><span> inte011_hl</span></p>
+                        <p><img src="../images/icons/icon_wise-white/position.png" style="width: 35px;height: 35px;margin-right: 15px;"><span>sales</span></p>
+                        <p><img src="../images/icons/icon_wise-white/phone.png" style="width: 30px;height: 30px;margin-right: 15px;"><span>0987654321</span></p>
+                        <p><img src="../images/icons/icon_wise-white/role.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span>admin</span></p>
+                        <div class="action-button" style="text-align:right">
+                            <a href="#">
+                              <button title="Edit" onclick="document.getElementById('1').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
+
+                              </a> &nbsp;
+                              <a onclick="return confirmDelete('Are you sure want to permanently delete this message?')" href="#">
+                            <button title="Delete" type="button" class="btn btn-default" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)">       <img src="../images/icons/icon_wise-white/delete.png" style="width: 22px;height: 22px; "></button>
+                                </a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            
+    
+        <!-- Start Modal -->
+        <div id="1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true" >
+            <div class="modal-backdrop fade " style="opacity: 0.6;"></div> 
+            <div class="modal-dialog" style="z-index: 1111;top:10%;">
+              <form class="modal-content"  method="post">
+                  <div class="modal-header" style="display:flex;justify-content:center">
+                    <h3 style="text-align: center;color:#fff"><i class="fa fa-user" style="margin-right:10px"></i>Account - 1</h3>
+                      <button type="button" onclick="document.getElementById('1').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
+                          <img  src="../images/icons/icon_wise-white/close.png" width="25">
+                      </button>
+                   
+             
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-grid-title" style="color:white;">
+                   
+                          <p name="email" value="email"><img src="../images/icons/icon_wise-white/email.png" style="width: 30px;height: 30px;margin-right: 10px;">email</p>
+                          <p style="display: flex;">
+                            <img src="../images/icons/icon_wise-white/user1.png" style="width: 30px;height: 30px;margin-right: 10px;">
+                            <textarea name="username" value="username" style="width: 100%;color: white;" rows="1">username</textarea>
+                           </p> 
+                     
+                           </p> 
+                           <p style="display: flex;">
+                             <img src="../images/icons/icon_wise-white/position.png" style="width: 30px;height: 30px;margin-right: 10px;">
+                             <textarea name="position" value="position" style="width: 100%;color: white" rows="1" class="tds-textarea dashed">position</textarea>
+                          
+                           </p>
+                           <p style="display: flex;">
+                             <img src="../images/icons/icon_wise-white/phone.png" style="width: 30px;height: 30px;margin-right: 10px;">
+                             <textarea name="phone" value="phone" style="width: 100%;color: white" rows="1">phone</textarea>
+                           </p>
+                           <p style="display: flex;">
+                             <img src="../images/icons/icon_wise-white/role.png" style="width: 30px;height: 30px;margin-right: 10px;">
+                          
+                             <select id="role" name="role" class="form-control" style="border-radius: 0; border-bottom:2px solid #fff !important;outline:none;background-color: transparent;border:none;font-size: 18px;color: white;">
+                               <option value="admin" style="background-color: #4b6980;color: white;">Admin</option>
+                               <option value="user" style="background-color: #4b6980;color: white;">User</option>
+                               <option value="guest" style="background-color: #4b6980;color: white;">Guest</option>
+                             </select>
+                           </p>
+
+
+                        <div class="modal-footer col-md-12" style="text-align: center;border-top:none">
+                          
+                          <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save</button>
+                        </div>
+
+                  </div>
+                  </div>
+             </form>
+              </div>
+          </div>
+
+          <div id="test" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true" >
+            <div class="modal-backdrop fade " style="opacity: 0.6;"></div> 
+            <div class="modal-dialog" style="z-index: 1111;">
+              <form class="modal-content"  method="post">
+                  <div class="modal-header" style="display:flex;justify-content:center">
+                    <h3 class="modal-title" style="width: 100%;text-align: center;color:#fff">
+                        <i class="fa fa-user" style="margin-right:5px"></i>
+                        22
+                      </h3>
+                      <button type="button" onclick="document.getElementById('test').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
+                          <img  src="../images/icons/icon_wise-white/close.png" width="25">
+                      </button>
+                   
+             
+                  </div>
+                  <div class="modal-body">
+
+                    <p name="email" value="email"><img src="../images/icons/icon_wise-white/email.png" style="width: 40px;height: 40px;margin-right: 5px;">email</p>
+                    <p style="display: flex;">
+                      <img src="../images/icons/icon_wise-white/user1.png" style="width: 40px;height: 40px;margin-right: 5px;">
+                      <textarea name="username" value="username" style="width: 100%;color: white;" rows="1">username</textarea>
+                     </p> 
+               
+                     </p> 
+                     <p style="display: flex;">
+                       <img src="../images/icons/icon_wise-white/position.png" style="width: 40px;height: 40px;margin-right: 5px;">
+                       <textarea name="position" value="position" style="width: 100%;color: white" rows="1" class="tds-textarea dashed">position</textarea>
+                
+                     </p>
+                     <p style="display: flex;">
+                       <img src="../images/icons/icon_wise-white/phone.png" style="width: 40px;height: 40px;margin-right: 5px;">
+                       <textarea name="phone" value="phone" style="width: 100%;color: white" rows="1">phone</textarea>
+                     </p>
+                     <p style="display: flex;">
+                       <img src="../images/icons/icon_wise-white/role.png" style="width: 40px;height: 38px;margin-right: 5px;">
+                    
+                       <select id="role" name="role" class="form-control" style="border-bottom:2px solid #fff !important;outline:none;background-color: transparent;border:none;font-size: 18px;color: white;">
+                         <option value="admin" style="background-color: #4b6980;color: white;">Admin</option>
+                         <option value="user" style="background-color: #4b6980;color: white;">User</option>
+                         <option value="guest" style="background-color: #4b6980;color: white;">Guest</option>
+                       </select>
+                     </p>
+                    
+                     <div class="col-md-12" style="text-align: center;">
+                       <button type="submit" class="btn btn-default" style="background-color: #72A95E;color: white;font-size: 18px;"><i class="fa fa-save" style="margin-right:5px;font-size: 18px;"></i>Save</button>
+                     </div>
+                    </div>
+                  </div>
+                  </div>
+             </form>
+              </div>
+        
+          <!-- End Modal -->
+        
+      
+          </section>
+        
+          <section id="content2">
+              <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="min-width: 50px;">STT</th>
+                            <th style="min-width: 80px;">Name</th>
+                            <th style="min-width: 130px;">Email</th>
+                            <th style="min-width: 130px;">Position</th>
+                            <th style="min-width: 80px;">Phone</th>
+                            <th style="min-width: 80px;">Role</th>
+                            <th style="min-width: 80px;">Action</th>
+                
+                          
+                        </tr>
+                    </thead>
+                      <tbody style="overflow-y: auto;">
+                            <tr >
+                                <td align="center">1</td>
+                                <td> 565</td>
+                                <td>66</td>
+                                <td>35643</td>
+                                <td>65</td>
+                                <td>655</td>
+                                <td>26562</td>
+
+                            </tr>
+                            <tr >
+                                <td align="center">1</td>
+                                <td> 565</td>
+                                <td>66</td>
+                                <td>35643</td>
+                                <td>65</td>
+                                <td>655</td>
+                                <td>26562</td>
+
+                                </tr>
+                                <tr >
+                                <td align="center">1</td>
+                                <td> 565</td>
+                                <td>66</td>
+                                <td>35643</td>
+                                <td>65</td>
+                                <td>655</td>
+                                <td>26562</td>
+
+                                </tr>
+                        </tbody>
+                    </table>
+                      
+              </div>
+          </section>
+    
+        </main>
+    </div>
+
 
 </body>
 <script src="js/diagram/request.js"></script>
