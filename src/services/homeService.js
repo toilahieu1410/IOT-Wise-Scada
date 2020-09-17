@@ -59,12 +59,33 @@ let getDataChart = (query) => {
     })
 }
 
-let getDataAlarm = () => {
+let getDataAlarm = (page, perPage, skip) => {
     return new Promise( async(resolve, reject) => {
         try {
-            let dataAlarm = await AlarmModel.findAllAlarm();
-
+            let dataAlarm = await AlarmModel.findAllAlarm(page, perPage, skip);
             resolve(dataAlarm);
+        } catch (error) {
+            reject(error);
+        }
+    })
+};
+
+let getCountAlarm = () => {
+    return new Promise (async (resolve, reject) => {
+        try {
+            let getCountAlarm = await AlarmModel.getCountAlarm();
+            resolve(getCountAlarm);
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
+let removeIdAlarm = (id) => {
+    return new Promise( async(resolve, reject) => {
+        try {
+            let removeIdAlarm = await AlarmModel.removeIdAlarm(id);
+            resolve(removeIdAlarm);
         } catch (error) {
             reject(error);
         }
@@ -77,5 +98,7 @@ module.exports = {
     updateSetup: updateSetup,
     resetSetup: resetSetup,
     getDataChart: getDataChart,
-    getDataAlarm: getDataAlarm
+    getDataAlarm: getDataAlarm,
+    removeIdAlarm: removeIdAlarm,
+    getCountAlarm: getCountAlarm
 }

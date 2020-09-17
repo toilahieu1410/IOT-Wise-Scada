@@ -14,8 +14,20 @@ let AlarmSchema = new Schema({
 });
 
 AlarmSchema.statics = {
-    findAllAlarm() {
-        return this.find({}).exec();
+    findAllAlarm(page, perPage, skip) {
+        return this.find({})
+        .sort({_id: -1})
+        .skip(skip)
+        .limit(perPage)
+        .exec()
+    },
+    
+    getCountAlarm() {
+        return this.count({}).exec()
+    },
+
+    removeIdAlarm(id) {
+        return  this.findByIdAndRemove(id).exec()
     }
 }
 

@@ -100,12 +100,24 @@ let getDataChart = async(req, res) => {
 };
 
 let getDataAlarm = async(req, res) => {
-    let getDataAlarm = await home.getDataAlarm();
+    let page = req.params.page
+    let perPage = 10;
+    let skip = ((perPage * page) - perPage);
+    let getDataAlarm = await home.getDataAlarm(page, perPage, skip);
+    let getCountAlarm = await home.getCountAlarm();
     return res.render('main/alarm/alarm', {
         user: req.user.local.email,
         getDataAlarm: getDataAlarm,
+        getCountAlarm: getCountAlarm,
+        pages: getCountAlarm,
+        current: page,
         moment: moment
     })
+};
+
+let removeIdAlarm = async(req, res) => {
+    await home.removeIdAlarm(req.params.id);
+    return res.redirect('/alarm');
 }
 
 module.exports = {
@@ -115,5 +127,6 @@ module.exports = {
     resetSetup: resetSetup,
     queryDateTime: queryDateTime,
     getDataChart: getDataChart,
-    getDataAlarm: getDataAlarm
+    getDataAlarm: getDataAlarm,
+    removeIdAlarm: removeIdAlarm
 };
