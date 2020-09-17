@@ -3,6 +3,7 @@ import request from 'request';
 import MqttHandler from './../config/connectMQTT';
 import moment from 'moment';
 import _ from 'lodash';
+import { body } from 'express-validator';
 
 //Connect MQTT
 let mqttClient = new MqttHandler();
@@ -29,8 +30,6 @@ let getSetup = async(req, res) => {
     try {
             return res.render('main/setup/setup', {
                 user: req.user.local.email,
-                getSetup: getSetup,
-                getDataDiagram: getDataDiagram
             })
     } catch (error) {
         res.status(500).send(error);
@@ -117,7 +116,12 @@ let getDataAlarm = async(req, res) => {
 
 let removeIdAlarm = async(req, res) => {
     await home.removeIdAlarm(req.params.id);
-    return res.redirect('/alarm');
+    return res.redirect('/alarm/1');
+};
+
+let editIdAlarm = async(req, res, next) => {
+    await home.editIdAlarm(req.params.id, req.body.note, req.user);
+    return res.redirect('back');
 }
 
 module.exports = {
@@ -128,5 +132,6 @@ module.exports = {
     queryDateTime: queryDateTime,
     getDataChart: getDataChart,
     getDataAlarm: getDataAlarm,
-    removeIdAlarm: removeIdAlarm
+    removeIdAlarm: removeIdAlarm,
+    editIdAlarm: editIdAlarm
 };

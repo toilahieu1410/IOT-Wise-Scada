@@ -27,7 +27,18 @@ AlarmSchema.statics = {
     },
 
     removeIdAlarm(id) {
-        return  this.findByIdAndRemove(id).exec()
+        return this.findByIdAndRemove(id).exec()
+    },
+
+    editIdAlarm(id, data, user) {
+        var now = new Date();
+        return this.findByIdAndUpdate(id,
+            {'updatedAt': now,
+             'note': data,
+             'userId': user.local.email,
+             'isDone': true
+            },
+        ).exec();
     }
 }
 
