@@ -297,8 +297,8 @@ hr {
 
 .login .btn-login,
 .registerBox .btn-register {
-  background-color: #4adcc1a1;
-  border-color: #4adcc1a1;
+  background-color: #17686685;
+  border-color: #17686685;
   border-radius: 5px;
   margin-top: 10px;
   border-width: 0;
@@ -313,7 +313,7 @@ hr {
 
 .login .btn-login:hover,
 .registerBox .btn-register:hover {
-  background-color: #4adcc1a1;
+  background-color: #176866e3;
   color: #FFFFFF;
 }
 

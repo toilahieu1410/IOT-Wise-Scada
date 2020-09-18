@@ -110,7 +110,6 @@ label:focus,
 } */
 
 .modal-content {
-  height: 100% !important;
   overflow: auto;
 }
 
@@ -1295,7 +1294,7 @@ h5.title-target {
 }
 .modal-dialog .modal-content {
   border-radius: 10px !important;
-  background-color: rgb(31 99 89 / 38%) ;
+  background-color: rgb(31 31 31 / 48%) ;
 }
 
 textarea {
@@ -1346,7 +1345,7 @@ select {
   margin-top:20px;
 }
 .primary-color {
-  background-color: #11423794!important;
+  background-color: #11423759!important;
 }
 .dropdown-menu.dropdown-show {
   min-width: 350px;
@@ -1370,8 +1369,10 @@ select {
 .md-form .form-control {
   margin:0;
 }
-table.table th, table.table td {
-  /* padding:0; */
+.table td, .table th {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e600;
 }
 
 .btn {
@@ -1379,7 +1380,7 @@ table.table th, table.table td {
 }
 table.table thead th {
   border-top: 1px solid #dee2e6;
-  background-color: #114a3d !important;
+  background-color: #176866e3 !important;
   color:#fff;
   font-size: 16px;
 }
@@ -1473,7 +1474,7 @@ span.count-symbol b {
   width: 5rem !important;
   /* right: 5rem !important; */
    height: calc(100vh - 80px); 
-  background-color:#11423794 !important;
+  background-color:#11423759 !important;
   -webkit-transition-timing-function: linear, linear, ease;
   transition-timing-function: linear, linear, ease;
   -webkit-transition-duration: .3s, .3s, .33s;
@@ -1763,13 +1764,13 @@ input[type="checkbox"]:checked + label.check-title:hover p:before {
   padding-bottom: 10px;
 }
 .picker__box .picker__header .picker__date-display {
-  background-color:#347684 ;
+  background-color:#1563518f!important ;
 }
 .modal-footer button {
-  background-color: #1563518f;
+  background-color: #1563518f!important;
 }
 .modal-footer button:hover {
-  background-color: #1563518f;
+  background-color: #1563518f!important;
 }
 /**************************** FORM DATE-TIME *************************/
 .chart-query {
@@ -1818,7 +1819,7 @@ rect.highcharts-button-box {
 }
 
 .wise_btn-action {
-background:#234a8ad9 ;
+background:#17686685 ;
 color:#fff;
 box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     transition: all 0.3s;
@@ -1826,7 +1827,7 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .wise_btn-action:hover {
-background-color:#1a52abd9;
+background-color:#176866e3;
 color:#fff;
 transform: scale(1.05);
   transition: .3s;
@@ -1837,8 +1838,8 @@ outline:none;
 }
 .wise_btn-action:not(:disabled):not(.disabled).active,.wise_btn-action:not(:disabled):not(.disabled):active,.show>.wise_btn-action.dropdown-toggle {
   color: #fff;
-  background-color:#0062cc;
-  border-color:#005cbf}
+  background-color:#176866e3;
+  border-color:#176866e3}
 .wise_btn-action:not(:disabled):not(.disabled).active:focus,.wise_btn-action:not(:disabled):not(.disabled):active:focus,.show>.wise_btn-action.dropdown-toggle:focus {
   box-shadow: 0 0 0 .2rem rgba(38,143,255,.5)
 }

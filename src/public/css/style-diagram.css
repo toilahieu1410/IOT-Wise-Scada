@@ -196,7 +196,7 @@ label.control-label.col-md-7 {
   border-radius: 50%;
 }
 .modal-dialog {
- 
+ top: 10%
 }
 .modal-header {
   border-bottom: 1px solid #dee2e630;
@@ -236,7 +236,7 @@ label.control-label.col-md-7 {
   background-color: #1f69584a;
 }
 .resetSetup:hover {
-  background-color: #247764;
+  background-color: #176866e3;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
 }
 

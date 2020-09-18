@@ -26,7 +26,6 @@ let initRoutes = (app) => {
     router.get('/homepage', auth.checkLoggedIn, home.getHome);
 
     //Setup
-    router.get('/setup', auth.checkLoggedIn, home.getSetup);
     router.post('/setup/plc_misubishi_1/updateValue/:id', auth.checkLoggedIn, home.updateSetup);
     router.post('/setup/plc_misubishi_1/resetValue/:id', auth.checkLoggedIn, home.resetSetup);
     
@@ -38,6 +37,12 @@ let initRoutes = (app) => {
     router.get('/alarm/:page', auth.checkLoggedIn, home.getDataAlarm);
     router.get('/alarm/remove/:id', auth.checkLoggedIn, home.removeIdAlarm);
     router.post('/alarm/edit/:id', auth.checkLoggedIn, home.editIdAlarm);
+
+    // Setting
+    router.get('/setting', auth.checkLoggedIn, auth.getDataSetting);
+    router.post('/setting/editIdUser/:id', auth.checkLoggedIn, auth.editIdUser);
+    router.post('/setting/createUser', auth.checkLoggedIn, auth.postRegister);
+    router.get('/setting/remove/:id', auth.checkLoggedIn, auth.removeIdUser);
 
     return app.use('/', router);
 };

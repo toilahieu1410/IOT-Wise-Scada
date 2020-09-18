@@ -54,6 +54,24 @@ let getLogout = (req, res) => {
     req.logout(); // remove session passport user
     req.flash('success', transSuccess.logout_success);
     return res.redirect('/');
+};
+
+let getDataSetting = async(req, res, next) => {
+    let getDataSetting = await auth.getDataSetting();
+    return res.render('main/setup/setup', {
+        user: req.user.local.email,
+        getDataSetting: getDataSetting
+    })
+};
+
+let editIdUser = async(req, res, next) => {
+    await auth.editIdUser(req.params.id, req.body);
+    return res.redirect('back');
+};
+
+let removeIdUser = async(req, res, next) => {
+    await auth.removeIdUser(req.params.id);
+    return res.redirect('back');
 }
 
  module.exports =  {
@@ -61,5 +79,8 @@ let getLogout = (req, res) => {
     postRegister: postRegister,
     checkLoggedIn: checkLoggedIn,
     getLogout: getLogout,
-    checkLoggedOut: checkLoggedOut
+    checkLoggedOut: checkLoggedOut,
+    getDataSetting:getDataSetting,
+    editIdUser: editIdUser,
+    removeIdUser: removeIdUser
  };

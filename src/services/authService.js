@@ -30,6 +30,42 @@ let register = (email, password) => {
     
 };
 
+let getDataSetting = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let getDataSetting = await UserModel.findAllUser();
+            resolve (getDataSetting);
+        } catch (error) {
+            reject (error);
+        }
+    })
+};
+
+let editIdUser = (id, body) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let editIdUser = await UserModel.editIdUser(id, body);
+            resolve(editIdUser);
+        } catch (error) {
+            reject (error);
+        }
+    })
+};
+
+let removeIdUser = (id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let removeIdUser = await UserModel.removeIdUser(id);
+            resolve(removeIdUser);
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
 module.exports = {
-    register: register
+    register: register,
+    getDataSetting: getDataSetting,
+    editIdUser: editIdUser,
+    removeIdUser: removeIdUser
 };
