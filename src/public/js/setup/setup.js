@@ -1,15 +1,15 @@
-setInterval(function() {
-    $.ajax({
-        url: 'http://10.10.11.222:1880/diagram_plc_mitsubishi',
-        complete: function(json) {
-            data = JSON.parse(json.responseText);
+// setInterval(function() {
+//     $.ajax({
+//         url: 'http://10.10.11.222:1880/diagram_plc_mitsubishi',
+//         complete: function(json) {
+//             data = JSON.parse(json.responseText);
     
-        },
-        error: function() {
-            console.log('There was an error!');
-        }
-    })
-}, 500)
+//         },
+//         error: function() {
+//             console.log('There was an error!');
+//         }
+//     })
+// }, 500)
 
 
 // Highcharts.chart('container', {

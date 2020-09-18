@@ -30,7 +30,14 @@
                     <h3 style="text-align: center;"><%= item.device %></h3>
                     <div style="text-align: left;line-height: 30px;" class="detail-grid">
 
-                        <p><i class="fa fa-circle" style="font-size: 24px;color:red;margin-right: 15px;"></i><span><%= item.type %></span></p>
+                      <% let color; %>
+                        <% if(item.isDone == true){ %>
+                          <% color = '#0109ff82' %>
+                        <% } else { %>
+                          <% color = '#f7000091' %>
+                        <% } %>
+
+                        <p><i class="fa fa-circle" style="font-size: 20px;color:<%= color %>;margin-left: 5px; margin-right: 15px"></i><span><%= item.type %></span></p>
                         <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.value %></span> </p>
                         <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
                         <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
@@ -74,7 +81,7 @@
                      
                       <div class="detail-grid">
                
-                        <p><i class="fa fa-circle" style="font-size: 24px;color:red;margin-right: 15px;"></i><span><%= item.type %></span></p>
+                        <p><i class="fa fa-circle" style="font-size: 20px;color:<%= color %>;margin-right: 15px;"></i><span><%= item.type %></span></p>
                         <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.value %></span></p>
                         <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;">  <span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
                         <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
@@ -128,8 +135,7 @@
                         <div class="col-md-12" style="text-align: center;">
                           <button type="submit" class="btn btn-default" style="background-color: #72A95E;color: white;font-size: 18px;"><i class="fa fa-save" style="margin-right:5px;font-size: 18px;"></i>Save</button>
                         </div>
-                  
-                      
+
                       </div>
                   </div>
                   </div>
@@ -157,11 +163,17 @@
                             <th style="min-width: 80px;">Updated At</th>
                             <th style="min-width: 80px;">User Updated</th>
                             <th style="min-width: 80px;">Note</th>
-                            <th style="min-width: 130px;">Action</th>
+                            <th style="min-width: 130px;">Status</th>
                           
                         </tr>
                     </thead>
                     <% for(let item = 0; item < getDataAlarm.length; item ++) { %>
+                      <% let color; %>
+                        <% if(getDataAlarm[item].isDone == true){ %>
+                          <% color = '#0109ff82' %>
+                        <% } else { %>
+                          <% color = '#f7000091' %>
+                        <% } %>
                       <tbody style="overflow-y: auto;">
 
                                 <tr >
@@ -173,7 +185,7 @@
                                 <td><%= moment(getDataAlarm[item].updatedAt).format('DD/MM-hh:mm a') %></td>
                                 <td><%= getDataAlarm[item].userId %></td>
                                 <td><%= getDataAlarm[item].note %></td>
-                                <td>Action</td>
+                                <td><p><i class="fa fa-circle" style="font-size: 20px;color:<%= color %>;margin-right: 15px;"></i><span><%= item.type %></span></p></td>
                                 </tr>
                                 
                         </tbody>
@@ -182,7 +194,36 @@
                   
               </div>
           </section>
-    
+                              <!-- Start Pages -->
+                              <% if (pages > 0) { %>
+                                <ul class="pagination pg-blue text-center">
+                                    <% if (current == 1) { %>
+                                        <li class="disabled page-item"><a class="page-link waves-effect">First</a></li>
+                                    <% } else { %>
+                                        <li class="page-item"><a class="page-link waves-effect" href="/alarm/1">First</a></li>
+                                    <% } %>
+                                    <% let i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                                    <% if (i !== 1) { %>
+                                        <li class="disabled page-item"><a class="page-link waves-effect">...</a></li>
+                                    <% } %>
+                                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                                        <% if (i == current) { %>
+                                            <li class="active page-item"><a class="page-link waves-effect"><%= i %></a></li>
+                                        <% } else { %>
+                                            <li class="page-item"><a class="page-link waves-effect" href="/alarm/<%= i %>"><%= i %></a></li>
+                                        <% } %>
+                                        <% if (i == Number(current) + 4 && i < pages) { %>
+                                            <li class="disabled page-item"><a class="page-link waves-effect">...</a></li>
+                                        <% } %>
+                                    <% } %>
+                                    <% if (current == pages) { %>
+                                        <li class="disabled page-item"><a class="page-link waves-effect">Last</a></li>
+                                    <% } else { %>
+                                        <li class="page-item"><a class="page-link waves-effect" href="/alarm/<%= pages %>">Last</a></li>
+                                    <% } %>
+                                </ul>
+                            <% } %>
+                            <!-- End Pages -->
         </main>
     </div>
 
@@ -203,3 +244,65 @@
     return false;
 }
 </script>
+<style>
+  .pagination.pg-blue .page-item.active .page-link {
+    background-color: #0c5041c4
+;
+}
+  .pagination .page-item .page-link {
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+      .simple-pagination ul {
+      margin: 0 0 20px;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+    }
+    .label-border label {
+      word-break: break-word;
+      color:white;
+      min-height: 45px;
+      overflow: hidden;
+     text-overflow: ellipsis;
+     font-weight: 500;
+     display: -webkit-box;
+       /* khoảng cách dòng */
+     max-height: 45px;      /* Chiều cao tối đa */
+     -webkit-line-clamp: 2; /* Số dòng hiển thị */
+     -webkit-box-orient: vertical;
+    }
+    .simple-pagination li {
+      display: inline-block;
+      margin-right: 5px;
+    }
+    .table thead th {
+      font-size: 14px;
+    }
+    .simple-pagination li a,
+    .simple-pagination li span {
+      color: #666;
+      padding: 5px 10px;
+      text-decoration: none;
+      border: 1px solid #EEE;
+      background-color: #FFF;
+      box-shadow: 0px 0px 10px 0px #EEE;
+    }
+    .pagination li:hover{
+      cursor: pointer;
+  }
+    .simple-pagination .current {
+      color: #FFF;
+      background-color: #FF7182;
+      border-color: #FF7182;
+    }
+    
+    .simple-pagination .prev.current,
+    .simple-pagination .next.current {
+      background: #e04e60;
+    }
+</style>

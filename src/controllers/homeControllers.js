@@ -39,13 +39,13 @@ let getSetup = async(req, res) => {
 let updateSetup = async(req, res) => {
     await home.updateSetup(req.params.id, req.body);
     mqttClient.sendMessageSetup(JSON.stringify(req.body))
-    return res.redirect('/homepage')
+    return res.redirect('back')
 };
 
 let resetSetup = async(req, res) => {
     await home.resetSetup(req.params.id);
     mqttClient.sendMessageReset('0')
-    return res.redirect('/homepage');
+    return res.redirect('back');
 };
 
 let queryDateTime = async(req, res) => {
@@ -108,7 +108,7 @@ let getDataAlarm = async(req, res) => {
         user: req.user.local.email,
         getDataAlarm: getDataAlarm,
         getCountAlarm: getCountAlarm,
-        pages: getCountAlarm,
+        pages: Math.ceil(getCountAlarm / perPage),
         current: page,
         moment: moment
     })
@@ -116,13 +116,13 @@ let getDataAlarm = async(req, res) => {
 
 let removeIdAlarm = async(req, res) => {
     await home.removeIdAlarm(req.params.id);
-    return res.redirect('/alarm/1');
+    return res.redirect('back');
 };
 
 let editIdAlarm = async(req, res, next) => {
     await home.editIdAlarm(req.params.id, req.body.note, req.user);
     return res.redirect('back');
-}
+};
 
 module.exports = {
     getHome: getHome,

@@ -101,7 +101,7 @@ let editIdAlarm = (id, data, user) => {
             reject(error);
         }
     })
-}
+};
 
 module.exports = {
     getDiagram: getDiagram,

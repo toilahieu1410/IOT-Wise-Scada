@@ -6,11 +6,13 @@ let Schema = mongoose.Schema;
 
 let UserSchema = new Schema({
     username: String,
-    role: {type: String, default: 'user'},
+    role: {type: String, default: 'User'},
     local: {
         email: {type: String, trim: true},
         password: String,
-        isActive: {type: Boolean, default: true}
+        isActive: {type: Boolean, default: true},
+        position: String,
+        phone: String
     },
     createdAt: {type: Number, default: Date.now},
     updatedAt: {type: Number, default: null},
@@ -28,7 +30,26 @@ UserSchema.statics = {
 
     findUserById(id) {
         return this.findById(id).exec();
+    },
+
+    findAllUser() {
+        return this.find({}, {username: 1, role: 1, local:1 }).exec();
+    },
+
+    editIdUser(id, body) {
+        return this.findByIdAndUpdate(id, 
+            {'username': body.username,
+             'local.position': body.position,
+             'local.phone': body.phone,
+             'role': body.role
+            }
+            ).exec();
+    },
+
+    removeIdUser(id) {
+        return this.findByIdAndRemove(id).exec();
     }
+
 };
 
 UserSchema.methods = {
