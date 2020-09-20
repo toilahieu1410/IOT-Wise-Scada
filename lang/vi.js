@@ -7,7 +7,7 @@ export const transValidation = {
 export const transErrors = {
     account_in_use: 'Email này đã được sử dụng.',
     account_removed: 'Tài khoản này đã bị bỡ khỏi hệ thống.',
-    login_failed: 'Sai tài khoản hoặc mật khẩu!',
+    login_failed: 'Your account or password is incorrect!',
     server_error: 'Có lỗi ở phía Server...'
 };
 

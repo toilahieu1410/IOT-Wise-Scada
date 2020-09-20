@@ -68,11 +68,16 @@
 // hightChart('chart7', 'Áp suất gió', arrDateTime, apSuatGio, 'Áp suất gió', '(mmH2O)');
 
 // Buong dot
+var height= $("#chart1").height();
+var width= $("#chart1").width();
 Highcharts.chart('chart1', {
     chart: {
         backgroundColor:'#0c0b0b40', 
         defaultSeriesType: 'areaspline',
-        zoomType: 'x'
+        zoomType: 'x',
+        width: width,
+        height: height,
+        
     },
     title: {
         text: 'Buồng đốt',
@@ -168,8 +173,8 @@ Highcharts.chart('chart1', {
             y: sumApSuatHoi,
             color:'#b7ea669e'
         }],
-        center: [100, 0],
-        size: 100,
+        center: [50, 0],
+        size: 80,
         showInLegend: false,
         dataLabels: {
             enabled: false
@@ -178,12 +183,16 @@ Highcharts.chart('chart1', {
 });
 
 // Bieu do nhiet do
+var height= $("#chart2").height();
+var width= $("#chart2").width();
 Highcharts.chart('chart2', {
 
     chart: {
         type: 'pie',
         backgroundColor:'#0c0b0b40', 
-        defaultSeriesType: 'areaspline'
+        defaultSeriesType: 'areaspline',
+        width: width,
+        height: height,
     },
 
     title: {
@@ -297,13 +306,17 @@ Highcharts.chart('chart2', {
     }
 });
 
-// Bieu do ap suat
+// Bieu do ap 
+var height= $("#chart3").height();
+var width= $("#chart3").width();
 Highcharts.chart('chart3', {
     chart: {
         type: 'column',
          backgroundColor:'#0c0b0b40',
          defaultSeriesType: 'areaspline',
-         zoomType: 'x'
+         zoomType: 'x',
+         width: width,
+         height: height,
     },
     title: {
         text: 'Biểu đồ áp suất',
@@ -375,10 +388,14 @@ Highcharts.chart('chart3', {
 });
 
 // Bieu do chan khong buong dot
+var height= $("#chart4").height();
+var width= $("#chart4").width();
 Highcharts.chart('chart4', {
     chart: {
         zoomType: 'x',
         backgroundColor:'#0c0b0b40',
+        width: width,
+        height: height,
     },
     title: {
         text: 'Biểu đồ chân không buồng đốt',
@@ -478,11 +495,15 @@ Highcharts.chart('chart4', {
 });
 
 // Buong dot TS1
+var height= $("#chart5").height();
+var width= $("#chart5").width();
 Highcharts.chart('chart5', {
     chart: {
         type: 'area',
         backgroundColor:'#0c0b0b40',
-        defaultSeriesType: 'areaspline'
+        defaultSeriesType: 'areaspline',
+        width: width,
+        height: height,
     },
     legend: {
         itemStyle: {

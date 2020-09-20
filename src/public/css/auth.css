@@ -390,4 +390,8 @@ hr {
 .alert {
   padding: 12px;
   margin-bottom: 10px;
+  background-color: #fff0;
+  border-color: #fff0;
+  display: inline-block;
+  color: white;
 }

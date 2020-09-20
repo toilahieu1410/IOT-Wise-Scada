@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-diagram.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -26,402 +27,408 @@
     <!-- include('navbar'); -->
 
     <%- include('../navbar/navbar.ejs') %>
-
-      <div class="content-wrapper main-panel" style="margin: 2.75rem 2.75rem;background:url(../images/background/nha-may.png);background-repeat: no-repeat;background-size: contain;background-position:bottom ;position: relative;">
-        <div class="container-fluid main-content" >
-          <div class="row content">
-            <div class="all-form">
-              <div id="form-fan" class="form-fan">
-              </div>
-  
-              <div id="form-fan-mini1" class="form-fan-mini1">
-              </div>
-  
-              <div id="form-fan-mini2" class="form-fan-mini2">
-              </div>
-            </div>
-        
-
-            <div class="form-content" >
-              <div class="item">
-                <div class="handle">
-                  <div class="user-account">
-                    <!-- <h3 style="text-align: center;padding-top: 10px;margin-bottom: 0;"><i class="fa fa-user" style="margin-right: 5px;"></i></h3> -->
-                        <div style="text-align: left;line-height: 30px;" class="detail-grid">
-                          <div class="header-title" style="display:flex;justify-content:space-between;border-bottom:2px solid #ffffff40">
-                            <h4 class="title-number" style="text-align:center;width:100%">Setup</h4>
-                            <a href="#" class="waves-light" data-toggle="modal" data-target="#editSetupModal" style="float: right;position: relative;left:-10px">
-                              <img src="../images/icons/icon_wise-white/edit.png" width="25px" >
-                            </a>
-                          </div>
-                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Áp suất chạy lò: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].apSuatChayLo %></span><br>
-                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Áp suất dừng lò: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].apSuatDungLo %></span><br>
-                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian trễ bật quạt hút: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeStartQuatHut %></span><br>
-                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian trễ tắt quạt hút:</strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeStopQuatHut %></span><br>
-                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian luân phiên bơm: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeLuanPhienBom %></span><br>
-                            <strong style="display: inline-block; min-width: 220px;font-size:18px">Khối lượng than cộng dồn: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].khoiLuongThanCongDon %></span><br>
-                            <div class="reset" style="display:flex">
-                              <strong style="display: inline-block; min-width: 220px;font-size:18px;float: left;">Reset than cộng dồn:</strong>
-                              <button href="#" type="button" data-toggle="modal" class="resetSetup" data-target="#resetSetupModal" >
-                                <span id="dv25"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.resetThanCongDon : '0'%></span>
-                                <img src="../images/icons/icon_wise-white/reset.png" width="25px" style="margin-left:5px;position: relative;top:3px">
-                              </button>
-                            </div>
-       
-                     
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                       <!-- Start Modal Edit -->
-                    <div class="modal fade" id="editSetupModal" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                          <h5 class="modal-title" style="color: #fff; text-align: center; width: 100%;" id="myModalLabel">Setup</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <img src="../images/icons/icon_wise-white/close.png" width="25px">
-                            </button>
-                            </div>
-                            <div class="modal-body">
-                              <form action="/setup/plc_misubishi_1/updateValue/<%= getSetup[0]._id %>" method="post" class="form-horizonal">
-                                  <div class="form-group">
-                                    <div class="col-md-12">
-                                      <div class="row">
-                                        <label for="exampleInputEmail1" class="control-label col-md-7">Áp suất chạy lò</label>
-                                        <div class="col-md-5">
-                                          <input type="number" name="apSuatChayLo" class="form-control" id="exampleInputEmail1" value="<%= getSetup[0].apSuatChayLo %>">
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <div class="col-md-12">
-                                      <div class="row">
-                                        <label for="exampleInputPassword1" class="control-label col-md-7">Áp suất dừng lò</label>
-                                        <div class="col-md-5">
-                                          <input type="number" name="apSuatDungLo" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].apSuatDungLo %>">
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <div class="col-md-12">
-                                      <div class="row">
-                                        <label for="exampleInputPassword1" class="control-label col-md-7">Thời gian trễ bật quạt hút</label>
-                                        <div class="col-md-5">
-                                          <input type="number" name="timeStartQuatHut" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeStartQuatHut %>">
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                    <div class="form-group">
-                                      <div class="col-md-12">
-                                        <div class="row">
-                                          <label for="exampleInputPassword1" class="control-label col-md-7">Thời gian trễ tắt quạt hút</label>
-                                          <div class="col-md-5">
-                                            <input type="number" name="timeStopQuatHut" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeStopQuatHut %>">
-                                          </div>
-                                        </div>
-                                      </div>
-                                      
-                                    </div>
-                                    <div class="form-group">
-                                      <div class="col-md-12">
-                                        <div class="row">
-                                          <label for="exampleInputPassword1" class="control-label col-md-7">Thời gian luân phiên bơm</label>
-                                          <div class="col-md-5">
-                                            <input type="number" name="timeLuanPhienBom" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeLuanPhienBom %>">
-                                          </div>
-                                        </div>
-                                      </div>
-                                    
-                                      
-                                    </div>
-                                    <div class="form-group">
-                                      <div class="col-md-12">
-                                        <div class="row">
-                                          <label for="exampleInputPassword1" class="control-label col-md-7">Khối lượng than cộng dồn</label>
-                                          <div class="col-md-5">
-                                            <input type="number" name="khoiLuongThanCongDon" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].khoiLuongThanCongDon %>">
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            <div class="modal-footer" style="border-top:none;justify-content: center;">
-                              <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save</button>
-                            </div>
-                        </form>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Modal Edit -->
-
-                    <!-- Start Modal Reset -->
-                    <div class="modal fade" id="resetSetupModal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel" style="width:100%;text-align: center;color:#fff">Reset than cộng dồn</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <img src="../images/icons/icon_wise-white/close.png" width="25px">
-                            </button>
-                            </div>
-                            <div class="modal-body">
-                              <form action="/setup/plc_misubishi_1/resetValue/<%= getSetup[0]._id %>" method="post">
-                                
-                                <div class="form-group block-button button-style1">
-                                  <!-- <label for="exampleInputPassword1">Reset</label> -->
-                                  <button type="submit" class="wise_btn wise_btn-action">Reset</button>
-                                </div>
-                                  
-                            </div>
-                          
-                        </form>
-                        </div>
-                        </div>
-                    </div>
-                    <!-- End Modal Reset -->
-              <div class="form-body col-md-6" >
-                <!-- <h2><%- getDiagram[0].namePLC %></h2> -->
-                <div class="workspace">
-                  <div class="workspace-content">
-                    <div class="measure-body" >
-                      <div class="row">
-                        <div class="col-md-12">
-                          <p class="title-name click-btn1" >
-                            <img src="../images/icons/icon-scada/nhietDoKhoiThai_white.png" width="40px">
-                            <span id="dv1" style="font-weight:bold;" class="number"></span>
-                            <span style="width:100%" class="title-parameter">Nhiệt độ </br> khói thải</span>
-                             <div class="hidden-form1">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Nhiệt độ khói thải</div>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <img src="../images/icons/icon_wise-white/close.png" width="25px">
-                                  </button>
-                                </div>
-                                <div id="chart-diagram1"></div>
-                              </div>
-                            </div> 
-                          </p>
-  
-                          <p class="title-name click-btn2">
-                            <img src="../images/icons/icon-scada/beChuaNuoc_white.png" width="40px">
-                            <span id="dv2" style="font-weight: bold;" class="number"></span>
-                            <span style="width:100%" class="title-parameter">Bể chứa </br> nước</span>
-                            <div class="hidden-form2">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Bể chứa nước</div>
-                                </div>
-                                <div id="chart-diagram2"></div>
-                              </div>
-                            </div> 
-                          </p>
-  
-                          <!-- <p class="title-name click-btn3" >
-                            <img src="../images/icons/icon-scada/bomDapBui_white.png" width="40px">
-                            <span id="dv3" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBomDapBui : '0'%></span>
-                            <span style="width:100%" class="title-parameter">Bơm dập </br> bụi</span>
-                            <div class="hidden-form3">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Bơm dập bụi</div>
-                                </div>
-                                <div id="chart-diagram3"></div>
-                              </div>
-                            </div>
-                          </p> -->
-                          
-                          <p class="title-name click-btn4">
-                            <img src="../images/icons/icon-scada/quatHut_white.png" width="40px">
-                            <span id="dv6" style="font-weight: bold;" class="number"></span>
-                            <span style="width:100%" class="title-parameter">Quạt hút</span>
-                            <div class="hidden-form4">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Quạt hút</div>
-                                </div>
-                                <div id="chart-diagram4"></div>
-                              </div>
-                            </div>
-                          </p>
-  
-                          <p class="title-name click-btn5">
-                            <img src="../images/icons/icon-scada/nhietDoNuoc_white.png" width="40px">
-                            <span id="dv7" style="font-weight: bold;" class="number"></span>
-                            <span style="width:100%" class="title-parameter">Nhiệt độ </br> nước</span>
-                            <div class="hidden-form5">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Nhiệt độ nước</div>
-                                </div>
-                                <div id="chart-diagram5"></div>
-                              </div>
-                            </div>
-                          </p>
-  
-                          <p class="title-name click-btn6" >
-                            <img src="../images/icons/icon-scada/apSuatHoi_white.png" width="40px">
-                            <span id="dv8" style="font-weight: bold;" class="number"></span>
-                            <span style="width:100%" class="title-parameter">Áp suất </br> hơi</span>
-                            <div class="hidden-form6">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Áp suất hơi</div>
-                                </div>
-                                <div id="chart-diagram6"></div>
-                              </div>
-                            </div>
-                          </p>
-  
-                          <p class="title-name click-btn7" >
-                            <img src="../images/icons/icon-scada/boHamNuoc_white.png" width="40px">
-                            <span id="dv9" style="font-weight: bold;" class="number"></span>
-                            <span style="width:100%" class="title-parameter">Bộ hâm </br> nước</span>
-                            <div class="hidden-form7">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Bộ hâm nước</div>
-                                </div>
-                                <div id="chart-diagram7"></div>
-                              </div>
-                            </div>
-                          </p>
-  
-                          <p class="title-name click-btn8" >
-                            <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="40px">
-                            <span id="dv10" style="font-weight: bold;" class="number"></span>
-                            <span style="width:100%" class="title-parameter">Buồng đốt</span>
-                            <div class="hidden-form8">
-                              <div class="item">
-                                <div class="handle">
-                                  <div class="form-chart-diagram">Buồng đốt</div>
-                                </div>
-                                <div id="chart-diagram8"></div>
-                              </div>
-                            </div>
-                          </p>
-                      </div>
-                      <div class="col-md-12">
-                        <p class="title-name click-btn9" >
-                          <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="40px">
-                          <span id="dv11" style="font-weight: bold;" class="number"></span>
-                          <span style="width:100%" class="title-parameter">Buồng đốt </br> TS1</span>
-                          <div class="hidden-form9">
-                            <div class="item">
-                              <div class="handle">
-                                <div class="form-chart-diagram">Buồng đốt TS1</div>
-                              </div>
-                              <div id="chart-diagram9"></div>
-                            </div>
-                          </div> 
-                        </p>
-  
-                        <p class="title-name click-btn10">
-                          <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="40px">
-                          <span id="dv12" style="font-weight: bold;" class="number"></span>
-                          <span style="width:100%" class="title-parameter">Buồng đốt </br> TS2</span>
-                          <div class="hidden-form10">
-                            <div class="item">
-                              <div class="handle">
-                                <div class="form-chart-diagram">Buồng đốt TS2</div>
-                              </div>
-                              <div id="chart-diagram10"></div>
-                            </div>
-                          </div>
-                        </p>
-  
-                        <p class="title-name click-btn11">
-                          <img src="../images/icons/icon-scada/apSuatGio_white.png" width="40px">
-                          <span id="dv13" style="font-weight: bold;" class="number"></span>
-                          <span style="width:100%" class="title-parameter">Áp suất </br> gió </span>
-                          <div class="hidden-form11">
-                            <div class="item">
-                              <div class="handle">
-                                <div class="form-chart-diagram">Áp suất gió</div>
-                              </div>
-                              <div id="chart-diagram11"></div>
-                            </div>
-                          </div>
-                        </p>
-  
-                        <p class="title-name click-btn12">
-                          <img src="../images/icons/icon-scada/quatDay_white.png" width="40px">
-                          <span id="dv14" style="font-weight: bold;" class="number"></span>
-                          <span style="width:100%" class="title-parameter">Quạt đẩy </span>
-                          <div class="hidden-form12">
-                            <div class="item">
-                              <div class="handle">
-                                <div class="form-chart-diagram">Quạt đẩy</div>
-                              </div>
-                              <div id="chart-diagram12"></div>
-                            </div>
-                          </div>
-                        </p>
-  
-                        <p class="title-name click-btn13" >
-                          <img src="../images/icons/icon-scada/luuLuongNuoc_white.png" width="40px">
-                          <span id="dv22" style="font-weight: bold;" class="number"></span>
-                          <span style="width:100%" class="title-parameter">Lưu lượng </br> tức thời </span>
-                          <div class="hidden-form13">
-                            <div class="item">
-                              <div class="handle">
-                                <div class="form-chart-diagram">Lưu lượng tức thời</div>
-                              </div>
-                              <div id="chart-diagram13"></div>
-                            </div>
-                          </div>
-  
-                        </p>
-                        <p class="title-name click-btn14">
-                          <img src="../images/icons/icon-scada/thanTucThoi_white.png" width="40px">
-                          <span id="dv23" style="font-weight: bold;" class="number"></span>
-                          <span style="width:100%" class="title-parameter">Than tức thời </span>
-                          <div class="hidden-form14">
-                            <div class="item">
-                              <div class="handle">
-                                <div class="form-chart-diagram">Than tức thời</div>
-                              </div>
-                              <div id="chart-diagram14"></div>
-                            </div>
-                          </div>
-                        </p>
-  
-                        <p class="title-name click-btn15">
-                          <img src="../images/icons/icon-scada/thanCongDon_white.png" width="40px">
-                          <span id="dv24" style="font-weight: bold;" class="number"></span>
-                          <span style="width:100%" class="title-parameter">Than cộng dồn</span>
-                          <div class="hidden-form15">
-                            <div class="item">
-                              <div class="handle">
-                                <div class="form-chart-diagram">Than cộng dồn</div>
-                              </div>
-                              <div id="chart-diagram15"></div>
-                            </div>
-                          </div>
-                        </p>
-  
-                        <!-- <p class="title-name">
-                          <img src="../images/icons/icon-scada/luuLuongNuoc_white.png" width="40px">
-                          <span id="dv20" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatOxy : '0'%></span>
-                          <span style="width:100%" class="title-parameter">Status</span>
-                        </p> -->
-                      </div>
-                       
-  
-                        </div>
-                    </div>
-                  </div>
+      <div class="main-panel" id="main-panel">
+        <div class="se-pre-con"></div> 
+        <div class="content-wrapper" style="margin: 2.75rem 2.75rem;background:url(../images/background/nha-may.png);background-repeat: no-repeat;background-size: contain;background-position:bottom ;position: relative;">
+          <div class="container-fluid main-content">
+            <div class="row content">
+              <div class="all-form">
+                <div id="form-fan" class="form-fan">
                 </div>
-          
+    
+                <div id="form-fan-mini1" class="form-fan-mini1">
+                </div>
+    
+                <div id="form-fan-mini2" class="form-fan-mini2">
+                </div>
               </div>
-            </div>
+          
+  
+              <div class="form-content" >
+                <div class="item">
+                  <div class="handle">
+                    <div class="user-account">
+                      <!-- <h3 style="text-align: center;padding-top: 10px;margin-bottom: 0;"><i class="fa fa-user" style="margin-right: 5px;"></i></h3> -->
+                          <div style="text-align: left;line-height: 30px;" class="detail-grid">
+                            <div class="header-title" style="display:flex;justify-content:space-between;border-bottom:2px solid #ffffff40">
+                              <h4 class="title-number" style="text-align:center;width:100%">Setup</h4>
+                              <a href="#" class="waves-light" data-toggle="modal" data-target="#editSetupModal" style="float: right;position: relative;left:-10px">
+                                <img src="../images/icons/icon_wise-white/edit.png" width="25px" >
+                              </a>
+                            </div>
+                              <strong style="display: inline-block; min-width: 220px;font-size:18px">Áp suất chạy lò: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].apSuatChayLo %></span><br>
+                              <strong style="display: inline-block; min-width: 220px;font-size:18px">Áp suất dừng lò: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].apSuatDungLo %></span><br>
+                              <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian trễ bật quạt hút: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeStartQuatHut %></span><br>
+                              <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian trễ tắt quạt hút:</strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeStopQuatHut %></span><br>
+                              <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian luân phiên bơm: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeLuanPhienBom %></span><br>
+                              <strong style="display: inline-block; min-width: 220px;font-size:18px">Khối lượng than cộng dồn: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].khoiLuongThanCongDon %></span><br>
+                              <div class="reset" style="display:flex">
+                                <strong style="display: inline-block; min-width: 220px;font-size:18px;float: left;">Reset than cộng dồn:</strong>
+                                <button href="#" type="button" data-toggle="modal" class="resetSetup" data-target="#resetSetupModal" >
+                                  <span id="dv25"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.resetThanCongDon : '0'%></span>
+                                  <img src="../images/icons/icon_wise-white/reset.png" width="25px" style="margin-left:5px;position: relative;top:3px">
+                                </button>
+                              </div>
+         
+                       
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                         <!-- Start Modal Edit -->
+                      <div class="modal fade" id="editSetupModal" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" style="color: #fff; text-align: center; width: 100%;" id="myModalLabel">Setup</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <img src="../images/icons/icon_wise-white/close.png" width="25px">
+                              </button>
+                              </div>
+                              <div class="modal-body">
+                                <form action="/setup/plc_misubishi_1/updateValue/<%= getSetup[0]._id %>" method="post" class="form-horizonal">
+                                    <div class="form-group">
+                                      <div class="col-md-12">
+                                        <div class="row">
+                                          <label for="exampleInputEmail1" class="control-label col-md-7">Áp suất chạy lò</label>
+                                          <div class="col-md-5">
+                                            <input type="number" name="apSuatChayLo" class="form-control" id="exampleInputEmail1" value="<%= getSetup[0].apSuatChayLo %>">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <div class="col-md-12">
+                                        <div class="row">
+                                          <label for="exampleInputPassword1" class="control-label col-md-7">Áp suất dừng lò</label>
+                                          <div class="col-md-5">
+                                            <input type="number" name="apSuatDungLo" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].apSuatDungLo %>">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <div class="col-md-12">
+                                        <div class="row">
+                                          <label for="exampleInputPassword1" class="control-label col-md-7">Thời gian trễ bật quạt hút</label>
+                                          <div class="col-md-5">
+                                            <input type="number" name="timeStartQuatHut" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeStartQuatHut %>">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                      <div class="form-group">
+                                        <div class="col-md-12">
+                                          <div class="row">
+                                            <label for="exampleInputPassword1" class="control-label col-md-7">Thời gian trễ tắt quạt hút</label>
+                                            <div class="col-md-5">
+                                              <input type="number" name="timeStopQuatHut" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeStopQuatHut %>">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
+                                      </div>
+                                      <div class="form-group">
+                                        <div class="col-md-12">
+                                          <div class="row">
+                                            <label for="exampleInputPassword1" class="control-label col-md-7">Thời gian luân phiên bơm</label>
+                                            <div class="col-md-5">
+                                              <input type="number" name="timeLuanPhienBom" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].timeLuanPhienBom %>">
+                                            </div>
+                                          </div>
+                                        </div>
+                                      
+                                        
+                                      </div>
+                                      <div class="form-group">
+                                        <div class="col-md-12">
+                                          <div class="row">
+                                            <label for="exampleInputPassword1" class="control-label col-md-7">Khối lượng than cộng dồn</label>
+                                            <div class="col-md-5">
+                                              <input type="number" name="khoiLuongThanCongDon" class="form-control" id="exampleInputPassword1" value="<%= getSetup[0].khoiLuongThanCongDon %>">
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              <div class="modal-footer" style="border-top:none;justify-content: center;">
+                                <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save</button>
+                              </div>
+                          </form>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End Modal Edit -->
+  
+                      <!-- Start Modal Reset -->
+                      <div class="modal fade" id="resetSetupModal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel" style="width:100%;text-align: center;color:#fff">Reset than cộng dồn</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <img src="../images/icons/icon_wise-white/close.png" width="25px">
+                              </button>
+                              </div>
+                              <div class="modal-body">
+                                <form action="/setup/plc_misubishi_1/resetValue/<%= getSetup[0]._id %>" method="post">
+                                  
+                                  <div class="form-group block-button button-style1">
+                                    <!-- <label for="exampleInputPassword1">Reset</label> -->
+                                    <button type="submit" class="wise_btn wise_btn-action">Reset</button>
+                                  </div>
+                                    
+                              </div>
+                            
+                          </form>
+                          </div>
+                          </div>
+                      </div>
+                      <!-- End Modal Reset -->
+                <div class="form-body col-md-6" >
+                  <!-- <h2><%- getDiagram[0].namePLC %></h2> -->
+                  <div class="workspace">
+                    <div class="workspace-content">
+                      <div class="measure-body" >
+                        <div class="row">
+                          <div class="col-md-12">
+                            <p class="title-name click-btn1" >
+                              <img src="../images/icons/icon-scada/nhietDoKhoiThai_white.png" width="40px">
+                              <span id="dv1" style="font-weight:bold;" class="number"></span>
+                              <span style="width:100%" class="title-parameter">Nhiệt độ </br> khói thải</span>
+                               <div class="hidden-form1">
+                                <div class="item">
+                                  <div class="handle">
+                                    <div class="form-chart-diagram">Nhiệt độ khói thải</div>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <img src="../images/icons/icon_wise-white/close.png" width="25px">
+                                    </button>
+                                  </div>
+                                  <div id="chart-diagram1"></div>
+                                </div>
+                              </div> 
+                            </p>
+    
+                            <p class="title-name click-btn2">
+                              <img src="../images/icons/icon-scada/beChuaNuoc_white.png" width="40px">
+                              <span id="dv2" style="font-weight: bold;" class="number"></span>
+                              <span style="width:100%" class="title-parameter">Bể chứa </br> nước</span>
+                              <div class="hidden-form2">
+                                <div class="item">
+                                  <div class="handle">
+                                    <div class="form-chart-diagram">Bể chứa nước</div>
+                                  </div>
+                                  <div id="chart-diagram2"></div>
+                                </div>
+                              </div> 
+                            </p>
+    
+                            <!-- <p class="title-name click-btn3" >
+                              <img src="../images/icons/icon-scada/bomDapBui_white.png" width="40px">
+                              <span id="dv3" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusBomDapBui : '0'%></span>
+                              <span style="width:100%" class="title-parameter">Bơm dập </br> bụi</span>
+                              <div class="hidden-form3">
+                                <div class="item">
+                                  <div class="handle">
+                                    <div class="form-chart-diagram">Bơm dập bụi</div>
+                                  </div>
+                                  <div id="chart-diagram3"></div>
+                                </div>
+                              </div>
+                            </p> -->
+                            
+                            <p class="title-name click-btn4">
+                              <img src="../images/icons/icon-scada/quatHut_white.png" width="40px">
+                              <span id="dv6" style="font-weight: bold;" class="number"></span>
+                              <span style="width:100%" class="title-parameter">Quạt hút</span>
+                              <div class="hidden-form4">
+                                <div class="item">
+                                  <div class="handle">
+                                    <div class="form-chart-diagram">Quạt hút</div>
+                                  </div>
+                                  <div id="chart-diagram4"></div>
+                                </div>
+                              </div>
+                            </p>
+    
+                            <p class="title-name click-btn5">
+                              <img src="../images/icons/icon-scada/nhietDoNuoc_white.png" width="40px">
+                              <span id="dv7" style="font-weight: bold;" class="number"></span>
+                              <span style="width:100%" class="title-parameter">Nhiệt độ </br> nước</span>
+                              <div class="hidden-form5">
+                                <div class="item">
+                                  <div class="handle">
+                                    <div class="form-chart-diagram">Nhiệt độ nước</div>
+                                  </div>
+                                  <div id="chart-diagram5"></div>
+                                </div>
+                              </div>
+                            </p>
+    
+                            <p class="title-name click-btn6" >
+                              <img src="../images/icons/icon-scada/apSuatHoi_white.png" width="40px">
+                              <span id="dv8" style="font-weight: bold;" class="number"></span>
+                              <span style="width:100%" class="title-parameter">Áp suất </br> hơi</span>
+                              <div class="hidden-form6">
+                                <div class="item">
+                                  <div class="handle">
+                                    <div class="form-chart-diagram">Áp suất hơi</div>
+                                  </div>
+                                  <div id="chart-diagram6"></div>
+                                </div>
+                              </div>
+                            </p>
+    
+                            <p class="title-name click-btn7" >
+                              <img src="../images/icons/icon-scada/boHamNuoc_white.png" width="40px">
+                              <span id="dv9" style="font-weight: bold;" class="number"></span>
+                              <span style="width:100%" class="title-parameter">Bộ hâm </br> nước</span>
+                              <div class="hidden-form7">
+                                <div class="item">
+                                  <div class="handle">
+                                    <div class="form-chart-diagram">Bộ hâm nước</div>
+                                  </div>
+                                  <div id="chart-diagram7"></div>
+                                </div>
+                              </div>
+                            </p>
+    
+                            <p class="title-name click-btn8" >
+                              <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="40px">
+                              <span id="dv10" style="font-weight: bold;" class="number"></span>
+                              <span style="width:100%" class="title-parameter">Buồng đốt</span>
+                              <div class="hidden-form8">
+                                <div class="item">
+                                  <div class="handle">
+                                    <div class="form-chart-diagram">Buồng đốt</div>
+                                  </div>
+                                  <div id="chart-diagram8"></div>
+                                </div>
+                              </div>
+                            </p>
+                        </div>
+                        <div class="col-md-12">
+                          <p class="title-name click-btn9" >
+                            <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="40px">
+                            <span id="dv11" style="font-weight: bold;" class="number"></span>
+                            <span style="width:100%" class="title-parameter">Buồng đốt </br> TS1</span>
+                            <div class="hidden-form9">
+                              <div class="item">
+                                <div class="handle">
+                                  <div class="form-chart-diagram">Buồng đốt TS1</div>
+                                </div>
+                                <div id="chart-diagram9"></div>
+                              </div>
+                            </div> 
+                          </p>
+    
+                          <p class="title-name click-btn10">
+                            <img src="../images/icons/icon-scada/buongDotTs1_white.png" width="40px">
+                            <span id="dv12" style="font-weight: bold;" class="number"></span>
+                            <span style="width:100%" class="title-parameter">Buồng đốt </br> TS2</span>
+                            <div class="hidden-form10">
+                              <div class="item">
+                                <div class="handle">
+                                  <div class="form-chart-diagram">Buồng đốt TS2</div>
+                                </div>
+                                <div id="chart-diagram10"></div>
+                              </div>
+                            </div>
+                          </p>
+    
+                          <p class="title-name click-btn11">
+                            <img src="../images/icons/icon-scada/apSuatGio_white.png" width="40px">
+                            <span id="dv13" style="font-weight: bold;" class="number"></span>
+                            <span style="width:100%" class="title-parameter">Áp suất </br> gió </span>
+                            <div class="hidden-form11">
+                              <div class="item">
+                                <div class="handle">
+                                  <div class="form-chart-diagram">Áp suất gió</div>
+                                </div>
+                                <div id="chart-diagram11"></div>
+                              </div>
+                            </div>
+                          </p>
+    
+                          <p class="title-name click-btn12">
+                            <img src="../images/icons/icon-scada/quatDay_white.png" width="40px">
+                            <span id="dv14" style="font-weight: bold;" class="number"></span>
+                            <span style="width:100%" class="title-parameter">Quạt đẩy </span>
+                            <div class="hidden-form12">
+                              <div class="item">
+                                <div class="handle">
+                                  <div class="form-chart-diagram">Quạt đẩy</div>
+                                </div>
+                                <div id="chart-diagram12"></div>
+                              </div>
+                            </div>
+                          </p>
+    
+                          <p class="title-name click-btn13" >
+                            <img src="../images/icons/icon-scada/luuLuongNuoc_white.png" width="40px">
+                            <span id="dv22" style="font-weight: bold;" class="number"></span>
+                            <span style="width:100%" class="title-parameter">Lưu lượng </br> tức thời </span>
+                            <div class="hidden-form13">
+                              <div class="item">
+                                <div class="handle">
+                                  <div class="form-chart-diagram">Lưu lượng tức thời</div>
+                                </div>
+                                <div id="chart-diagram13"></div>
+                              </div>
+                            </div>
+    
+                          </p>
+                          <p class="title-name click-btn14">
+                            <img src="../images/icons/icon-scada/thanTucThoi_white.png" width="40px">
+                            <span id="dv23" style="font-weight: bold;" class="number"></span>
+                            <span style="width:100%" class="title-parameter">Than tức thời </span>
+                            <div class="hidden-form14">
+                              <div class="item">
+                                <div class="handle">
+                                  <div class="form-chart-diagram">Than tức thời</div>
+                                </div>
+                                <div id="chart-diagram14"></div>
+                              </div>
+                            </div>
+                          </p>
+    
+                          <p class="title-name click-btn15">
+                            <img src="../images/icons/icon-scada/thanCongDon_white.png" width="40px">
+                            <span id="dv24" style="font-weight: bold;" class="number"></span>
+                            <span style="width:100%" class="title-parameter">Than cộng dồn</span>
+                            <div class="hidden-form15">
+                              <div class="item">
+                                <div class="handle">
+                                  <div class="form-chart-diagram">Than cộng dồn</div>
+                                </div>
+                                <div id="chart-diagram15"></div>
+                              </div>
+                            </div>
+                          </p>
+    
+                          <!-- <p class="title-name">
+                            <img src="../images/icons/icon-scada/luuLuongNuoc_white.png" width="40px">
+                            <span id="dv20" style="font-weight: bold;" class="number"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.statusQuatOxy : '0'%></span>
+                            <span style="width:100%" class="title-parameter">Status</span>
+                          </p> -->
+                        </div>
+                         
+    
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                </div>
+              </div>
+          </div>
+        </div>
         </div>
       </div>
-
+     
+            <!-- Start load page -->
+            <%- include('../loadpage/loadpage.ejs') -%>
+            <!-- End load page -->
    
 </body>
 <script>
