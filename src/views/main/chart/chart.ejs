@@ -17,6 +17,7 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <script src="https://code.highcharts.com/modules/no-data-to-display.js"></script>
+    <script src="js/chart/exportExcel/exportExcel.js"></script>
 </head>
 <!-- include('navbar'); -->
 
@@ -26,15 +27,35 @@
         <div class="se-pre-con"></div> 
         <div class="chart-query">
             <div class="form-chart-data">
-                <div class="col-md-12">
+                <div class="col-md-12" style="margin:25px 0 10px 0">
                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-header-title" style="display:inline-flex;position: relative;left:5em;">
+                                <h2 class="title" style="color:#fff;"><img src="/images/icons/icon_wise-white/chart_white.png" style="width:50px;margin-right:10px"><span style="position:relative;top:10px">Chart</span></h3>
+                                    <div class="query-datetime" style="display: flex;position: relative;left: 2em;top:10px">
+                                        <div  class="form-group input-with-post-icon " style="display:flex;position: relative;">
+                                          <h2 style="color:#fff">01/09/2020</h2>
+                                      </div>
+                                      &nbsp;&nbsp;&nbsp;
+                                      <span style="font-weight:bold;font-size:28px;color:#fff">-</span>
+                                      &nbsp;&nbsp;&nbsp;
+                                      <div  class="form-group input-with-post-icon " style="display:flex;position: relative;">
+                                        <h2 style="color:#fff">20/09/2020</h2>
+                                    </div>
+                                    </div>
+                                 
+                            </div>
+                            <div class="button-search" style="position: relative;float:right;right:5em">
+                                <button type="submit" class="btn btn-search"  href="/chart" style="background-color: #114237ab;font-size: 16px;color: white;margin:1rem 0"><img width="25" src="../images/icons/icon_wise-white/search.png"/>Search</button>
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-table">
-                                <div class="table-responsive" style="max-height: 400px;">
+                                <div class="table-responsive" style="max-height: 285px;">
                                     <table class="table" >
                                         <thead>
                                             <tr>
-                                                <th style="min-width: 100px;">Time</th>
+                                                <th style="min-width: 100px;" class="time">Time</th>
                                                 <th style="min-width: 110px;">Nhiệt độ khói thải</th>
                                                 <th style="min-width: 130px;">Nhiệt độ nước</th>
                                                 <th style="min-width: 130px;">Áp suất hơi</th>
@@ -42,7 +63,13 @@
                                                 <th style="min-width: 130px;">Buồng đốt TS1</th>
                                                 <th style="min-width: 130px;">Buồng đốt TS2</th>
                                                 <th style="min-width: 130px;">Áp suất gió</th>
-                                              
+                                                 <th style="width:50px">
+                                                    <a id="myBtn" class="dropbtn" style="color:#fff;cursor: pointer;" onclick="tablesToExcelMultiTabs(['export-chart'], ['Scada'], '', 'Excel')">
+                                                        ...
+                                                    </a>
+                                                
+                                                </th> 
+                                         
                                             </tr>
                                         </thead>
                                         <tbody style="overflow-y: auto;">
@@ -56,6 +83,7 @@
                                                     <td class="text-center"><%= item.buongDot_TS1 %></td>
                                                     <td class="text-center"><%= item.buongDot_TS2 %></td>
                                                     <td class="text-center"><%= item.apSuatGio %></td>
+                                                    <td></td>
                                                   </tr>
                                             <% }) %>
                                               
@@ -65,19 +93,78 @@
                                       </div>
                             </div>
                            
+                            <div class="form-table" style="display:none" id="export-chart" data-SheetName="Scada">
+                                <div class="table-responsive" style="max-height: 400px;">
+                                    <table style="border:0;" cellpadding="10" cellspacing="10"  >
+                                        <tr>
+                                            <td colspan="2" align="center">
+                                                <p style="font-size:18px"><b>WISE Scada</b></p>
+                                                <p> -----------o0o------------</p>
+                                            </td>
+                                            <td colspan="2" align="center">
+                                                <p style="font-size:18px"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></p>
+                                                <p style="font-weight:bold">Độc lập – Tự do – Hạnh Phúc</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                            <td colspan="2" align="center">
+                                                -----------o0o------------
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                            <td colspan="2" align="center">
+                                                ........., ngày .....&nbsp;tháng.....&nbsp;năm.....
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="table" >
+                                        <thead>
+                                            <tr>
+                                                <th style="min-width: 100px;" class="time" style="text-align:center;">Time</th>
+                                                <th style="min-width: 110px;" style="text-align:center;">Nhiệt độ khói thải</th>
+                                                <th style="min-width: 130px;" style="text-align:center;">Nhiệt độ nước</th>
+                                                <th style="min-width: 130px;" style="text-align:center;">Áp suất hơi</th>
+                                                <th style="min-width: 130px;" style="text-align:center;">Chân không buồng đốt</th>
+                                                <th style="min-width: 130px;" style="text-align:center;">Buồng đốt TS1</th>
+                                                <th style="min-width: 130px;" style="text-align:center;">Buồng đốt TS2</th>
+                                                <th style="min-width: 130px;" style="text-align:center;">Áp suất gió</th>
+                                        
+                                            </tr>
+                                        </thead>
+                                        <tbody style="overflow-y: auto;">
+                                            <% getDataChart.forEach(item => { %>
+                                                <tr >
+                                                    <td><%= moment(item.createdAt).format('DD/MM hh:mm a') %></td>
+                                                    <td class="text-center" style="text-align:center;"><%= item.nhietDoKhoiThai %></td>
+                                                    <td class="text-center" style="text-align:center;"><%= item.nhietDoNuoc %></td>
+                                                    <td class="text-center" style="text-align:center;"><%= item.apSuatHoi %></td>
+                                                    <td class="text-center" style="text-align:center;"><%= item.chanKhongBuongDot %></td>
+                                                    <td class="text-center" style="text-align:center;"><%= item.buongDot_TS1 %></td>
+                                                    <td class="text-center" style="text-align:center;"><%= item.buongDot_TS2 %></td>
+                                                    <td class="text-center" style="text-align:center;"><%= item.apSuatGio %></td>
+                                                    <td></td>
+                                                  </tr>
+                                            <% }) %>
+                                              
+                                              
+                                        </tbody>
+                                      </table>
+                                      </div>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="form-chart">
                                     <figure class="">
                                         <div id="chart2" name="chart2"></div>
                                     </figure>
-                                </div>
-                                <div class="col-md-6">
                                     <figure class="">
                                         <div id="chart3" name="chart3"></div>
                                     </figure>
                                 </div>
+                       
                               
                             </div>
                           
@@ -86,25 +173,25 @@
                 </div>
                 <div class="col-md-12">
                     <div class="row">
-                                <div class="form-chart">
-                                        <figure class="">
-                                            <div id="chart4" name="chart4"></div>
-                                        </figure>
-                                        <figure class="">
-                                            <div id="chart5" name="chart5"></div>
-                                        </figure>
-                                        <figure class="">
-                                            <div id="chart1" name="chart1"></div>
-                                        </figure>
-                                </div>
-                
+                        <div class="form-chart">
+                            <figure class="">
+                                <div id="chart4" name="chart4"></div>
+                            </figure>
+                            <figure class="">
+                                <div id="chart5" name="chart5"></div>
+                            </figure>
+                            <figure class="">
+                                <div id="chart1" name="chart1"></div>
+                            </figure>
+                        </div>
                     </div>
                 </div>
             </div>
             
         </div>
+
     
-    
+<!--     
        
     
       
@@ -112,7 +199,7 @@
 
     
   
-            <div id="chart7" name="chart7"></div>
+            <div id="chart7" name="chart7"></div> -->
        
     </div>
      <!-- Start load page -->
@@ -138,6 +225,20 @@
 <style>
       tr:nth-child(even) {
   background-color: #0c0b0b2b;
+}
+.form-group {
+    margin-bottom: 0;
+}
+tbody tr td:first-child {
+    background-color: #176866e3 ;
+    position: sticky;
+    left: -1px;
+    z-index: 2;
+}
+thead th.time:first-child, tfoot th:first-child {
+    position: sticky;
+    left: -1px;
+    z-index: 1000;
 }
     .highcharts-figure, .highcharts-data-table table {
     min-width: 360px; 

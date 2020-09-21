@@ -1374,12 +1374,14 @@ select {
   vertical-align: top;
   border-top: 1px solid #dee2e600;
 }
-
+.table tbody+tbody {
+  border-top: transparent;
+}
 .btn {
   margin: 0;
 }
 table.table thead th {
-  border-top: 1px solid #dee2e6;
+  border: transparent;
   background-color: #176866e3 !important;
   color:#fff;
   font-size: 16px;
@@ -1543,7 +1545,7 @@ span.count-symbol b {
 }
 .content-wrapper {
   padding: 1.75rem 1.75rem;
-  width: 100%;
+  /* width: 100%; */
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
@@ -1759,12 +1761,12 @@ input[type="checkbox"]:checked + label.check-title:hover p:before {
 .dropdown-item:focus, .dropdown-item:hover {
   background-color: #143961de !important;
 }
-#chart1, #chart4, #chart5, #chart6 {
-  height:400px !important;
-}
+ #chart1,#chart2,#chart3, #chart4, #chart5, #chart6 {
+  margin:0 10px;
+} 
 .form-chart {
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
+  display: flex;
+ 
 }
 .form-checkbox {
   padding-bottom: 10px;
