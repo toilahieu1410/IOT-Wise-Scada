@@ -20,11 +20,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </head>
     <%- include('./../navbar/navbar.ejs') %>
-
 <body>
     <div class="main-panel" id="main-panel">
       <div class="se-pre-con"></div> 
-      <div class="content-wrapper" >
+      <div class="content-wrapper" style="margin:0rem 1.5rem" >
         <div class="add-account-email" style="text-align: right;position: absolute;z-index: 99;display: flex; right: 57px; top: 99px">
           <a data-toggle="modal" class="openSetting" data-target="#openSetting" class="btn btn-default" style="padding:0;background-color: transparent;" title="Add new account"><img src="../images/icons/icon_wise-white/add-account1.png" style="width: 80px;height: 80px;"></a>
       </div> 
@@ -189,8 +188,9 @@
                           </tr>
                       </thead>
   
-                      <% for(item=0; item<getDataSetting.length; item++) { %>
+                  
                         <tbody style="overflow-y: auto;">
+                          <% for(item=0; item<getDataSetting.length; item++) { %>
                                   <tr >
                                   <td align="center"><%= item + 1 %></td>
                                   <td><%= getDataSetting[item].username %></td>
@@ -198,11 +198,22 @@
                                   <td><%= getDataSetting[item].local.position %></td>
                                   <td><%= getDataSetting[item].local.phone %></td>
                                   <td><%= getDataSetting[item].role %></td>
-                                  <td>26562</td>
+                                  <td>
+                                    <div class="action-button" style="text-align:right">
+                                      <a href="#">
+                                        <button title="Edit Information" onclick="document.getElementById('<%= item + 1000 %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
+                                        <button title="Change Password" onclick="document.getElementById('<%= item + 500 %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/password.png" style="width: 20px;height: 20px;"></button>
+                                        </a> &nbsp;
+                                        <a onclick="return ConfirmDelete()" href="/setting/remove/<%= getDataSetting[item]._id %>">
+                                      <button title="Delete" type="button" class="btn btn-default" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"><img src="../images/icons/icon_wise-white/delete.png" style="width: 22px;height: 22px; "></button>
+                                          </a>
+                                    </div>
+                                  </td>
   
                                   </tr>
+                                  <% } %>
                           </tbody>
-                        <% } %>
+                   
                       </table>
                         
                 </div>
@@ -229,8 +240,8 @@
 </script>
 
 <style>
-  tr:nth-child(even) {
-  background-color: #ddd;
+tr:nth-child(even) {
+  background-color: #0c0b0b2b;
 }
   .highcharts-figure, .highcharts-data-table table {
   min-width: 320px; 
