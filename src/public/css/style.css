@@ -1294,7 +1294,7 @@ h5.title-target {
 }
 .modal-dialog .modal-content {
   border-radius: 10px !important;
-  background-color: rgb(31 31 31 / 48%) ;
+  background-color: rgb(5 41 45 / 64%) ;
 }
 
 textarea {
@@ -1345,7 +1345,7 @@ select {
   margin-top:20px;
 }
 .primary-color {
-  background-color: #11423759!important;
+  background-color: #11423740!important;
 }
 .dropdown-menu.dropdown-show {
   min-width: 350px;
@@ -1474,7 +1474,7 @@ span.count-symbol b {
   width: 5rem !important;
   /* right: 5rem !important; */
    height: calc(100vh - 80px); 
-  background-color:#11423759 !important;
+  background-color:#11423733 !important;
   -webkit-transition-timing-function: linear, linear, ease;
   transition-timing-function: linear, linear, ease;
   -webkit-transition-duration: .3s, .3s, .33s;
@@ -1532,7 +1532,7 @@ span.count-symbol b {
 .main-panel {
   -webkit-transition: width 0.25s ease, margin 0.25s ease;
   transition: width 0.25s ease, margin 0.25s ease;
-  width: calc(100% - 260px);
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1759,7 +1759,13 @@ input[type="checkbox"]:checked + label.check-title:hover p:before {
 .dropdown-item:focus, .dropdown-item:hover {
   background-color: #143961de !important;
 }
-
+#chart1, #chart4, #chart5, #chart6 {
+  height:400px !important;
+}
+.form-chart {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+}
 .form-checkbox {
   padding-bottom: 10px;
 }
@@ -1771,6 +1777,9 @@ input[type="checkbox"]:checked + label.check-title:hover p:before {
 }
 .modal-footer button:hover {
   background-color: #1563518f!important;
+}
+figure div {
+
 }
 /**************************** FORM DATE-TIME *************************/
 .chart-query {
@@ -1789,6 +1798,9 @@ text.highcharts-credits {
 }
 svg.highcharts-root {
   width: 100% !important;
+  height: 100% !important;
+ /* padding:10px;
+  transform: scale(1.5);  */
 
 }
 rect.highcharts-button-box {
@@ -1873,6 +1885,67 @@ outline:none;
 .highcharts-grid.highcharts-yaxis-grid path.highcharts-grid-line {
   stroke: #cccccc59;
 }
+
+.pagination.pg-blue .page-item.active .page-link {
+  background-color: #0c5041c4
+;
+}
+.pagination .page-item .page-link {
+  color: #fff;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+    .simple-pagination ul {
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+  .label-border label {
+    word-break: break-word;
+    color:white;
+    min-height: 45px;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   font-weight: 500;
+   display: -webkit-box;
+     /* khoảng cách dòng */
+   max-height: 45px;      /* Chiều cao tối đa */
+   -webkit-line-clamp: 2; /* Số dòng hiển thị */
+   -webkit-box-orient: vertical;
+  }
+  .simple-pagination li {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  .table thead th {
+    font-size: 14px;
+  }
+  .simple-pagination li a,
+  .simple-pagination li span {
+    color: #666;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1px solid #EEE;
+    background-color: #FFF;
+    box-shadow: 0px 0px 10px 0px #EEE;
+  }
+  .pagination li:hover{
+    cursor: pointer;
+}
+  .simple-pagination .current {
+    color: #FFF;
+    background-color: #FF7182;
+    border-color: #FF7182;
+  }
+  
+  .simple-pagination .prev.current,
+  .simple-pagination .next.current {
+    background: #e04e60;
+  }
 
 /************************ END Button action ***************************/
 

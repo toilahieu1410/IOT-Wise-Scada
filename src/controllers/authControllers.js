@@ -20,18 +20,18 @@ let postRegister = async (req, res) => {
             errorArr.push(item.msg);
         });
         req.flash('errors', errorArr)
-        return res.redirect('/')
+        return res.redirect('back')
     }
 
     try {
         let createUserSuccess = await auth.register(req.body.email, req.body.password);
         successArr.push(createUserSuccess);
-        req.flash('success', successArr);
-            return res.redirect('/');
+        // req.flash('success', successArr);
+            return res.redirect('back');
     } catch (error) {
         errorArr.push(error);
-        req.flash('errors', errorArr);
-            return res.redirect('/');
+        // req.flash('errors', errorArr);
+            return res.redirect('back');
     }
     
 };

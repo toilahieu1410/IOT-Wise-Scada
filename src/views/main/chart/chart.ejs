@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
@@ -21,104 +22,102 @@
 
 <%- include('./../navbar/navbar.ejs') %>
 <body>
-    <div class="chart-query">
-        <div class="form-chart-data">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-table">
-                            <div class="table-responsive" style="max-height: 400px;">
-                                <table class="table" >
-                                    <thead>
-                                        <tr>
-                                            <th style="min-width: 100px;">Time</th>
-                                            <th style="min-width: 110px;">Nhiệt độ khói thải</th>
-                                            <th style="min-width: 130px;">Nhiệt độ nước</th>
-                                            <th style="min-width: 130px;">Áp suất hơi</th>
-                                            <th style="min-width: 130px;">Chân không buồng đốt</th>
-                                            <th style="min-width: 130px;">Buồng đốt TS1</th>
-                                            <th style="min-width: 130px;">Buồng đốt TS2</th>
-                                            <th style="min-width: 130px;">Áp suất gió</th>
-                                          
-                                        </tr>
-                                    </thead>
-                                    <tbody style="overflow-y: auto;">
-                                        <% getDataChart.forEach(item => { %>
-                                            <tr >
-                                                <td><%= moment(item.createdAt).format('DD/MM hh:mm a') %></td>
-                                                <td class="text-center"><%= item.nhietDoKhoiThai %></td>
-                                                <td class="text-center"><%= item.nhietDoNuoc %></td>
-                                                <td class="text-center"><%= item.apSuatHoi %></td>
-                                                <td class="text-center"><%= item.chanKhongBuongDot %></td>
-                                                <td class="text-center"><%= item.buongDot_TS1 %></td>
-                                                <td class="text-center"><%= item.buongDot_TS2 %></td>
-                                                <td class="text-center"><%= item.apSuatGio %></td>
-                                              </tr>
-                                        <% }) %>
-                                          
-                                          
-                                    </tbody>
-                                  </table>
-                                  </div>
-                        </div>
-                       
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <figure class="">
-                                    <div id="chart2" name="chart2"></div>
-                                </figure>
+    <div class="main-panel" id="main-panel">
+        <div class="se-pre-con"></div> 
+        <div class="chart-query">
+            <div class="form-chart-data">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-table">
+                                <div class="table-responsive" style="max-height: 400px;">
+                                    <table class="table" >
+                                        <thead>
+                                            <tr>
+                                                <th style="min-width: 100px;">Time</th>
+                                                <th style="min-width: 110px;">Nhiệt độ khói thải</th>
+                                                <th style="min-width: 130px;">Nhiệt độ nước</th>
+                                                <th style="min-width: 130px;">Áp suất hơi</th>
+                                                <th style="min-width: 130px;">Chân không buồng đốt</th>
+                                                <th style="min-width: 130px;">Buồng đốt TS1</th>
+                                                <th style="min-width: 130px;">Buồng đốt TS2</th>
+                                                <th style="min-width: 130px;">Áp suất gió</th>
+                                              
+                                            </tr>
+                                        </thead>
+                                        <tbody style="overflow-y: auto;">
+                                            <% getDataChart.forEach(item => { %>
+                                                <tr >
+                                                    <td><%= moment(item.createdAt).format('DD/MM hh:mm a') %></td>
+                                                    <td class="text-center"><%= item.nhietDoKhoiThai %></td>
+                                                    <td class="text-center"><%= item.nhietDoNuoc %></td>
+                                                    <td class="text-center"><%= item.apSuatHoi %></td>
+                                                    <td class="text-center"><%= item.chanKhongBuongDot %></td>
+                                                    <td class="text-center"><%= item.buongDot_TS1 %></td>
+                                                    <td class="text-center"><%= item.buongDot_TS2 %></td>
+                                                    <td class="text-center"><%= item.apSuatGio %></td>
+                                                  </tr>
+                                            <% }) %>
+                                              
+                                              
+                                        </tbody>
+                                      </table>
+                                      </div>
                             </div>
-                            <div class="col-md-6">
-                                <figure class="">
-                                    <div id="chart3" name="chart3"></div>
-                                </figure>
+                           
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <figure class="">
+                                        <div id="chart2" name="chart2"></div>
+                                    </figure>
+                                </div>
+                                <div class="col-md-6">
+                                    <figure class="">
+                                        <div id="chart3" name="chart3"></div>
+                                    </figure>
+                                </div>
+                              
                             </div>
                           
                         </div>
-                      
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                                <div class="form-chart">
+                                        <figure class="">
+                                            <div id="chart4" name="chart4"></div>
+                                        </figure>
+                                        <figure class="">
+                                            <div id="chart5" name="chart5"></div>
+                                        </figure>
+                                        <figure class="">
+                                            <div id="chart1" name="chart1"></div>
+                                        </figure>
+                                </div>
+                
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <figure class="">
-                                    <div id="chart4" name="chart4"></div>
-                                </figure>
-                            </div>
-                            <div class="col-md-6">
-                                <figure class="">
-                                    <div id="chart5" name="chart5"></div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <figure class="">
-                            <div id="chart1" name="chart1"></div>
-                        </figure>
-                    </div>
             
-                </div>
-            </div>
         </div>
-        
+    
+    
+       
+    
+      
+            <div id="chart6" name="chart6"></div>
+
+    
+  
+            <div id="chart7" name="chart7"></div>
+       
     </div>
-
-
-   
-
-    <figure class="">
-        <div id="chart6" name="chart6"></div>
-    </figure>
-
-    <figure class="">
-        <div id="chart7" name="chart7"></div>
-    </figure>
+     <!-- Start load page -->
+     <%- include('../loadpage/loadpage.ejs') -%>
+     <!-- End load page -->
 </body>
 <script>
     let dateTime = ['<%= dateTime %>'];
@@ -137,6 +136,9 @@
 <script src="js/chart/chart.js"></script>
 
 <style>
+      tr:nth-child(even) {
+  background-color: #0c0b0b2b;
+}
     .highcharts-figure, .highcharts-data-table table {
     min-width: 360px; 
     max-width: 800px;

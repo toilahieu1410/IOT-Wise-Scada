@@ -5,7 +5,7 @@ let diagram = (io) => {
         setInterval(function () {
             request(process.env.RQ_API_NODE_RED, {json: true}, function(error, response, body) {
                 let dataRequest = body;
-                io.sockets.emit('requestApi', dataRequest);
+                    io.sockets.emit('requestApi', dataRequest);
             })
         }, 500)
         // socket.on('disconnect', () => {
