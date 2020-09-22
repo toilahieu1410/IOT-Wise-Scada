@@ -103,6 +103,17 @@ let editIdAlarm = (id, data, user) => {
     })
 };
 
+let alarmQueryAlarm = (query) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let alarmQueryAlarm = await AlarmModel.alarmQueryAlarm(query);
+            resolve(alarmQueryAlarm);
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
 module.exports = {
     getDiagram: getDiagram,
     getSetup: getSetup,
@@ -112,5 +123,6 @@ module.exports = {
     getDataAlarm: getDataAlarm,
     removeIdAlarm: removeIdAlarm,
     getCountAlarm: getCountAlarm,
-    editIdAlarm: editIdAlarm
+    editIdAlarm: editIdAlarm,
+    alarmQueryAlarm: alarmQueryAlarm
 }

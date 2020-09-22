@@ -34,19 +34,22 @@
                                 <h2 class="title" style="color:#fff;"><img src="/images/icons/icon_wise-white/chart_white.png" style="width:50px;margin-right:10px"><span style="position:relative;top:10px">Chart</span></h3>
                                     <div class="query-datetime" style="display: flex;position: relative;left: 2em;top:10px">
                                         <div  class="form-group input-with-post-icon " style="display:flex;position: relative;">
-                                          <h2 style="color:#fff">01/09/2020</h2>
+                                          <h2 style="color:#fff"><%= startDate %></h2>
                                       </div>
                                       &nbsp;&nbsp;&nbsp;
                                       <span style="font-weight:bold;font-size:28px;color:#fff">-</span>
                                       &nbsp;&nbsp;&nbsp;
                                       <div  class="form-group input-with-post-icon " style="display:flex;position: relative;">
-                                        <h2 style="color:#fff">20/09/2020</h2>
+                                        <h2 style="color:#fff"><%= endDate %></h2>
                                     </div>
                                     </div>
                                  
                             </div>
                             <div class="button-search" style="position: relative;float:right;right:5em">
-                                <button type="submit" class="btn btn-search"  href="/chart" style="background-color: #114237ab;font-size: 16px;color: white;margin:1rem 0"><img width="25" src="../images/icons/icon_wise-white/search.png"/>Search</button>
+                                <a href="/chart/query">
+                                    <button type="submit" class="btn btn-search" style="background-color: #114237ab;font-size: 16px;color: white;margin:1rem 0"><img width="25" src="../images/icons/icon_wise-white/search.png"/>Search</button>
+                                </a>
+                                
                             </div>
                         </div>
                         <div class="col-md-6">

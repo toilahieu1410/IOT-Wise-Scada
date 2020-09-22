@@ -39,6 +39,14 @@ AlarmSchema.statics = {
              'isDone': true
             },
         ).exec();
+    },
+
+    alarmQueryAlarm(query) {
+        return this.find({
+            $and: [
+                {'createdAt': {$gte: new Date(query.startDateAlarm)}}
+            ]
+        }, {}).exec();
     }
 }
 

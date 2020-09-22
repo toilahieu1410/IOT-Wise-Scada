@@ -1,0 +1,179 @@
+
+<html lang="en">
+  <head>
+      <title>Wise Scada</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/css/mdb.min.css"/>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <link rel="stylesheet" href="../css/style.css">
+      <link rel="stylesheet" href="../css/style-alarm.css" >
+  
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/jquery.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/mdb.min.js"></script>
+  
+   
+  
+  </head>
+      <%- include('./../navbar/navbar.ejs') %>
+  
+  <body>
+    <div class="main-panel" id="main-panel">
+      <div class="se-pre-con"></div> 
+      <div class="content-wrapper" style="margin:0rem 1.5rem">
+        <main style="position: relative;">
+            <input id="tab1" type="radio" name="tabs" checked>
+            <label for="tab1"><i class="fa fa-chart-bar" style="font-size: 26px;color:#fff"></i></label>
+              
+            <input id="tab2" type="radio" name="tabs">
+            <label for="tab2"><i class="fa fa-table" style="font-size: 26px;color:#fff"></i> </label>
+  
+            <form action="/alarm/query" method="post">
+              <div class="search-datetime" style="position: absolute;right:0;display: flex;top:0">
+                <div  class="form-group input-with-post-icon " style="display:flex;position: relative;">
+              
+                  <!-- <label   style="font-size: 20px;min-width: 115px;color:#fff">Start Date</label> -->
+                  <input id="date-picker-example" style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="start-date-alarm" name="startDateAlarm" class="form-control datepicker" autocomplete="off">
+                  <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
+              </div>
+              <!-- <div  class="form-group input-with-post-icon " style="display:flex;position: relative;margin-left: 10px;">
+                <label   style="font-size: 20px;min-width: 115px;color:#fff">End Date</label>
+                  <input    style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="end-date-alarm" name="endDateAlarm" class="form-control datepicker" autocomplete="off">
+                   <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
+                </div> -->
+      
+                  <button type="submit" class="btn btn-search" href="/alarm/query" style="background-color: #114237ab;font-size: 16px;color: white;margin:1rem 0;margin-left: 20px;top:-15px;position: relative;"><img width="25" src="../images/icons/icon_wise-white/search.png"/></button>
+              </div>
+            </form>
+  
+          <section id="content1">
+            <div class="row">
+            <% alarmQueryAlarm.forEach(item => { %>
+              <div style="padding: 0 15px;width: calc(100%/5);float: left;margin-bottom: 15px;">
+                <div class="user-account">
+                    <h3 style="text-align: center;"><%= item.device %></h3>
+                    <div style="text-align: left;line-height: 30px;" class="detail-grid">
+  
+                      <% let color; %>
+                        <% if(item.isDone == true){ %>
+                          <% color = '#0109ff82' %>
+                        <% } else { %>
+                          <% color = '#f7000091' %>
+                        <% } %>
+  
+                        <p><i class="fa fa-circle" style="font-size: 20px;color:<%= color %>;margin-left: 5px; margin-right: 15px"></i><span><%= item.type %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.value %></span> </p>
+                        <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
+                        <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.userId %></span></p>
+                        <div class="label-border" style="padding:5px;box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);background-color: #2b6d7b1a"><a href="#"><label><%= item.note %></label></a></div>
+                        <p></p>
+                        <div class="action-button" style="text-align:right">
+                            <a href="#">
+                              <button title="Edit" onclick="document.getElementById('<%= item._id %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
+                            </a> &nbsp;
+                            <a onclick="return ConfirmDelete()" href="/alarm/remove/<%= item._id %>">
+                              <button title="Delete" type="button" class="btn btn-default" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)">       <img src="../images/icons/icon_wise-white/delete.png" style="width: 22px;height: 22px; "></button>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+  
+          <% }) %>
+          </div>
+          </section>
+  
+          <section id="content2">
+              <div class="table-responsive">
+                
+  
+                
+                  <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="min-width: 50px;">STT</th>
+                            <th style="min-width: 80px;">Alarm</th>
+                            <th style="min-width: 130px;">Type</th>
+                            <th style="min-width: 80px;">Value</th>
+                            <th style="min-width: 80px;">Created At</th>
+                            <th style="min-width: 80px;">Updated At</th>
+                            <th style="min-width: 80px;">User Updated</th>
+                            <th style="min-width: 150px;">Note</th>
+                            <th style="min-width: 130px;">Status</th>
+                          
+                        </tr>
+                    </thead>
+                  
+                      <tbody style="overflow-y: auto;">
+                        <% for(let item = 0; item < alarmQueryAlarm.length; item ++) { %>
+                          <% let color; %>
+                            <% if(alarmQueryAlarm[item].isDone == true){ %>
+                              <% color = '#0109ff82' %>
+                            <% } else { %>
+                              <% color = '#f7000091' %>
+                            <% } %>
+                                <tr >
+                                <td align="center"><%= item +1 %></td>
+                                <td><%= alarmQueryAlarm[item].device %></td>
+                                <td><%= alarmQueryAlarm[item].type %></td>
+                                <td><%= alarmQueryAlarm[item].value %></td>
+                                <td><%= moment(alarmQueryAlarm[item].createdAt).format('DD/MM-hh:mm a') %></td>
+                                <td><%= moment(alarmQueryAlarm[item].updatedAt).format('DD/MM-hh:mm a') %></td>
+                                <td><%= alarmQueryAlarm[item].userId %></td>
+                                <td><%= alarmQueryAlarm[item].note %></td>
+                                <td><p><i class="fa fa-circle" style="font-size: 20px;color:<%= color %>;margin-right: 15px;"></i><span><%= item.type %></span></p></td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                 
+                    </table>
+                  
+              </div>
+          </section>
+                             
+        </main>
+    </div>
+    </div>
+        <!-- Start load page -->
+        <%- include('./../loadpage/load-alarm.ejs') -%>
+        <!-- End load page -->
+  </body>
+  
+  </html>
+  
+  <script>
+    $('.datepicker input').click(function(event){
+     $('.datepicker').data("datepicker").show();
+  });
+  </script>
+  
+  
+      <script>
+        $('.datepicker').pickadate();
+          $('#end-date-alarm').datepicker({
+      dateFormat: "yy/mm/dd" ,
+      
+    });
+  
+    $("#start-date-alarm").datepicker({
+      dateFormat: "yy/mm/dd",
+      allowInputToggle: true,
+      onSelect: function(date) {
+        var date1 = $('#start-date-alarm').datepicker('getDate');
+        var date = new Date(Date.parse(date1));
+        date.setDate(date.getDate());
+        var newDate = date.toDateString();
+        newDate = new Date(Date.parse(newDate));
+        $('#end-date-alarm').datepicker("option", "minDate", newDate);
+      }
+    });
+  
+  
+      </script>
+  

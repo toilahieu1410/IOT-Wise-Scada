@@ -37,6 +37,7 @@ let initRoutes = (app) => {
     router.get('/alarm/:page', auth.checkLoggedIn, home.getDataAlarm);
     router.get('/alarm/remove/:id', auth.checkLoggedIn, home.removeIdAlarm);
     router.post('/alarm/edit/:id', auth.checkLoggedIn, home.editIdAlarm);
+    router.post('/alarm/query', auth.checkLoggedIn,home.alarmQueryAlarm);
 
     // Setting
     router.get('/setting', auth.checkLoggedIn, auth.getDataSetting);

@@ -55,6 +55,8 @@ let queryDateTime = async(req, res) => {
 }
 
 let getDataChart = async(req, res) => {
+    let startDate = moment(req.query.startDate).format('DD/MM/YYYY');
+    let endDate = moment(req.query.endDate).format('DD/MM/YYYY');
     let getDataChart = await home.getDataChart(req.query);
     let dateTime = [];
     let nhietDoKhoiThai = [];
@@ -94,6 +96,8 @@ let getDataChart = async(req, res) => {
         sumNhietDoNuoc: sumNhietDoNuoc,
         sumApSuatHoi: sumApSuatHoi,
         dateTime: dateTime,
+        startDate: startDate,
+        endDate: endDate,
         moment: moment
     })
 };
@@ -124,6 +128,16 @@ let editIdAlarm = async(req, res, next) => {
     return res.redirect('back');
 };
 
+let alarmQueryAlarm = async(req, res, next) => {
+    console.log(req.body)
+    let alarmQueryAlarm = await home.alarmQueryAlarm(req.body);
+    return res.render('main/alarm/searchAlarm', {
+        user: req.user.local.email,
+        alarmQueryAlarm: alarmQueryAlarm,
+        moment: moment
+    });
+}
+
 module.exports = {
     getHome: getHome,
     getSetup: getSetup,
@@ -133,5 +147,6 @@ module.exports = {
     getDataChart: getDataChart,
     getDataAlarm: getDataAlarm,
     removeIdAlarm: removeIdAlarm,
-    editIdAlarm: editIdAlarm
+    editIdAlarm: editIdAlarm,
+    alarmQueryAlarm: alarmQueryAlarm
 };
