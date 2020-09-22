@@ -32,21 +32,25 @@
             
           <input id="tab2" type="radio" name="tabs">
           <label for="tab2"><i class="fa fa-table" style="font-size: 26px;color:#fff"></i> </label>
-          <div class="search-datetime" style="position: absolute;right:0;display: flex;top:0">
-            <div  class="form-group input-with-post-icon " style="display:flex;position: relative;">
-          
-              <label   style="font-size: 20px;min-width: 115px;color:#fff">Start Date</label>
-              <input id="date-picker-example" style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="start-date-alarm" name="startDateAlarm" class="form-control datepicker" autocomplete="off">
-              <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
-          </div>
-          <div  class="form-group input-with-post-icon " style="display:flex;position: relative;margin-left: 10px;">
-            <label   style="font-size: 20px;min-width: 115px;color:#fff">End Date</label>
-              <input    style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="end-date-alarm" name="endDateAlarm" class="form-control datepicker" autocomplete="off">
-               <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
+
+          <form action="/alarm/query" method="post">
+            <div class="search-datetime" style="position: absolute;right:0;display: flex;top:0">
+              <div  class="form-group input-with-post-icon " style="display:flex;position: relative;">
+            
+                <!-- <label   style="font-size: 20px;min-width: 115px;color:#fff">Start Date</label> -->
+                <input id="date-picker-example" style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="start-date-alarm" name="startDateAlarm" class="form-control datepicker" autocomplete="off">
+                <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
             </div>
-  
-          <button type="submit" class="btn btn-search"  href="/chart" style="background-color: #114237ab;font-size: 16px;color: white;margin:1rem 0;margin-left: 20px;top:-15px;position: relative;"><img width="25" src="../images/icons/icon_wise-white/search.png"/></button>
-          </div>
+            <!-- <div  class="form-group input-with-post-icon " style="display:flex;position: relative;margin-left: 10px;">
+              <label   style="font-size: 20px;min-width: 115px;color:#fff">End Date</label>
+                <input    style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="end-date-alarm" name="endDateAlarm" class="form-control datepicker" autocomplete="off">
+                 <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
+              </div> -->
+    
+                <button type="submit" class="btn btn-search" href="/alarm/query" style="background-color: #114237ab;font-size: 16px;color: white;margin:1rem 0;margin-left: 20px;top:-15px;position: relative;"><img width="25" src="../images/icons/icon_wise-white/search.png"/></button>
+            </div>
+          </form>
+
         <section id="content1">
           <div class="row">
           <% getDataAlarm.forEach(item => { %>

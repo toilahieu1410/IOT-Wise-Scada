@@ -148,6 +148,79 @@ socket.on('requestApi', function abc(getDataDiagram) {
 //     });
 // });
 
+var View = function () {
+  var zoom = 1,
+      end,
+      scrolling = 0,
+      scrolled = 0,
+      posX = 0,
+      posY = 0,
+      board = document.getElementById('board'),
+      view = document.getElementById('view'),
+      transformPrefix, transform;
+
+  
+  function GetVendorPrefix(arrayOfPrefixes) {
+    for (var i = 0; i < arrayOfPrefixes.length; ++i) {
+      if (typeof board.style[arrayOfPrefixes[i]] != 'undefined') {
+        return arrayOfPrefixes[i];
+      }
+    }
+  }
+  
+  transformPrefix = GetVendorPrefix(["transform", "msTransform", "MozTransform", "webkitTransform", "OTransform"]);
+  
+  function applyView() {
+    board.style[transformPrefix] = 'scale(' + zoom + ') ' + 'translate3d(' + posX + 'px,' + posY + 'px,0)';
+  }
+  
+  view.addEventListener('wheel', function (e) {
+
+    if ((1 !== zoom && e.deltaY > 0) ||
+        (0.1 !== zoom && e.deltaY < 0)) {
+    
+      e.deltaY > 0 ? scrolling++ : scrolling--;
+
+      if (scrolling % 1 === 0) {
+        zoom += (scrolling / 50);
+        if (zoom > 1) {
+          zoom = 1;
+        }
+        if (zoom < 0.1) {
+          zoom = 0.1;
+        }
+
+        applyView();
+      }
+      
+      clearTimeout(end);
+
+      end = setTimeout(function () {
+        scrolled = 0;
+        scrolling = 0;
+      }, 20);
+    
+    }
+  });
+  
+  view.onmousedown = function (e) {
+    var prevX = e.clientX,
+        prevY = e.clientY;
+  
+    view.onmousemove = function (ev) {
+
+      posX += (ev.clientX - prevX) * (1 / zoom);
+      posY += (ev.clientY - prevY) * (1 / zoom);
+      prevX = ev.clientX;
+      prevY = ev.clientY;
+      applyView();
+    }
+  };
+  view.onmouseup = function () {
+    view.onmousemove = null;
+  };
+}();
+
 var items = document.querySelectorAll('.item');
 for ( var i=0, len = items.length; i < len; i++ ) {
   var item = items[i];
