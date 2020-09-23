@@ -58,7 +58,10 @@
                                     <table class="table" >
                                         <thead>
                                             <tr>
-                                                <th style="min-width: 100px;" class="time">Time</th>
+                                            
+                                                <th style="min-width: 100px;display: grid;text-align: center;" class="time"> <a id="myBtn" class="dropbtn" style="color:#fff;cursor: pointer;" onclick="tablesToExcelMultiTabs(['export-chart'], ['Scada'], '', 'Excel')">
+                                                    ...
+                                                </a><span>Time</span></th>
                                                 <th style="min-width: 110px;">Nhiệt độ khói thải</th>
                                                 <th style="min-width: 130px;">Nhiệt độ nước</th>
                                                 <th style="min-width: 130px;">Áp suất hơi</th>
@@ -66,18 +69,14 @@
                                                 <th style="min-width: 130px;">Buồng đốt TS1</th>
                                                 <th style="min-width: 130px;">Buồng đốt TS2</th>
                                                 <th style="min-width: 130px;">Áp suất gió</th>
-                                                 <th style="width:50px">
-                                                    <a id="myBtn" class="dropbtn" style="color:#fff;cursor: pointer;" onclick="tablesToExcelMultiTabs(['export-chart'], ['Scada'], '', 'Excel')">
-                                                        ...
-                                                    </a>
-                                                
-                                                </th> 
+                                               
                                          
                                             </tr>
                                         </thead>
                                         <tbody style="overflow-y: auto;">
                                             <% getDataChart.forEach(item => { %>
                                                 <tr >
+                                              
                                                     <td><%= moment(item.createdAt).format('DD/MM hh:mm a') %></td>
                                                     <td class="text-center"><%= item.nhietDoKhoiThai %></td>
                                                     <td class="text-center"><%= item.nhietDoNuoc %></td>
@@ -86,7 +85,7 @@
                                                     <td class="text-center"><%= item.buongDot_TS1 %></td>
                                                     <td class="text-center"><%= item.buongDot_TS2 %></td>
                                                     <td class="text-center"><%= item.apSuatGio %></td>
-                                                    <td></td>
+                                                
                                                   </tr>
                                             <% }) %>
                                               

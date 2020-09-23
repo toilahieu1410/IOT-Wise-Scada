@@ -42,7 +42,7 @@ let initRoutes = (app) => {
     // Setting
     router.get('/setting', auth.checkLoggedIn, auth.getDataSetting);
     router.post('/setting/editIdUser/:id', auth.checkLoggedIn, auth.editIdUser);
-    router.post('/setting/createUser', auth.checkLoggedIn, auth.postRegister);
+    router.post('/setting/createUser', auth.postRegister);
     router.get('/setting/remove/:id', auth.checkLoggedIn, auth.removeIdUser);
 
     return app.use('/', router);
