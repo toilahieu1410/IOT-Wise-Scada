@@ -118,7 +118,7 @@ Highcharts.chart('chart1', {
                 color: ( // theme
                     Highcharts.defaultOptions.title.style &&
                     Highcharts.defaultOptions.title.style.color
-                ) || 'white'
+                ),
             }
         }]
     },
@@ -306,7 +306,7 @@ Highcharts.chart('chart2', {
     }
 });
 
-// Bieu do ap 
+// Bieu do ap suat
 var height= $("#chart3").height();
 var width= $("#chart3").width();
 Highcharts.chart('chart3', {
@@ -441,7 +441,8 @@ Highcharts.chart('chart4', {
         title: {
             text: 'Áp suất gió',
             style: {
-                color: Highcharts.getOptions().colors[1]
+                color: Highcharts.getOptions().colors[1],
+                color: '#fff'
             }
         }
     }, { // Secondary yAxis
@@ -543,7 +544,7 @@ Highcharts.chart('chart5', {
     },
     yAxis: {
         title: {
-            text: 'Nuclear weapon states',
+            text: '°C',
             style: {
                 color: "#fff"
                 }
@@ -551,7 +552,11 @@ Highcharts.chart('chart5', {
         labels: {
             formatter: function () {
                 return this.value / 10 + 'k';
-            }
+                
+            },
+            style: {
+                color: "#fff"
+                }
               
         },
         style: {

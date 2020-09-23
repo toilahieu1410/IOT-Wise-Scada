@@ -52,4 +52,9 @@ socket.on('requestApi', function (getDataDiagram) {
     }
 })
 
+// $(document).ready(function(){
+//     $('#btnResetThanCongDon').click(function(){
+//         socket.emit('resetThanCongDon', $('#exampleInputPassword1').val());
+//     })
+// })
 

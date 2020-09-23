@@ -1380,6 +1380,11 @@ select {
 .btn {
   margin: 0;
 }
+table.table th, table.table td {
+   padding-top: 1rem; 
+   padding-bottom: 1rem; 
+   font-size:18px;
+}
 table.table thead th {
   border: transparent;
   background-color: #176866e3 !important;
@@ -1887,7 +1892,10 @@ outline:none;
 .highcharts-grid.highcharts-yaxis-grid path.highcharts-grid-line {
   stroke: #cccccc59;
 }
-
+text.highcharts-axis-title tspan {
+  /* color: red !important; */
+  fill: #fff;
+}
 .pagination.pg-blue .page-item.active .page-link {
   background-color: #0c5041c4
 ;
