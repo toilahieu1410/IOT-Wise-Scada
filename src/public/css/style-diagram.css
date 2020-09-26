@@ -55,19 +55,28 @@ p {
   box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
 }
 #form-fan {
-  position: relative;
-  top: 35em;
-  left: 26em;
+  position: absolute;
+  top: 39rem;
+  left: 12.2em;
+  display: inline-block;
 }
 #form-fan-mini1 {
   position: relative;
-  top: 35em;
-  left: 57em;
+  top: 37.5rem;
+  left: 23.2em;
+  display: inline-block;
 }
 #form-fan-mini2 {
   position: relative;
-  top: 35em;
-  left: 74em;
+  top: 37.5rem;
+  left: 28.8em;
+  display: inline-block;
+}
+#form-fan-mini3 {
+  position: relative;
+  top: 30rem;
+  left: 24.2em;
+  display: inline-block;
 }
 .detail-grid {
   box-shadow: inset 0 4px 2px rgba(255,255,255,0.1), 0 4px 4px rgba(0,0,0,0.5), 0 7px 7px 1px rgba(0,0,0,0.3);
@@ -80,7 +89,7 @@ p {
 .measure-body .title-name {
   float: left;
   margin-right:8px;
-  display: inline-block;
+  display: grid;
   border-radius: 5px;
   cursor: move;
   padding: 8px;
@@ -103,7 +112,7 @@ p {
 }
 .title-name img {
   height: 35px;
-  margin-right: 5px;
+  margin: 0 auto;
 }
 .measure-body .title-name span{
   color: #f7ce04de;
