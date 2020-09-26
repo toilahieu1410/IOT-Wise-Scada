@@ -56,25 +56,25 @@ p {
 }
 #form-fan {
   position: absolute;
-  top: 39rem;
+  top: 45rem;
   left: 12.2em;
   display: inline-block;
 }
 #form-fan-mini1 {
   position: relative;
-  top: 37.5rem;
-  left: 23.2em;
+  top: 41rem;
+  left: 23em;
   display: inline-block;
 }
 #form-fan-mini2 {
   position: relative;
-  top: 37.5rem;
+  top: 41rem;
   left: 28.8em;
   display: inline-block;
 }
 #form-fan-mini3 {
   position: relative;
-  top: 32rem;
+  top: 36rem;
   left: 24.2em;
   display: inline-block;
 }
@@ -179,6 +179,7 @@ position: relative;
   flex-direction: column;
 }
 label.control-label.col-md-7 {
+  font-size: 16px;
   margin-bottom: 0;
   vertical-align: middle;
   display: flex;
