@@ -1,0 +1,46 @@
+<section id="content2">
+    <div class="table-responsive">
+        <table class="table">
+          <thead>
+              <tr>
+                  <th style="min-width: 50px;">STT</th>
+                  <th style="min-width: 80px;">Username</th>
+                  <th style="min-width: 130px;">Email</th>
+                  <th style="min-width: 130px;">Position</th>
+                  <th style="min-width: 80px;">Phone</th>
+                  <th style="min-width: 80px;">Role</th>
+                  <th style="min-width: 80px;">Action</th>
+
+              </tr>
+          </thead>
+
+      
+            <tbody style="overflow-y: auto;">
+              <% for(item=0; item<getDataSetting.length; item++) { %>
+                      <tr >
+                      <td align="center"><%= item + 1 %></td>
+                      <td><%= getDataSetting[item].username %></td>
+                      <td><%= getDataSetting[item].local.email %></td>
+                      <td><%= getDataSetting[item].local.position %></td>
+                      <td><%= getDataSetting[item].local.phone %></td>
+                      <td><%= getDataSetting[item].role %></td>
+                      <td>
+                        <div class="action-button" style="text-align:right">
+                          <a href="#">
+                            <button title="Edit Information" onclick="document.getElementById('<%= item + 1000 %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
+                            <button title="Change Password" onclick="document.getElementById('<%= item + 500 %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/password.png" style="width: 20px;height: 20px;"></button>
+                            </a> &nbsp;
+                            <a onclick="return ConfirmDelete()" href="/setting/remove/<%= getDataSetting[item]._id %>">
+                          <button title="Delete" type="button" class="btn btn-default" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"><img src="../images/icons/icon_wise-white/delete.png" style="width: 22px;height: 22px; "></button>
+                              </a>
+                        </div>
+                      </td>
+
+                      </tr>
+                      <% } %>
+              </tbody>
+       
+          </table>
+            
+    </div>
+</section>

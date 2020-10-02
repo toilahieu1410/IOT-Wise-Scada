@@ -1,0 +1,114 @@
+<section id="content1">
+          <div class="row">
+          <% getDataAlarm.forEach(item => { %>
+            <div style="padding: 0 15px;width: calc(100%/5);float: left;margin-bottom: 15px;">
+              <div class="user-account">
+                  <h3 style="text-align: center;"><%= item.device %></h3>
+                  <div style="text-align: left;line-height: 30px;" class="detail-grid">
+
+                    <% let color; %>
+                      <% if(item.isDone == true){ %>
+                        <% color = '#0109ff82' %>
+                      <% } else { %>
+                        <% color = '#f7000091' %>
+                      <% } %>
+
+                      <p><i class="fa fa-circle" style="font-size: 20px;color:<%= color %>;margin-left: 5px; margin-right: 15px"></i><span><%= item.type %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.value %></span> </p>
+                      <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.userId %></span></p>
+                      <div class="label-border" style="padding:5px;box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);background-color: #2b6d7b1a"><a href="#"><label><%= item.note %></label></a></div>
+                      <p></p>
+                      <div class="action-button" style="text-align:right">
+                          <a href="#">
+                            <button title="Edit" onclick="document.getElementById('<%= item._id %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
+                          </a> &nbsp;
+                          <a onclick="return ConfirmDelete()" href="/alarm/remove/<%= item._id %>">
+                            <button title="Delete" type="button" class="btn btn-default" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)">       <img src="../images/icons/icon_wise-white/delete.png" style="width: 22px;height: 22px; "></button>
+                          </a>
+                      </div>
+                  </div>  
+              </div>
+          </div>
+  
+      <!-- Start Modal -->
+      <div id="<%= item._id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true" >
+          <div class="modal-backdrop fade " style="opacity: 0.6;"></div> 
+          <div class="modal-dialog" style="z-index: 1111;top:10%;">
+            <form class="modal-content" action="/alarm/edit/<%= item._id %>"  method="post">
+                <div class="modal-header" style="display:flex;justify-content:center">
+                  <h3 class="modal-title" style="width: 100%;text-align: center;color:#fff">
+                      <i class="fa fa-user" style="margin-right:5px"></i>
+                      <%= item.device %>
+                    </h3>
+                    <button type="button" onclick="document.getElementById('<%= item._id %>').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
+                        <img  src="../images/icons/icon_wise-white/close.png" width="25">
+                    </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-grid-title" style="color:white;">
+                   
+                    <div class="detail-grid">
+             
+                      <p><i class="fa fa-circle" style="font-size: 20px;color:<%= color %>;margin-right: 15px;"></i><span><%= item.type %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.value %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;">  <span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= item.userId %></span></p>
+                      <p>
+                        <a href = "#"><div class="label-border" ><textarea name="note" type="text" rows="2" style="box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;width:100%;color: #000;outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
+                      </p>
+
+                      <div class="modal-footer col-md-12" style="text-align: center;">
+                        <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save</button>
+                      </div>
+                
+                    </div>
+                </div>
+                </div>
+           </form>
+            </div>
+        </div>
+
+        <div id="test" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true" >
+          <div class="modal-backdrop fade " style="opacity: 0.6;"></div> 
+          <div class="modal-dialog" style="z-index: 1111;">
+            <form class="modal-content"  method="post">
+                <div class="modal-header" style="display:flex;justify-content:center">
+                  <h3 class="modal-title" style="width: 100%;text-align: center;color:#fff">
+                      <i class="fa fa-user" style="margin-right:5px"></i>
+                      <%= item.device %>
+                    </h3>
+                    <button type="button" onclick="document.getElementById('<%= item._id %>').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
+                        <img  src="../images/icons/icon_wise-white/close.png" width="25">
+                    </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-grid-title" style="color:white;">
+                   
+                    <div class="detail-grid">
+             
+                      <p><i class="fa fa-circle" style="color:#fff"></i><label><%= item.type %></label></p>
+                      <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 25px;height: 25px;margin-right: 5px;"><%= item.value %></p>
+                      <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 25px;height: 25px;margin-right: 5px;">  <span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 25px;height: 25px;margin-right: 5px;"> <span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 25px;height: 25px;"> <span><%= item.userId %></span></p>
+                      <p>
+                        <a href = "#"><div class="label-border" ><textarea name="Note" type="text" rows="2" style="box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;width:100%;color: #000;outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
+                      </p>
+
+                      <div class="col-md-12" style="text-align: center;">
+                        <button type="submit" class="btn btn-default" style="background-color: #72A95E;color: white;font-size: 18px;"><i class="fa fa-save" style="margin-right:5px;font-size: 18px;"></i>Save</button>
+                      </div>
+
+                    </div>
+                </div>
+                </div>
+           </form>
+            </div>
+        </div>
+        <!-- End Modal -->
+        <% }) %>
+        </div>
+</section>
