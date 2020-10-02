@@ -1,0 +1,45 @@
+<div class="modal fade" id="openSetting" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <form class="modal-content" action="/setting/createUser"  method="post">
+            <div class="modal-header">
+            <h5 class="modal-title" style="color: #fff; text-align: center; width: 100%;">Register</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <img src="../images/icons/icon_wise-white/close.png" width="25px">
+              </button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body">
+                  <div class="form-grid-title" style="color:white;">
+                
+                      <p style="display: flex;">
+                        <img src="../images/icons/icon_wise-white/email.png" style="width: 30px;height: 30px;margin-right: 10px;">
+                        <textarea name="email" value="email" style="width: 100%;color: white;" rows="1"></textarea>
+                      </p>
+  
+                        <p style="display: flex;">
+                          <img src="../images/icons/icon_wise-white/password.png" style="width: 30px;height: 30px;margin-right: 10px;">
+                          <textarea name="password" value="password" style="width: 100%;color: white;" rows="1"></textarea>
+                        </p>
+  
+                        <p style="display: flex;">
+                          <img src="../images/icons/icon_wise-white/role.png" style="width: 30px;height: 30px;margin-right: 10px;">
+                          <select id="role" name="role" class="form-control" style="border-radius: 0; border-bottom:2px solid #fff !important;outline:none;background-color: transparent;border:none;font-size: 18px;color: white;">
+                            <option value="Admin" style="background-color: #4b6980;color: white;">Admin</option>
+                            <option value="User" style="background-color: #4b6980;color: white;">User</option>
+                            <option value="Guest" style="background-color: #4b6980;color: white;">Guest</option>
+                          </select>
+                        </p>
+  
+                      <div class="modal-footer col-md-12" style="text-align: center;border-top:none">
+                        
+                        <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save</button>
+                      </div>
+  
+                </div>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+      </div>

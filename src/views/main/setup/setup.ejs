@@ -12,12 +12,12 @@
     
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="css/setup/setup.css"></script>
 </head>
     <%- include('./../navbar/navbar.ejs') %>
 <body>
@@ -29,52 +29,7 @@
       </div> 
   
       <!-- Start Modal -->
-      <div class="modal fade" id="openSetting" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-          <form class="modal-content" action="/setting/createUser"  method="post">
-            <div class="modal-header">
-            <h5 class="modal-title" style="color: #fff; text-align: center; width: 100%;">Register</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <img src="../images/icons/icon_wise-white/close.png" width="25px">
-              </button>
-              </div>
-              <div class="modal-body">
-                <div class="modal-body">
-                  <div class="form-grid-title" style="color:white;">
-                
-                      <p style="display: flex;">
-                        <img src="../images/icons/icon_wise-white/email.png" style="width: 30px;height: 30px;margin-right: 10px;">
-                        <textarea name="email" value="email" style="width: 100%;color: white;" rows="1"></textarea>
-                      </p>
-  
-                        <p style="display: flex;">
-                          <img src="../images/icons/icon_wise-white/password.png" style="width: 30px;height: 30px;margin-right: 10px;">
-                          <textarea name="password" value="password" style="width: 100%;color: white;" rows="1"></textarea>
-                        </p>
-  
-                        <p style="display: flex;">
-                          <img src="../images/icons/icon_wise-white/role.png" style="width: 30px;height: 30px;margin-right: 10px;">
-                          <select id="role" name="role" class="form-control" style="border-radius: 0; border-bottom:2px solid #fff !important;outline:none;background-color: transparent;border:none;font-size: 18px;color: white;">
-                            <option value="Admin" style="background-color: #4b6980;color: white;">Admin</option>
-                            <option value="User" style="background-color: #4b6980;color: white;">User</option>
-                            <option value="Guest" style="background-color: #4b6980;color: white;">Guest</option>
-                          </select>
-                        </p>
-  
-                      <div class="modal-footer col-md-12" style="text-align: center;border-top:none">
-                        
-                        <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save</button>
-                      </div>
-  
-                </div>
-                </div>
-              </div>
-            </form>
-        </div>
-      </div>
-      </div>
-      <!-- End Modal -->
+      <%- include('./modal/modal.ejs') %>
       
           <main style="margin-top: 25px;">
   
@@ -84,202 +39,17 @@
               <input id="tab2" type="radio" name="tabs">
               <label for="tab2"><i class="fa fa-table" style="font-size: 26px;color:#fff"></i> </label>
          
-            <section id="content1">
-              <div class="row">
-                <% for(item=0; item<getDataSetting.length; item++) { %>
-  
-              <div style="padding: 0 15px;width: calc(100%/5);float: left;margin-bottom: 15px;">
-                  <div class="user-account" style="padding-top: 15px;">
-                      <h3 style="text-align: center;"><i class="fa fa-user" style="margin-right:5px"></i><%= getDataSetting[item].username %></h3>
-                      <div style="text-align: left;line-height: 30px;" class="detail-grid">
-                        
-                          <p><img src="../images/icons/icon_wise-white/email.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= getDataSetting[item].local.email %></span> </p>
-                          <p><img src="../images/icons/icon_wise-white/user1.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= getDataSetting[item].username %></span></p>
-                          <p><img src="../images/icons/icon_wise-white/position.png" style="width: 40px;height: 40px;margin-left: -8px; margin-right: 15px;"><span><%= getDataSetting[item].local.position %></span></p>
-                          <p><img src="../images/icons/icon_wise-white/phone.png" style="width: 32px;height: 32px;margin-right: 15px;"><span><%= getDataSetting[item].local.phone %></span></p>
-                          <p><img src="../images/icons/icon_wise-white/role.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= getDataSetting[item].role %></span></p>
-                          <div class="action-button" style="text-align:right">
-                              <a href="#">
-                                <button title="Edit Information" onclick="document.getElementById('<%= item %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
-                                <button title="Change Password" onclick="document.getElementById('<%= item + 500 %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/password.png" style="width: 20px;height: 20px;"></button>
-                                </a> &nbsp;
-                                <a onclick="return ConfirmDelete()" href="/setting/remove/<%= getDataSetting[item]._id %>">
-                              <button title="Delete" type="button" class="btn btn-default" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"><img src="../images/icons/icon_wise-white/delete.png" style="width: 22px;height: 22px; "></button>
-                                  </a>
-                            </div>
-                      </div>
-                  </div>
-              </div>
-  
-              <!-- Start Modal -->
-              <div id="<%= item %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true" >
-                  <div class="modal-backdrop fade " style="opacity: 0.6;"></div> 
-                  <div class="modal-dialog" style="z-index: 1111;top:10%;">
-                    <form class="modal-content" action="/setting/editIdUser/<%= getDataSetting[item].id %>"  method="post">
-                        <div class="modal-header" style="display:flex;justify-content:center">
-                          <h3 style="text-align: center;color:#fff"><i class="fa fa-user" style="margin-right:10px"></i><%= getDataSetting[item].username %></h3>
-                            <button type="button" onclick="document.getElementById('<%= item %>').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
-                                <img  src="../images/icons/icon_wise-white/close.png" width="25">
-                            </button>
-                        
-                  
-                        </div>
-                        <div class="modal-body">
-                          <div class="form-grid-title" style="color:white;">
-                        
-                                <p name="email" value="email"><img src="../images/icons/icon_wise-white/email.png" style="width: 30px;height: 30px;margin-right: 10px;"><%= getDataSetting[item].local.email %></p>
-                                <p style="display: flex;">
-                                  <img src="../images/icons/icon_wise-white/user1.png" style="width: 30px;height: 30px;margin-right: 10px;">
-                                  <textarea name="username" value="username" style="width: 100%;color: white;" rows="1"><%= getDataSetting[item].username %></textarea>
-                                </p> 
-                          
-                                </p> 
-                                <p style="display: flex;">
-                                  <img src="../images/icons/icon_wise-white/position.png" style="width: 40px;height: 40px;margin-right: 10px; margin-left: -8px;">
-                                  <textarea name="position" value="position" style="width: 100%;color: white" rows="1" class="tds-textarea dashed"><%= getDataSetting[item].local.position %></textarea>
-                                
-                                </p>
-                                <p style="display: flex;">
-                                  <img src="../images/icons/icon_wise-white/phone.png" style="width: 32px;height: 32px;margin-right: 10px;">
-                                  <textarea name="phone" value="phone" style="width: 100%;color: white" rows="1"><%= getDataSetting[item].local.phone %></textarea>
-                                </p>
-                                <p style="display: flex;">
-                                  <img src="../images/icons/icon_wise-white/role.png" style="width: 30px;height: 30px;margin-right: 10px;">
-                                
-                                  <select id="role" name="role" class="form-control" style="border-radius: 0; border-bottom:2px solid #fff !important;outline:none;background-color: transparent;border:none;font-size: 18px;color: white;">
-                                    <option value="Admin" style="background-color: #4b6980;color: white;">Admin</option>
-                                    <option value="User" style="background-color: #4b6980;color: white;">User</option>
-                                    <option value="Guest" style="background-color: #4b6980;color: white;">Guest</option>
-                                  </select>
-                                </p>
-  
-  
-                              <div class="modal-footer col-md-12" style="text-align: center;border-top:none">
-                                
-                                <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save</button>
-                              </div>
-  
-                        </div>
-                        </div>
-                  </form>
-                    </div>
-              </div>
-  
-              <% } %>
-                </div>
+      <%- include('./section/section1.ejs') %>
           
-            <!-- End Modal -->
-          
-            </section>
-          
-            <section id="content2">
-                <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                          <tr>
-                              <th style="min-width: 50px;">STT</th>
-                              <th style="min-width: 80px;">Username</th>
-                              <th style="min-width: 130px;">Email</th>
-                              <th style="min-width: 130px;">Position</th>
-                              <th style="min-width: 80px;">Phone</th>
-                              <th style="min-width: 80px;">Role</th>
-                              <th style="min-width: 80px;">Action</th>
-  
-                          </tr>
-                      </thead>
-  
-                  
-                        <tbody style="overflow-y: auto;">
-                          <% for(item=0; item<getDataSetting.length; item++) { %>
-                                  <tr >
-                                  <td align="center"><%= item + 1 %></td>
-                                  <td><%= getDataSetting[item].username %></td>
-                                  <td><%= getDataSetting[item].local.email %></td>
-                                  <td><%= getDataSetting[item].local.position %></td>
-                                  <td><%= getDataSetting[item].local.phone %></td>
-                                  <td><%= getDataSetting[item].role %></td>
-                                  <td>
-                                    <div class="action-button" style="text-align:right">
-                                      <a href="#">
-                                        <button title="Edit Information" onclick="document.getElementById('<%= item + 1000 %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
-                                        <button title="Change Password" onclick="document.getElementById('<%= item + 500 %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/password.png" style="width: 20px;height: 20px;"></button>
-                                        </a> &nbsp;
-                                        <a onclick="return ConfirmDelete()" href="/setting/remove/<%= getDataSetting[item]._id %>">
-                                      <button title="Delete" type="button" class="btn btn-default" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"><img src="../images/icons/icon_wise-white/delete.png" style="width: 22px;height: 22px; "></button>
-                                          </a>
-                                    </div>
-                                  </td>
-  
-                                  </tr>
-                                  <% } %>
-                          </tbody>
-                   
-                      </table>
-                        
-                </div>
-            </section>
+      <%- include('./section/section2.ejs') %>
+      
           </main>
       </div>
     </div>
  
-     <!-- Start load page -->
+     <!-- load page -->
      <%- include('../loadpage/loadpage.ejs') -%>
-     <!-- End load page -->
 
+     <script src="js/setup/setup1.js"></script>
 </body>
-
-<script>
-  function ConfirmDelete()
-{
-  var x = confirm("Are you sure you want to delete?");
-  if (x)
-      return true;
-  else
-    return false;
-}
-</script>
-
-<style>
-tr:nth-child(even) {
-  background-color: #0c0b0b2b;
-}
-  .highcharts-figure, .highcharts-data-table table {
-  min-width: 320px; 
-  max-width: 800px;
-  margin: 1em auto;
-}
-
-#container {
-  height: 400px;
-}
-
-.highcharts-data-table table {
-  font-family: Verdana, sans-serif;
-  border-collapse: collapse;
-  border: 1px solid #EBEBEB;
-  margin: 10px auto;
-  text-align: center;
-  width: 100%;
-  max-width: 500px;
-}
-.highcharts-data-table caption {
-  padding: 1em 0;
-  font-size: 1.2em;
-  color: #555;
-}
-.highcharts-data-table th {
-  font-weight: 600;
-  padding: 0.5em;
-}
-.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-  padding: 0.5em;
-}
-.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-  background: #f8f8f8;
-}
-.highcharts-data-table tr:hover {
-  background: #f1f7ff;
-}
-
-</style>
 </html>

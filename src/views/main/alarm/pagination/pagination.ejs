@@ -1,0 +1,28 @@
+<% if (pages > 0) { %>
+    <ul class="pagination pg-blue text-center">
+        <% if (current == 1) { %>
+            <li class="disabled page-item"><a class="page-link waves-effect">First</a></li>
+        <% } else { %>
+            <li class="page-item"><a class="page-link waves-effect" href="/alarm/1">First</a></li>
+        <% } %>
+        <% let i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+        <% if (i !== 1) { %>
+            <li class="disabled page-item"><a class="page-link waves-effect">...</a></li>
+        <% } %>
+        <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+            <% if (i == current) { %>
+                <li class="active page-item"><a class="page-link waves-effect"><%= i %></a></li>
+            <% } else { %>
+                <li class="page-item"><a class="page-link waves-effect" href="/alarm/<%= i %>"><%= i %></a></li>
+            <% } %>
+            <% if (i == Number(current) + 4 && i < pages) { %>
+                <li class="disabled page-item"><a class="page-link waves-effect">...</a></li>
+            <% } %>
+        <% } %>
+        <% if (current == pages) { %>
+            <li class="disabled page-item"><a class="page-link waves-effect">Last</a></li>
+        <% } else { %>
+            <li class="page-item"><a class="page-link waves-effect" href="/alarm/<%= pages %>">Last</a></li>
+        <% } %>
+    </ul>
+<% } %>
