@@ -31,12 +31,12 @@
         <div class="se-pre-con"></div> 
         <div class="content-wrapper" id="content-wrapper"  style="padding:2.5rem 2.5rem">
     
-          <div class="content-image" style="background:url(../images/background/Schneider.png) no-repeat center ;background-size: contain;width:100%;min-height: calc(100vh - 200px);">
+          <div class="content-image" style="background:url(../images/background/home-page.png) no-repeat center ;background-size: contain;width:100%;min-height: calc(100vh - 200px);">
             <div class="flex-container">
-              <div class="box_1 color_1 box">
+              <div class="box_1 color_1 box flexFont">
                 <div class="center ">
                   <a class="collapsible-header waves-effect arrow-r" href="/homepage" style="width:100%; height: 100%;justify-content: center;align-items: center;display: flex;">
-                     <p>Boilder</p>
+                     <p></p>
                   </a>
                 </div>
                 <div class="inner is_hidden">
@@ -98,6 +98,7 @@
       <!-- End load page -->
    
 </body>
+
 <style>
   .main-panel1 {
     -webkit-transition: width 0.25s ease, margin 0.25s ease;
@@ -124,7 +125,7 @@
   position: relative;
 }
 .color_1 {
-  background:#1142378a;
+  background:transparent;
   &:hover,
   &.box_full {
     background: darken(#524656, 10%);
@@ -156,9 +157,9 @@
 }
 .box {
   transition: all 0.3s;
-    width: 225px;
+    width: 12%;
     perspective-origin: 25% 50%;
-    height: 105px;
+    height: 90px;
     position: absolute;
     cursor: pointer;
     transform: rotate3d(-9,-5,7,-67deg)
@@ -180,7 +181,7 @@
 .box:hover {
 
   transition: .3s;
-  background:#114237c9;
+  background:transparent;
   /* box-shadow: -1px 1px 35px 5px rgba(0, 0, 0, 0.75); */
   z-index: 999;
 }
@@ -244,8 +245,8 @@
   display: none;
 }
 .box_1 {
-  top: 39%;
-    left: 43%;
+  top: 38%;
+  left: 45%;
 }
 
 .box_2 {
@@ -306,6 +307,7 @@ fa {
 }
 
 </style>
+
 <script>
   $box1 = $('box_1');
 $box4 = $('box_2');
@@ -365,7 +367,7 @@ $(document).ready(function() {
   <!-- <script src="js/cdn/diagram/jquery.min2.1.1.js"></script> -->
 
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
 </html>
 
 
