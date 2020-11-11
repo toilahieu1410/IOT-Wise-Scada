@@ -1,5 +1,6 @@
  /* Start loading page */
  #loadingspinner {
+    position:absolute;
     z-index: 99999;
     display: -webkit-box;
     display: flex ;

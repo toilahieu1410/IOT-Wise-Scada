@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wise Scada</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/logo_favicon/favicon-trungquandev.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-diagram.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.7/jquery.fullPage.css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://unpkg.com/draggabilly@1/dist/draggabilly.pkgd.js"></script>
+    <script src="https://unpkg.com/packery@1/dist/packery.pkgd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.7/jquery.fullPage.js"></script>
+    
+</head>
+    <!-- include('navbar'); -->
+
+    <%- include('../navbar/navbar.ejs') %>
+      <div class="main-panel1" style="top:0;left: 0;right: 0;bottom: 0;">
+        <div class="se-pre-con"></div> 
+        <div class="content-wrapper" id="content-wrapper"  style="padding:2.5rem 2.5rem">
+    
+          <div class="content-image" style="background:url(../images/background/Schneider.png) no-repeat center ;background-size: contain;width:100%;min-height: calc(100vh - 200px);">
+            <div class="flex-container">
+              <div class="box_1 color_1 box">
+                <div class="center ">
+                  <a class="collapsible-header waves-effect arrow-r" href="/homepage" style="width:100%; height: 100%;justify-content: center;align-items: center;display: flex;">
+                     <p>Boilder</p>
+                  </a>
+                </div>
+                <div class="inner is_hidden">
+                  
+                </div>
+                <div class="is_hidden"><a class="top-right"><i class="fa fa-4x fa-times"></i></a></div>
+              </div>
+              <!-- <div class=" box_2 color_2 box">
+                <div class="center ">
+                  <p>I am a Web Developer</p>
+                </div>
+          
+                <div class="inner is_hidden">
+                  <div class="col-xs-12">
+                    <div class="container">
+                      <p>inner</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="is_hidden"><a class="top-right"><i class="fa fa-4x fa-times"></i></a></div>
+              </div> -->
+              <!-- <div class="box_3  color_3 box">
+                <div class="center ">
+                  <p>I Love Technology & Cats</p>
+                </div>
+          
+          
+                <div class="inner is_hidden">
+                  <div class="col-xs-12">
+                    <div class="container">
+                      <p>inner</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="is_hidden"><a class="top-right"><i class="fa fa-4x fa-times"></i></a></div>
+              </div>
+              <div class=" box_4 color_4 box">
+                <div class="center ">
+                  <p>Let's Talk</p>
+                </div>
+          
+                <div class="inner is_hidden">
+                  <div class="col-xs-12">
+                    <div class="container">
+                      <p>inner</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="is_hidden"><a class="top-right"><i class="fa fa-4x fa-times"></i></a></div>
+              </div> -->
+            </div>
+          </div>
+        
+        </div>
+      </div>
+     
+      <!-- Start load page -->
+  
+      <!-- End load page -->
+   
+</body>
+<style>
+  .main-panel1 {
+    -webkit-transition: width 0.25s ease, margin 0.25s ease;
+    transition: width 0.25s ease, margin 0.25s ease;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+  #view {
+    position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  cursor: move;
+}
+
+#board {
+  position: relative;
+}
+.color_1 {
+  background:#1142378a;
+  &:hover,
+  &.box_full {
+    background: darken(#524656, 10%);
+  }
+}
+
+.color_2 {
+  background: #cf4647;
+  &:hover,
+  &.box_full {
+    background: darken(#cf4647, 10%);
+  }
+}
+
+.color_3 {
+  background: #a7c5bd;
+  &:hover,
+  &.box_full {
+    background: darken(#a7c5bd, 10%);
+  }
+}
+
+.color_4 {
+  background: #e5ddcb;
+  &:hover,
+  &.box_full {
+    background: darken(#e5ddcb, 10%);
+  }
+}
+.box {
+  transition: all 0.3s;
+    width: 225px;
+    perspective-origin: 25% 50%;
+    height: 105px;
+    position: absolute;
+    cursor: pointer;
+    transform: rotate3d(-9,-5,7,-67deg)
+}
+.box .center {
+  display: flex;
+  align-items: center;
+}
+.center {
+  height: 100%;
+  font-weight: bold;
+  font-size: 2em;
+  color: white;
+}
+.box a:hover {
+  text-decoration: none;
+  color:#fff;
+}
+.box:hover {
+
+  transition: .3s;
+  background:#114237c9;
+  /* box-shadow: -1px 1px 35px 5px rgba(0, 0, 0, 0.75); */
+  z-index: 999;
+}
+/*.full_screen.color_1{
+  
+}
+.full_screen.color_2{
+  
+}
+.full_screen.color_3{
+        background:darken(#00AAFF, 20%);
+
+}
+.full_screen.color_4{
+        background:darken(#FF00AA, 20%);
+
+}*/
+/*
+.box {
+  float:left;
+  width: 50%;
+  height: 50vh;
+  position:relative;
+}*/
+
+.box_full {
+  height: 100vh !important;
+  width: 100vw !important;
+  z-index: 9999;
+  top: 0 !important;
+  left: 0 !important;
+}
+/*
+.top_left{
+    top: 0!important;
+  left: 0!important;
+}
+.top_right{
+    top: 0!important;
+  right: 0!important;
+}
+.bottom_left{
+    bottom: 0!important;
+  left: 0!important;
+}
+.bottom_right{
+  bottom: 0!important;
+  right: 0!important;
+}*/
+.pos_relative {
+  position: relative;
+}
+
+.top-right {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.box_full .center {
+  display: none;
+}
+.box_1 {
+  top: 39%;
+    left: 43%;
+}
+
+.box_2 {
+  top: 0;
+  left: 50%;
+}
+
+.box_3 {
+  top: 50%;
+  left: 0;
+}
+
+.box_4 {
+  top: 50%;
+  left: 50%;
+}
+
+a,
+fa {
+  color: #fefeeb;
+  &:hover {
+    color: darken(#fefeeb, 15%);
+  }
+}
+.is_hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.is_visible {
+  visibility: visible;
+  opacity: 1;
+}
+.is_visible,
+.is_hidden {
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+.center {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+
+.fade_me {
+  transform: scale(0);
+  transition: transform 1.5s ease;
+}
+
+
+.slide {
+  text-align: center;
+}
+
+</style>
+<script>
+  $box1 = $('box_1');
+$box4 = $('box_2');
+$box4 = $('box_3');
+$box4 = $('box_4');
+
+$('.box').click(function() {
+  $(this).addClass('box_full');
+     //$(this).addClass('fade_me');
+
+  $(this).siblings().addClass("fade_me");
+  setTimeout(function() {
+ $(".is_hidden").addClass("is_visible").removeClass("is_hidden");
+  }, 500);
+});
+$('a').click(function() {
+  event.stopPropagation();
+  $(".is_visible").addClass("is_hidden").removeClass("is_visible");
+  $(this).closest('.box').removeClass('box_full');
+  $(".box").not(this).removeClass("fade_me");
+});
+
+$(document).ready(function() {
+    $('#fullpage').fullpage();
+});
+</script>
+<!-- <script>
+  $(document).ready( function(){
+      $(window).on("load", function(){
+          $(window).on("resize", function(){
+              var imgHeight = $(".test").height();
+              $("#form-fan").height( imgHeight );
+          }).resize();
+      });//window load
+  });//document ready
+</script> -->
+
+
+  <!--Libraries-->
+
+
+  <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  <!-- <script src="bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script> -->
+  <script src="bower_components/AlertifyJS/build/alertify.js"></script>
+  <script src="bower_components/moment/min/moment.min.js"></script>
+  <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
+  <script src="bower_components/peerjs/peer.min.js"></script>
+  <!-- <script src="bower_components/photoset-grid/jquery.photoset-grid.min.js"></script> -->
+  <script src="bower_components/jquery-colorbox/jquery.colorbox-min.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+
+  <script src="js/diagram/request.js"></script>
+  <script src="js/diagram/diagram.js"></script>
+
+      <!-- My js-->
+  <!-- <script src="js/cdn/diagram/jquery.min2.1.1.js"></script> -->
+
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</html>
+
+
