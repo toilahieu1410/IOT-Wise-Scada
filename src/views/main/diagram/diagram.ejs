@@ -52,29 +52,28 @@
                 
                   </div>
                 </div>
-            
-    
+
                 <div class="form-content" >
                   <div class="item">
                     <div class="handle">
                       <div class="user-account">
                         <!-- <h3 style="text-align: center;padding-top: 10px;margin-bottom: 0;"><i class="fa fa-user" style="margin-right: 5px;"></i></h3> -->
                             <div style="text-align: left;line-height: 30px;" class="detail-grid">
-                              <div class="header-title" style="display:flex;justify-content:space-between;border-bottom:2px solid #ffffff40">
-                                <h4 class="title-number" style="text-align:center;width:100%">Setup</h4>
-                                <a href="#" class="waves-light" data-toggle="modal" data-target="#editSetupModal" style="float: right;position: relative;left:-10px">
+                              <div class="header-title" style="display:flex;justify-content:space-between;border-bottom:2px solid #ffffff40;padding-bottom:10px;">
+                                <h4 class="title-number" style="text-align:center;width:100%;margin:0">Setup</h4>
+                                <a href="#" class="waves-light" data-toggle="modal" data-target="#editSetupModal" style="float: right;position: relative;left:-10px;display: flex;">
                                   <img src="../images/icons/icon_wise-white/edit.png" width="25px" >
                                 </a>
                               </div>
-                              <div class="run-action-scada">
-                                <strong style="display: inline-block; min-width: 220px;font-size:2.0vh">Áp suất chạy lò: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].apSuatChayLo %></span>
-                                <strong style="display: inline-block; min-width: 220px;font-size:2.0vh">Áp suất dừng lò: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].apSuatDungLo %></span>
-                                <strong style="display: inline-block; min-width: 220px;font-size:2.0vh">Thời gian trễ bật quạt hút: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeStartQuatHut %></span>
-                                <strong style="display: inline-block; min-width: 220px;font-size:2.0vh">Thời gian trễ tắt quạt hút:</strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeStopQuatHut %></span>
-                                <strong style="display: inline-block; min-width: 220px;font-size:2.0vh">Thời gian luân phiên bơm: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeLuanPhienBom %></span>
-                                <strong style="display: inline-block; min-width: 220px;font-size:2.0vh">Khối lượng than cộng dồn: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].khoiLuongThanCongDon %></span>
-                                <div class="reset" style="display:flex">
-                                  <strong style="display: inline-block; min-width: 220px;font-size:2.0vh;float: left;">Reset than cộng dồn:</strong>
+                              <div class="run-action-scada" style="line-height: 10px;">
+                                <strong style="display: inline-block; min-width: 220px;font-size:18px">Áp suất chạy lò: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].apSuatChayLo %></span>
+                                <strong style="display: inline-block; min-width: 220px;font-size:18px">Áp suất dừng lò: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].apSuatDungLo %></span>
+                                <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian trễ bật quạt hút: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeStartQuatHut %></span>
+                                <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian trễ tắt quạt hút:</strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeStopQuatHut %></span>
+                                <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian luân phiên bơm: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeLuanPhienBom %></span>
+                                <strong style="display: inline-block; min-width: 220px;font-size:18px">Khối lượng than cộng dồn: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].khoiLuongThanCongDon %></span>
+                                <div class="reset" style="display:flex;margin-top:20px">
+                                  <strong style="display: inline-block; min-width: 220px;font-size:18px;float: left;">Reset than cộng dồn:</strong>
                                   <button href="#" type="button" data-toggle="modal" class="resetSetup" data-target="#resetSetupModal" >
                                     <span id="dv25"><%= typeof getDataDiagram != 'undefined' ? getDataDiagram.resetThanCongDon : '0'%></span>
                                     <img src="../images/icons/icon_wise-white/reset.png" width="25px" style="margin-left:5px;position: relative;top:3px">
