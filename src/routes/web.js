@@ -16,15 +16,17 @@ let initRoutes = (app) => {
     router.get('/', auth.checkLoggedOut, auth.getLoginRegister);
     router.post('/register', auth.checkLoggedOut, authValid.register, auth.postRegister);
     router.post('/login', auth.checkLoggedOut, passport.authenticate('local', {
-        successRedirect: '/homepage',
+        successRedirect: '/diagram3d',
         failureRedirect: '/',
         successFlash: true,
         failureFlash: true
     }));
 
     router.get('/logout', auth.checkLoggedIn, auth.getLogout);
+    router.get('/diagram3d', auth.checkLoggedIn, home.getDiagram3D);
     router.get('/homepage', auth.checkLoggedIn, home.getHome);
-
+    //Dashboard
+    router.get('/dashboard', auth.checkLoggedIn, home.getDashboard);
     //Setup
     router.post('/setup/plc_misubishi_1/updateValue/:id', auth.checkLoggedIn, home.updateSetup);
     router.post('/setup/plc_misubishi_1/resetValue/:id', auth.checkLoggedIn, home.resetSetup);

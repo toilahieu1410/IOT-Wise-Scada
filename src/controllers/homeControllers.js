@@ -9,6 +9,18 @@ import { body } from 'express-validator';
 let mqttClient = new MqttHandler();
 mqttClient.connect();
 
+let getDiagram3D = async(req, res) => {
+    return res.render('main/diagram3d/diagram3d', {
+        user: req.user.local.email,
+    })
+};
+
+let getDashboard = async(req, res) => {
+    return res.render('main/dashboard/dashboard', {
+        user: req.user.local.email,
+    })
+}
+
 let getHome = async (req, res) => {
         let getDiagram = await home.getDiagram();
         let getSetup = await home.getSetup();
@@ -140,6 +152,8 @@ let alarmQueryAlarm = async(req, res, next) => {
 
 module.exports = {
     getHome: getHome,
+    getDiagram3D: getDiagram3D,
+    getDashboard:getDashboard,
     getSetup: getSetup,
     updateSetup: updateSetup,
     resetSetup: resetSetup,

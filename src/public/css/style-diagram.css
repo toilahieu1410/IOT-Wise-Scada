@@ -57,25 +57,25 @@ p {
 #form-fan {
   position: absolute;
   top: 45rem;
-  left: 12.2em;
+  left: 6em;
   display: inline-block;
 }
 #form-fan-mini1 {
   position: relative;
-  top: 41rem;
-  left: 23em;
+  top: 38rem;
+  left: 11.8em;
   display: inline-block;
 }
 #form-fan-mini2 {
   position: relative;
-  top: 41rem;
-  left: 28.8em;
+  top: 38rem;
+  left: 14.5em;
   display: inline-block;
 }
 #form-fan-mini3 {
   position: relative;
-  top: 36rem;
-  left: 24.2em;
+  top: 33rem;
+  left: 12em;
   display: inline-block;
 }
 .detail-grid {
