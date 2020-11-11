@@ -1,0 +1,60 @@
+<div class="form-table" style="display:none" id="export-chart" data-SheetName="Scada">
+    <div class="table-responsive" style="max-height: 400px;">
+        <table style="border:0;" cellpadding="10" cellspacing="10"  >
+            <tr>
+                <td colspan="2" align="center">
+                    <p style="font-size:18px"><b>WISE Scada</b></p>
+                    <p> -----------o0o------------</p>
+                </td>
+                <td colspan="2" align="center">
+                    <p style="font-size:18px"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></p>
+                    <p style="font-weight:bold">Độc lập – Tự do – Hạnh Phúc</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td colspan="2" align="center">
+                    -----------o0o------------
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td colspan="2" align="center">
+                    ........., ngày .....&nbsp;tháng.....&nbsp;năm.....
+                </td>
+            </tr>
+        </table>
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th style="min-width: 100px;" class="time" style="text-align:center;">Time</th>
+                    <th style="min-width: 110px;" style="text-align:center;">Nhiệt độ khói thải</th>
+                    <th style="min-width: 130px;" style="text-align:center;">Nhiệt độ nước</th>
+                    <th style="min-width: 130px;" style="text-align:center;">Áp suất hơi</th>
+                    <th style="min-width: 130px;" style="text-align:center;">Chân không buồng đốt</th>
+                    <th style="min-width: 130px;" style="text-align:center;">Buồng đốt TS1</th>
+                    <th style="min-width: 130px;" style="text-align:center;">Buồng đốt TS2</th>
+                    <th style="min-width: 130px;" style="text-align:center;">Áp suất gió</th>
+            
+                </tr>
+            </thead>
+            <tbody style="overflow-y: auto;">
+                <% getDataChart.forEach(item => { %>
+                    <tr >
+                        <td><%= moment(item.createdAt).format('DD/MM hh:mm a') %></td>
+                        <td class="text-center" style="text-align:center;"><%= item.nhietDoKhoiThai %></td>
+                        <td class="text-center" style="text-align:center;"><%= item.nhietDoNuoc %></td>
+                        <td class="text-center" style="text-align:center;"><%= item.apSuatHoi %></td>
+                        <td class="text-center" style="text-align:center;"><%= item.chanKhongBuongDot %></td>
+                        <td class="text-center" style="text-align:center;"><%= item.buongDot_TS1 %></td>
+                        <td class="text-center" style="text-align:center;"><%= item.buongDot_TS2 %></td>
+                        <td class="text-center" style="text-align:center;"><%= item.apSuatGio %></td>
+                        <td></td>
+                      </tr>
+                <% }) %>
+                  
+                  
+            </tbody>
+          </table>
+          </div>
+</div>

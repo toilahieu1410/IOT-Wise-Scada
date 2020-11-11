@@ -1,0 +1,20 @@
+.section-tab {
+    display: none; 
+}
+.navbar-nav i {
+    color:#fff;
+}
+.navbar-nav:hover .section-tab {
+    display: block;
+    min-width: 200px;
+    padding: 10px;
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    z-index: 100;
+    background: #11423740;
+}
+.active-sidebar {
+    background:#1f695861;
+    font-weight:bold;
+}

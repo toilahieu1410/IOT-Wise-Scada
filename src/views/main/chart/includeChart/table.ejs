@@ -1,0 +1,41 @@
+<div class="form-table">
+    <div class="table-responsive" style="max-height: 285px;">
+        <table class="table" >
+            <thead>
+                <tr>
+                
+                    <th style="min-width: 100px;display: grid;text-align: center;" class="time"> <a id="myBtn" class="dropbtn" style="color:#fff;cursor: pointer;" onclick="tablesToExcelMultiTabs(['export-chart'], ['Scada'], '', 'Excel')">
+                        ...
+                    </a><span>Time</span></th>
+                    <th style="min-width: 110px;">Nhiệt độ khói thải</th>
+                    <th style="min-width: 130px;">Nhiệt độ nước</th>
+                    <th style="min-width: 130px;">Áp suất hơi</th>
+                    <th style="min-width: 130px;">Chân không buồng đốt</th>
+                    <th style="min-width: 130px;">Buồng đốt TS1</th>
+                    <th style="min-width: 130px;">Buồng đốt TS2</th>
+                    <th style="min-width: 130px;">Áp suất gió</th>
+                   
+             
+                </tr>
+            </thead>
+            <tbody style="overflow-y: auto;">
+                <% getDataChart.forEach(item => { %>
+                    <tr >
+                  
+                        <td><%= moment(item.createdAt).format('DD/MM hh:mm a') %></td>
+                        <td class="text-center"><%= item.nhietDoKhoiThai %></td>
+                        <td class="text-center"><%= item.nhietDoNuoc %></td>
+                        <td class="text-center"><%= item.apSuatHoi %></td>
+                        <td class="text-center"><%= item.chanKhongBuongDot %></td>
+                        <td class="text-center"><%= item.buongDot_TS1 %></td>
+                        <td class="text-center"><%= item.buongDot_TS2 %></td>
+                        <td class="text-center"><%= item.apSuatGio %></td>
+                    
+                      </tr>
+                <% }) %>
+                  
+                  
+            </tbody>
+          </table>
+          </div>
+</div>

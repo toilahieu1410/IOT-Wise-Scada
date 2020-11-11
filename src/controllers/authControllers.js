@@ -10,7 +10,6 @@ let  getLoginRegister = (req, res) => {
  };
 
 let postRegister = async (req, res) => {
-    console.log(req.body)
     let errorArr = [];
     let successArr = [];
 

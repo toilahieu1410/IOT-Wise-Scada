@@ -1,0 +1,47 @@
+<section id="content2">
+    <div class="table-responsive">
+      
+
+      
+        <table class="table">
+          <thead>
+              <tr>
+                  <th style="min-width: 50px;">STT</th>
+                  <th style="min-width: 80px;">Alarm</th>
+                  <th style="min-width: 130px;">Type</th>
+                  <th style="min-width: 80px;">Value</th>
+                  <th style="min-width: 80px;">Created At</th>
+                  <th style="min-width: 80px;">Updated At</th>
+                  <th style="min-width: 80px;">User Updated</th>
+                  <th style="min-width: 150px;">Note</th>
+                  <th style="min-width: 130px;">Status</th>
+                
+              </tr>
+          </thead>
+        
+            <tbody style="overflow-y: auto;">
+              <% for(let item = 0; item < getDataAlarm.length; item ++) { %>
+                <% let color; %>
+                  <% if(getDataAlarm[item].isDone == true){ %>
+                    <% color = '#0109ff82' %>
+                  <% } else { %>
+                    <% color = '#f7000091' %>
+                  <% } %>
+                      <tr >
+                      <td align="center"><%= item +1 %></td>
+                      <td><%= getDataAlarm[item].device %></td>
+                      <td><%= getDataAlarm[item].type %></td>
+                      <td><%= getDataAlarm[item].value %></td>
+                      <td><%= moment(getDataAlarm[item].createdAt).format('DD/MM-hh:mm a') %></td>
+                      <td><%= moment(getDataAlarm[item].updatedAt).format('DD/MM-hh:mm a') %></td>
+                      <td><%= getDataAlarm[item].userId %></td>
+                      <td><%= getDataAlarm[item].note %></td>
+                      <td><p><i class="fa fa-circle" style="font-size: 20px;color:<%= color %>;margin-right: 15px;"></i><span><%= item.type %></span></p></td>
+                      </tr>
+                      <% } %>
+              </tbody>
+       
+          </table>
+        
+    </div>
+</section>

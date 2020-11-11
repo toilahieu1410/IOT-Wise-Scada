@@ -12,12 +12,10 @@
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/mdb.min.js"></script>
-
- 
 
 </head>
     <%- include('./../navbar/navbar.ejs') %>
@@ -37,259 +35,27 @@
             <div class="search-datetime" style="position: absolute;right:0;display: flex;top:0">
               <div  class="form-group input-with-post-icon " style="display:flex;position: relative;">
             
-                <!-- <label   style="font-size: 20px;min-width: 115px;color:#fff">Start Date</label> -->
                 <input id="date-picker-example" style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="start-date-alarm" name="startDateAlarm" class="form-control datepicker" autocomplete="off">
                 <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
             </div>
-            <!-- <div  class="form-group input-with-post-icon " style="display:flex;position: relative;margin-left: 10px;">
-              <label   style="font-size: 20px;min-width: 115px;color:#fff">End Date</label>
-                <input    style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="end-date-alarm" name="endDateAlarm" class="form-control datepicker" autocomplete="off">
-                 <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
-              </div> -->
     
-                <button type="submit" class="btn btn-search" href="/alarm/query" style="background-color: #114237ab;font-size: 16px;color: white;margin:1rem 0;margin-left: 20px;top:-15px;position: relative;"><img width="25" src="../images/icons/icon_wise-white/search.png"/></button>
+                <button type="submit" class="btn btn-search" href="/alarm/query" style="background-color: #114237ab;font-size: 16px;color: white;margin:1rem 0;margin-left: 20px;top:-22px;position: relative;"><img width="25" src="../images/icons/icon_wise-white/search.png"/></button>
             </div>
           </form>
 
-        <section id="content1">
-          <div class="row">
-          <% getDataAlarm.forEach(item => { %>
-            <div style="padding: 0 15px;width: calc(100%/5);float: left;margin-bottom: 15px;">
-              <div class="user-account">
-                  <h3 style="text-align: center;"><%= item.device %></h3>
-                  <div style="text-align: left;line-height: 30px;" class="detail-grid">
+      <%- include('./section/section1.ejs') %>
+      <%- include('./section/section2.ejs') %>
 
-                    <% let color; %>
-                      <% if(item.isDone == true){ %>
-                        <% color = '#0109ff82' %>
-                      <% } else { %>
-                        <% color = '#f7000091' %>
-                      <% } %>
+      <!-- pagination -->
+      <%- include('./pagination/pagination.ejs') %>
 
-                      <p><i class="fa fa-circle" style="font-size: 20px;color:<%= color %>;margin-left: 5px; margin-right: 15px"></i><span><%= item.type %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.value %></span> </p>
-                      <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.userId %></span></p>
-                      <div class="label-border" style="padding:5px;box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);background-color: #2b6d7b1a"><a href="#"><label><%= item.note %></label></a></div>
-                      <p></p>
-                      <div class="action-button" style="text-align:right">
-                          <a href="#">
-                            <button title="Edit" onclick="document.getElementById('<%= item._id %>').style.display='block'" type="button"  class="btn btn-default btn-edit" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)"> <img src="../images/icons/icon_wise-white/edit.png" style="width: 20px;height: 20px;"></button>
-                          </a> &nbsp;
-                          <a onclick="return ConfirmDelete()" href="/alarm/remove/<%= item._id %>">
-                            <button title="Delete" type="button" class="btn btn-default" style="background-color: #1563518f!important; box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)">       <img src="../images/icons/icon_wise-white/delete.png" style="width: 22px;height: 22px; "></button>
-                          </a>
-                      </div>
-                  </div>  
-              </div>
-          </div>
-  
-      <!-- Start Modal -->
-      <div id="<%= item._id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true" >
-          <div class="modal-backdrop fade " style="opacity: 0.6;"></div> 
-          <div class="modal-dialog" style="z-index: 1111;top:10%;">
-            <form class="modal-content" action="/alarm/edit/<%= item._id %>"  method="post">
-                <div class="modal-header" style="display:flex;justify-content:center">
-                  <h3 class="modal-title" style="width: 100%;text-align: center;color:#fff">
-                      <i class="fa fa-user" style="margin-right:5px"></i>
-                      <%= item.device %>
-                    </h3>
-                    <button type="button" onclick="document.getElementById('<%= item._id %>').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
-                        <img  src="../images/icons/icon_wise-white/close.png" width="25">
-                    </button>
-                </div>
-                <div class="modal-body">
-                  <div class="form-grid-title" style="color:white;">
-                   
-                    <div class="detail-grid">
-             
-                      <p><i class="fa fa-circle" style="font-size: 20px;color:<%= color %>;margin-right: 15px;"></i><span><%= item.type %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.value %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;">  <span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= item.userId %></span></p>
-                      <p>
-                        <a href = "#"><div class="label-border" ><textarea name="note" type="text" rows="2" style="box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;width:100%;color: #000;outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
-                      </p>
-
-                      <div class="modal-footer col-md-12" style="text-align: center;">
-                        <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save</button>
-                      </div>
-                
-                    
-                    </div>
-                </div>
-                </div>
-           </form>
-            </div>
-        </div>
-
-        <div id="test" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customModalLabel" aria-hidden="true" >
-          <div class="modal-backdrop fade " style="opacity: 0.6;"></div> 
-          <div class="modal-dialog" style="z-index: 1111;">
-            <form class="modal-content"  method="post">
-                <div class="modal-header" style="display:flex;justify-content:center">
-                  <h3 class="modal-title" style="width: 100%;text-align: center;color:#fff">
-                      <i class="fa fa-user" style="margin-right:5px"></i>
-                      <%= item.device %>
-                    </h3>
-                    <button type="button" onclick="document.getElementById('<%= item._id %>').style.display='none'" class="close" title="Close Modal" style="color:white;opacity: 1;">
-                        <img  src="../images/icons/icon_wise-white/close.png" width="25">
-                    </button>
-                </div>
-                <div class="modal-body">
-                  <div class="form-grid-title" style="color:white;">
-                   
-                    <div class="detail-grid">
-             
-                      <p><i class="fa fa-circle" style="color:#fff"></i><label><%= item.type %></label></p>
-                      <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 25px;height: 25px;margin-right: 5px;"><%= item.value %></p>
-                      <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 25px;height: 25px;margin-right: 5px;">  <span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 25px;height: 25px;margin-right: 5px;"> <span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 25px;height: 25px;"> <span><%= item.userId %></span></p>
-                      <p>
-                        <a href = "#"><div class="label-border" ><textarea name="Note" type="text" rows="2" style="box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;width:100%;color: #000;outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
-                      </p>
-
-                      <div class="col-md-12" style="text-align: center;">
-                        <button type="submit" class="btn btn-default" style="background-color: #72A95E;color: white;font-size: 18px;"><i class="fa fa-save" style="margin-right:5px;font-size: 18px;"></i>Save</button>
-                      </div>
-
-                    </div>
-                </div>
-                </div>
-           </form>
-            </div>
-        </div>
-        <!-- End Modal -->
-        <% }) %>
-        </div>
-        </section>
-
-        <section id="content2">
-            <div class="table-responsive">
-              
-
-              
-                <table class="table">
-                  <thead>
-                      <tr>
-                          <th style="min-width: 50px;">STT</th>
-                          <th style="min-width: 80px;">Alarm</th>
-                          <th style="min-width: 130px;">Type</th>
-                          <th style="min-width: 80px;">Value</th>
-                          <th style="min-width: 80px;">Created At</th>
-                          <th style="min-width: 80px;">Updated At</th>
-                          <th style="min-width: 80px;">User Updated</th>
-                          <th style="min-width: 150px;">Note</th>
-                          <th style="min-width: 130px;">Status</th>
-                        
-                      </tr>
-                  </thead>
-                
-                    <tbody style="overflow-y: auto;">
-                      <% for(let item = 0; item < getDataAlarm.length; item ++) { %>
-                        <% let color; %>
-                          <% if(getDataAlarm[item].isDone == true){ %>
-                            <% color = '#0109ff82' %>
-                          <% } else { %>
-                            <% color = '#f7000091' %>
-                          <% } %>
-                              <tr >
-                              <td align="center"><%= item +1 %></td>
-                              <td><%= getDataAlarm[item].device %></td>
-                              <td><%= getDataAlarm[item].type %></td>
-                              <td><%= getDataAlarm[item].value %></td>
-                              <td><%= moment(getDataAlarm[item].createdAt).format('DD/MM-hh:mm a') %></td>
-                              <td><%= moment(getDataAlarm[item].updatedAt).format('DD/MM-hh:mm a') %></td>
-                              <td><%= getDataAlarm[item].userId %></td>
-                              <td><%= getDataAlarm[item].note %></td>
-                              <td><p><i class="fa fa-circle" style="font-size: 20px;color:<%= color %>;margin-right: 15px;"></i><span><%= item.type %></span></p></td>
-                              </tr>
-                              <% } %>
-                      </tbody>
-               
-                  </table>
-                
-            </div>
-        </section>
-                            <!-- Start Pages -->
-                            <% if (pages > 0) { %>
-                              <ul class="pagination pg-blue text-center">
-                                  <% if (current == 1) { %>
-                                      <li class="disabled page-item"><a class="page-link waves-effect">First</a></li>
-                                  <% } else { %>
-                                      <li class="page-item"><a class="page-link waves-effect" href="/alarm/1">First</a></li>
-                                  <% } %>
-                                  <% let i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
-                                  <% if (i !== 1) { %>
-                                      <li class="disabled page-item"><a class="page-link waves-effect">...</a></li>
-                                  <% } %>
-                                  <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
-                                      <% if (i == current) { %>
-                                          <li class="active page-item"><a class="page-link waves-effect"><%= i %></a></li>
-                                      <% } else { %>
-                                          <li class="page-item"><a class="page-link waves-effect" href="/alarm/<%= i %>"><%= i %></a></li>
-                                      <% } %>
-                                      <% if (i == Number(current) + 4 && i < pages) { %>
-                                          <li class="disabled page-item"><a class="page-link waves-effect">...</a></li>
-                                      <% } %>
-                                  <% } %>
-                                  <% if (current == pages) { %>
-                                      <li class="disabled page-item"><a class="page-link waves-effect">Last</a></li>
-                                  <% } else { %>
-                                      <li class="page-item"><a class="page-link waves-effect" href="/alarm/<%= pages %>">Last</a></li>
-                                  <% } %>
-                              </ul>
-                          <% } %>
-                          <!-- End Pages -->
       </main>
   </div>
   </div>
-      <!-- Start load page -->
+
+      <!-- load page -->
       <%- include('./../loadpage/load-alarm.ejs') -%>
-      <!-- End load page -->
+
+      <script src="../js/alarm/alarm.js"></script>
 </body>
-
 </html>
-
-<script>
-  $('.datepicker input').click(function(event){
-   $('.datepicker').data("datepicker").show();
-});
-</script>
-
-
-    <script>
-      $('.datepicker').pickadate();
-        $('#end-date-alarm').datepicker({
-    dateFormat: "yy/mm/dd" ,
-    
-  });
-
-  $("#start-date-alarm").datepicker({
-    dateFormat: "yy/mm/dd",
-    allowInputToggle: true,
-    onSelect: function(date) {
-      var date1 = $('#start-date-alarm').datepicker('getDate');
-      var date = new Date(Date.parse(date1));
-      date.setDate(date.getDate());
-      var newDate = date.toDateString();
-      newDate = new Date(Date.parse(newDate));
-      $('#end-date-alarm').datepicker("option", "minDate", newDate);
-    }
-  });
-
-
-    </script>
-<script>
-  function ConfirmDelete()
-{
-  var x = confirm("Are you sure you want to delete?");
-  if (x)
-      return true;
-  else
-    return false;
-}
-</script>

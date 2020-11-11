@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
+  <link rel="stylesheet" href="../css/navbar/navbar.css"/>
 
 </head>
 <nav class="navbar navbar-expand-sm navbar-expand-lg navbar-dark primary-color">
@@ -36,24 +37,6 @@
   
     </div>
 
-    <style>
-    .section-tab {
-    display: none;
-    }
-    .navbar-nav i {
-      color:#fff;
-    }
-    .navbar-nav:hover .section-tab {
-      display: block;
-    min-width: 200px;
-    padding: 10px;
-    position: absolute;
-    top: 60px;
-    right: 60px;
-    z-index: 100;
-    background: #11423740;
-    }
-    </style>
   </div>
 
     </div>
@@ -93,13 +76,6 @@
             </a>
     
           </li>
-          <!-- <li class="item">
-            <a class="collapsible-header waves-effect arrow-r" href="/report">
-              <img src="/images/icons/icon_wise-white/report.png" style="width:45px"/>
-              <p>Report</p> 
-            </a>
-    
-          </li> -->
           <li class="item">
             <a class="collapsible-header waves-effect arrow-r" href="/setting">
               <img src="/images/icons/icon_wise-white/setting.png" style="width:40px"/>
@@ -110,22 +86,4 @@
         </ul>
 
     </div>
-    <!-- Noi dung body can them vao day-->
-    <script>
-
-      var setDefaultActive = function () {
-          var path = window.location.pathname;
-
-          var element = $("ul.collapsible-accordion li.item a.collapsible-header[href='" + path + "']");
-          element.addClass("active-sidebar");
-
-      }
-
-      setDefaultActive()
-  </script>
-  <style>
-        .active-sidebar {
-        background:#1f695861;
-        font-weight:bold;
-    }
-  </style>
+    <script src="../js/navbar/navbar.js"></script>
