@@ -30,8 +30,186 @@
       <div class="main-panel1" style="top:0;left: 0;right: 0;bottom: 0;">
         <div class="se-pre-con"></div> 
         <div class="content-wrapper" id="content-wrapper"  style="padding:2.5rem 2.5rem">
+          <% let dataTotal = ['Main-Office', 'Office', 'Boilder', 'Factory'] %>
+        <div class="content-detail">
+          <% for(let name=0, name<dataTotal.length; name++){ %>
+            <div class="dashboard" style="position:relative;border-radius: 10px;">
+              <div class="pump-station" style="position: absolute;font-size: 16px;">Pump Station: &nbsp;&nbsp;<span style="font-size: 16px;"><%= name %></span></div>
+              <div class="list-station" style="margin-top:20px;padding-top:20px;display: grid;grid-template-columns: 1fr 1fr;text-align:center">
+                <div class="list-1 text-left">
+                  <div class="title">
+                    <p style="min-width: 95px;display:inline-block">Inverter:</p>
+                    <span style="font-weight: bold; color: #1fb190;">Running</span>
+                  </div>
+                  <div class="title">
+                    <p style="min-width: 95px;display:inline-block">Pressure PV:</p>
+                    <span class="dv1" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>mPa</span>
+                  </div>
+                  <div class="title">
+                    <p style="min-width: 95px;display:inline-block">Pressure SV:</p>
+                    <span class="dv2" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>mPa</span>
+                  </div>
+                  <div class="title">
+                    <p style="min-width: 95px;display:inline-block">Current Freq:</p>
+                    <span class="dv3" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>Hz</span>
+                  </div>
+                </div>
+  
+                <div class="list-3 text-left">
+                  <div class="title">
+                    <p style="min-width: 70px;display:inline-block">Connect:</p>
+                    <span style="font-weight: bold; color: #1fb190;" >Ok</span>
+                  </div>
+                  <div class="title">
+                    <p style="min-width: 70px;display:inline-block">Avg Volt:</p>
+                    <span class="dv7" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>V</span>
+                  </div>
+                  <div class="title">
+                    <p style="min-width: 70px;display:inline-block">Avg Amp:</p>
+                    <span class="dv8" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>V</span>
+                  </div>
+                  <div class="title">
+                    <p style="min-width: 70px;display:inline-block">Total Kw:</p>
+                    <span class="dv9" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>Kw</span>
+                  </div>
+                </div>
+              </div>
+       
+          </div>
+          <% } %>
+          
+          <!-- <div class="dashboard" style="position:relative;border-radius: 10px;">
+            <div class="pump-station" style="position: absolute;font-size: 16px;">Pump Station: &nbsp;&nbsp;<span style="font-size: 16px;"><%= item + 1 %></span></div>
+            <div class="list-station" style="margin-top:20px;padding-top:20px;display: grid;grid-template-columns: 1fr 1fr;text-align:center">
+              <div class="list-1 text-left">
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Inverter:</p>
+                  <span style="font-weight: bold; color: #1fb190;">Running</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Pressure PV:</p>
+                  <span class="dv1" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>mPa</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Pressure SV:</p>
+                  <span class="dv2" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>mPa</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Current Freq:</p>
+                  <span class="dv3" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>Hz</span>
+                </div>
+              </div>
+  
+              <div class="list-3 text-left">
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Connect:</p>
+                  <span style="font-weight: bold; color: #1fb190;" >Ok</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Avg Volt:</p>
+                  <span class="dv7" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>V</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Avg Amp:</p>
+                  <span class="dv8" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>V</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Total Kw:</p>
+                  <span class="dv9" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>Kw</span>
+                </div>
+              </div>
+            </div>
+     
+          </div> -->
+          <!-- <div class="dashboard" style="position:relative;border-radius: 10px;">
+            <div class="pump-station" style="position: absolute;font-size: 16px;">Pump Station: &nbsp;&nbsp;<span style="font-size: 16px;"><%= item + 1 %></span></div>
+            <div class="list-station" style="margin-top:20px;padding-top:20px;display: grid;grid-template-columns: 1fr 1fr;text-align:center">
+              <div class="list-1 text-left">
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Inverter:</p>
+                  <span style="font-weight: bold; color: #1fb190;">Running</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Pressure PV:</p>
+                  <span class="dv1" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>mPa</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Pressure SV:</p>
+                  <span class="dv2" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>mPa</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Current Freq:</p>
+                  <span class="dv3" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>Hz</span>
+                </div>
+              </div>
     
-          <div class="content-image" style="background:url(../images/background/home-page.png) no-repeat center ;background-size: contain;width:100%;min-height: calc(100vh - 200px);">
+              <div class="list-3 text-left">
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Connect:</p>
+                  <span style="font-weight: bold; color: #1fb190;" >Ok</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Avg Volt:</p>
+                  <span class="dv7" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>V</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Avg Amp:</p>
+                  <span class="dv8" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>V</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Total Kw:</p>
+                  <span class="dv9" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>Kw</span>
+                </div>
+              </div>
+            </div>
+    
+          </div> -->
+          <!-- <div class="dashboard" style="position:relative;border-radius: 10px;">
+            <div class="pump-station" style="position: absolute;font-size: 16px;">Pump Station: &nbsp;&nbsp;<span style="font-size: 16px;"><%= item + 1 %></span></div>
+            <div class="list-station" style="margin-top:20px;padding-top:20px;display: grid;grid-template-columns: 1fr 1fr;text-align:center">
+              <div class="list-1 text-left">
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Inverter:</p>
+                  <span style="font-weight: bold; color: #1fb190;">Running</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Pressure PV:</p>
+                  <span class="dv1" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>mPa</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Pressure SV:</p>
+                  <span class="dv2" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>mPa</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 95px;display:inline-block">Current Freq:</p>
+                  <span class="dv3" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>Hz</span>
+                </div>
+              </div>
+      
+              <div class="list-3 text-left">
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Connect:</p>
+                  <span style="font-weight: bold; color: #1fb190;" >Ok</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Avg Volt:</p>
+                  <span class="dv7" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>V</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Avg Amp:</p>
+                  <span class="dv8" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>V</span>
+                </div>
+                <div class="title">
+                  <p style="min-width: 70px;display:inline-block">Total Kw:</p>
+                  <span class="dv9" style="font-weight: bold; color: #1fb190;" class="number"></span>&nbsp<span>Kw</span>
+                </div>
+              </div>
+            </div>
+      
+          </div> -->
+        </div>
+
+          <div class="content-image" style="background:url(../images/background/home-page.png) no-repeat center ;background-size: contain;width:100%;">
             <div class="flex-container">
               <div class="box_1 color_1 box-diagram flexFont">
                 <div class="center ">
@@ -112,6 +290,10 @@
     -ms-flex-direction: column;
     flex-direction: column;
 }
+.title {
+    margin: 10px;
+    color:#fff;
+  }
   #view {
   position: absolute;
   top: 0;
@@ -120,7 +302,29 @@
   width: 100%;
   cursor: move;
 }
-
+.list-station {
+  justify-items: center;
+}
+.pump-station {
+  text-align: center;
+  min-width: 150px;
+  border-radius: 5px;
+  padding: 5px;
+  color:#fff;
+  background-color: #21967ca1;
+  position: absolute;
+  top:-15px;
+  left: 15px;
+}
+.dashboard {
+  background-color: rgb(99 158 143 / 6%);
+    box-shadow: 0 5px 30px rgb(0 0 0 / 0%), 0 11px 10px rgba(0,0,0,0.22);
+    border-radius: 5px;
+    transition: all 0.3s;
+    margin-bottom:40px;
+    min-width: 355px;
+    max-height: 250px;
+}
 #board {
   position: relative;
 }
@@ -157,12 +361,12 @@
 }
 .box-diagram {
   transition: all 0.3s;
-    width: 12%;
+    width: 18%;
     perspective-origin: 25% 50%;
-    height: 90px;
-    position: absolute;
+    height: 150px;
+    position: relative;
     cursor: pointer;
-    transform: rotate3d(-9,-5,7,-67deg)
+    transform: rotate3d(-9,-5,7,-70deg);
 }
 .box-diagram .center {
   display: flex;
@@ -245,8 +449,9 @@
   display: none;
 }
 .box_1 {
-  top: 38%;
-  left: 45%;
+  display: inline-block;
+    bottom: -253px;
+    left: 38%;
 }
 
 .box_2 {
@@ -348,25 +553,16 @@ $(document).ready(function() {
 
   <!--Libraries-->
 
-
-  <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-  <!-- <script src="bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script> -->
   <script src="bower_components/AlertifyJS/build/alertify.js"></script>
   <script src="bower_components/moment/min/moment.min.js"></script>
   <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
   <script src="bower_components/peerjs/peer.min.js"></script>
-  <!-- <script src="bower_components/photoset-grid/jquery.photoset-grid.min.js"></script> -->
   <script src="bower_components/jquery-colorbox/jquery.colorbox-min.js"></script>
   <script src="socket.io/socket.io.js"></script>
 
-  <script src="js/diagram/request.js"></script>
-  <script src="js/diagram/diagram.js"></script>
+  <script src="js/dashboard/request.js"></script>
 
-      <!-- My js-->
-  <!-- <script src="js/cdn/diagram/jquery.min2.1.1.js"></script> -->
-
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
 
 </html>
 

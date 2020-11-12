@@ -259,11 +259,11 @@ label.control-label.col-md-7 {
     font-size: 22px !important;
   }
   .box_1 {
-    top: 40% !important;
-    left: 46% !important;
+    top: 332px !important;
+    left: 40% !important;
 }
-.box {
-  width:13% !important;
+.box-diagram {
+  width: 18% !important;
   height: 80px !important;
 }
 .navbar-expand-lg .navbar-collapse {
@@ -287,7 +287,7 @@ label.control-label.col-md-7 {
 .navbar-dark .navbar-toggler {
   display: none;
 }
-.box {
+.box-diagram {
   width:12% !important;
   height: 60px !important;
 }
