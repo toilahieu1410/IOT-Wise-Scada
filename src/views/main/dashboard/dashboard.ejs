@@ -31,7 +31,7 @@
         <div class="se-pre-con"></div> 
         <div class="content-wrapper" id="content-wrapper"  style="padding:2.5rem 2.5rem">
           <div class="col-md-12">
-            <div class="row justify-content-center" style="max-height:calc(100vh - 150px);overflow-y: auto;">
+            <div class="row justify-content-center" style="max-height:calc(100vh - 170px);overflow-y: auto;">
             
             <!-- Start task -->
             <% for(let item=0; item<30; item++){ %>
@@ -139,124 +139,7 @@
 #board {
   position: relative;
 }
-.color_1 {
-  background:#1142378a;
-  &:hover,
-  &.box_full {
-    background: darken(#524656, 10%);
-  }
-}
 
-.color_2 {
-  background: #cf4647;
-  &:hover,
-  &.box_full {
-    background: darken(#cf4647, 10%);
-  }
-}
-
-.color_3 {
-  background: #a7c5bd;
-  &:hover,
-  &.box_full {
-    background: darken(#a7c5bd, 10%);
-  }
-}
-
-.color_4 {
-  background: #e5ddcb;
-  &:hover,
-  &.box_full {
-    background: darken(#e5ddcb, 10%);
-  }
-}
-
-/*.full_screen.color_1{
-  
-}
-.full_screen.color_2{
-  
-}
-.full_screen.color_3{
-        background:darken(#00AAFF, 20%);
-
-}
-.full_screen.color_4{
-        background:darken(#FF00AA, 20%);
-
-}*/
-/*
-.box {
-  float:left;
-  width: 50%;
-  height: 50vh;
-  position:relative;
-}*/
-
-.box_full {
-  height: 100vh !important;
-  width: 100vw !important;
-  z-index: 9999;
-  top: 0 !important;
-  left: 0 !important;
-}
-/*
-.top_left{
-    top: 0!important;
-  left: 0!important;
-}
-.top_right{
-    top: 0!important;
-  right: 0!important;
-}
-.bottom_left{
-    bottom: 0!important;
-  left: 0!important;
-}
-.bottom_right{
-  bottom: 0!important;
-  right: 0!important;
-}*/
-.pos_relative {
-  position: relative;
-}
-
-.top-right {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-
-.box_full .center {
-  display: none;
-}
-.box_1 {
-  top: 39%;
-    left: 43%;
-}
-
-.box_2 {
-  top: 0;
-  left: 50%;
-}
-
-.box_3 {
-  top: 50%;
-  left: 0;
-}
-
-.box_4 {
-  top: 50%;
-  left: 50%;
-}
-
-a,
-fa {
-  color: #fefeeb;
-  &:hover {
-    color: darken(#fefeeb, 15%);
-  }
-}
 .is_hidden {
   opacity: 0;
   visibility: hidden;
@@ -313,32 +196,7 @@ fa {
     margin:20px;
 }
 </style>
-<script>
-  $box1 = $('box_1');
-$box4 = $('box_2');
-$box4 = $('box_3');
-$box4 = $('box_4');
 
-$('.box').click(function() {
-  $(this).addClass('box_full');
-     //$(this).addClass('fade_me');
-
-  $(this).siblings().addClass("fade_me");
-  setTimeout(function() {
- $(".is_hidden").addClass("is_visible").removeClass("is_hidden");
-  }, 500);
-});
-$('a').click(function() {
-  event.stopPropagation();
-  $(".is_visible").addClass("is_hidden").removeClass("is_visible");
-  $(this).closest('.box').removeClass('box_full');
-  $(".box").not(this).removeClass("fade_me");
-});
-
-$(document).ready(function() {
-    $('#fullpage').fullpage();
-});
-</script>
 <!-- <script>
   $(document).ready( function(){
       $(window).on("load", function(){

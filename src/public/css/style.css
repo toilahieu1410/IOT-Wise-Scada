@@ -1956,7 +1956,25 @@ text.highcharts-axis-title tspan {
   .simple-pagination .next.current {
     background: #e04e60;
   }
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #11423720;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #11423740;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1142377d;
+}
 /************************ END Button action ***************************/
 
 /************************ 3. Dropdown ***************************/
