@@ -17,7 +17,7 @@
                       <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.value %></span> </p>
                       <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
                       <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.userId %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;float: left;"><span class="d-flex"><%= item.userId %></span></p>
                       <div class="label-border" style="padding:5px;box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);background-color: #2b6d7b1a"><a href="#"><label><%= item.note %></label></a></div>
                       <p></p>
                       <div class="action-button" style="text-align:right">
@@ -55,7 +55,7 @@
                       <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 30px;height: 30px;margin-right: 15px;"><span><%= item.value %></span></p>
                       <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 30px;height: 30px;margin-right: 15px;">  <span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
                       <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;"> <span><%= item.userId %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 30px;height: 30px;margin-right: 15px;float: left;"> <span class="d-flex"><%= item.userId %></span></p>
                       <p>
                         <a href = "#"><div class="label-border" ><textarea name="note" type="text" rows="2" style="box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;width:100%;color: #000;outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
                       </p>
@@ -93,7 +93,7 @@
                       <p><img src="../images/icons/icon_wise-white/overload.png" style="width: 25px;height: 25px;margin-right: 5px;"><%= item.value %></p>
                       <p><img src="../images/icons/icon_wise-white/createAt.png" style="width: 25px;height: 25px;margin-right: 5px;">  <span><%= moment(item.createdAt).format('DD/MM-hh:mm a') %></span></p>
                       <p><img src="../images/icons/icon_wise-white/edit.png" style="width: 25px;height: 25px;margin-right: 5px;"> <span><%= moment(item.updatedAt).format('DD/MM-hh:mm a') %></span></p>
-                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 25px;height: 25px;"> <span><%= item.userId %></span></p>
+                      <p><img src="../images/icons/icon_wise-white/users.png" style="width: 25px;height: 25px;margin-right: 5px;float: left;"> <span class="d-flex"><%= item.userId %></span></p>
                       <p>
                         <a href = "#"><div class="label-border" ><textarea name="Note" type="text" rows="2" style="box-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;width:100%;color: #000;outline: none; background-color: transparent; border: none;font-size: 18px;color: white;"><%= item.note %></textarea></div></a>
                       </p>
@@ -112,3 +112,9 @@
         <% }) %>
         </div>
 </section>
+<style>
+  .detail-grid p span {
+    font-size: 2.3vmin;
+    word-break: break-word;
+  }
+</style>

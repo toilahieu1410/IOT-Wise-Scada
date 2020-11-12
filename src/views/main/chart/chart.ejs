@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Wise Scada</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="images/logo_favicon/favicon-trungquandev.png" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/chart/chart.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="images/logo_favicon/favicon-trungquandev.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/chart/chart.css" />
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -20,68 +28,94 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <script src="https://code.highcharts.com/modules/no-data-to-display.js"></script>
     <script src="js/chart/exportExcel/exportExcel.js"></script>
-</head>
-<!-- include('navbar'); -->
+  </head>
+  <!-- include('navbar'); -->
 
-<%- include('./../navbar/navbar.ejs') %>
-<body>
+  <%- include('./../navbar/navbar.ejs') %>
+  <body>
     <div class="main-panel" id="main-panel">
-        <div class="se-pre-con"></div> 
-        <div class="chart-query">
-            <div class="form-chart-data">
-                <div class="col-md-12" style="margin:25px 0 10px 0">
-                    <div class="row">
-                        
-                        <%- include('./includeChart/title.ejs') %>
-                        
-                        <div class="col-md-6">
-
-                        <%- include('./includeChart/table.ejs') %>
-                           
-                        <%- include('./includeChart/exportExcel.ejs') %>
-
-                        </div>
-
-                    <div class="col-md-6">
-                            <div class="row">
-                                <div class="form-chart">
-                                    <figure class="">
-                                        <div id="chart2" name="chart2"></div>
-                                    </figure>
-                                    <figure class="">
-                                        <div id="chart3" name="chart3"></div>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <div class="se-pre-con"></div>
+      <div class="chart-query">
+        <div class="form-chart-data">
+          <div class="col-md-12" style="margin: 25px 0 10px 0">
+            <div class="row">
+              <%- include('./includeChart/title.ejs') %>
+              <div class="form-chart-head d-flex">
+                <div class="col-md-8" >
+                  <%- include('./includeChart/table.ejs') %> <%-
+                  include('./includeChart/exportExcel.ejs') %>
                 </div>
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="form-chart">
-                            <figure class="">
-                                <div id="chart4" name="chart4"></div>
-                            </figure>
-                            <figure class="">
-                                <div id="chart5" name="chart5"></div>
-                            </figure>
-                            <figure class="">
-                                <div id="chart1" name="chart1"></div>
-                            </figure>
-                        </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="form-chart w-100 d-block">
+                      <figure class="">
+                        <div
+                          id="chart2"
+                          name="chart2"
+                        
+                        ></div>
+                      </figure>
+                      <figure class="">
+                        <div
+                          id="chart3"
+                          name="chart3"
+                
+                        ></div>
+                      </figure>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="form-horizonal w-100">
+                  <div class="form-group">
+                      <div class="row">
+                        <Div class="col-md-4">
+                            <figure class="">
+                              <div
+                                id="chart4"
+                                name="chart4"
+                          
+                              ></div>
+                            </figure>
+                          </Div>
+                          <div class="col-md-4">
+                            <figure class="">
+                              <div
+                                id="chart5"
+                                name="chart5"
+                  
+                              ></div>
+                            </figure>
+                          </div>
+                          <div class="col-md-4">
+                            <figure class="">
+                              <div
+                                id="chart1"
+                                name="chart1"
+                   
+                              ></div>
+                            </figure>
+                          </div>
+                      </div>
             
+                  </div>
+          
+              </div>
+            </div>
+          </div>
         </div>
-       
+      </div>
     </div>
 
-     <!-- load page -->
-     <%- include('../loadpage/loadpage.ejs') -%>
+    <!-- load page -->
+    <%- include('../loadpage/loadpage.ejs') -%>
+  </body>
 
-</body>
-<script>
+  <script>
     let dateTime = ['<%= dateTime %>'];
     let arrDateTime = dateTime[0].split(',')
     let nhietDoKhoiThai = [<%= nhietDoKhoiThai %>];
@@ -94,6 +128,6 @@
     let sumNhietDoKhoiThai = <%= sumNhietDoKhoiThai %>;
     let sumNhietDoNuoc = <%= sumNhietDoNuoc %>;
     let sumApSuatHoi = <%= sumApSuatHoi %>;
-</script>
-<script src="js/chart/chart.js"></script>
+  </script>
+  <script src="js/chart/chart.js"></script>
 </html>

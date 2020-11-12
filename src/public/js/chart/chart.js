@@ -212,6 +212,20 @@ Highcharts.chart('chart2', {
             }
         }
     },
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 400
+            },
+            chartOptions: {
+                legend: {
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    layout: 'horizontal'
+                }
+            }
+        }]
+    },
     accessibility: {
         announceNewData: {
             enabled: true
@@ -331,6 +345,20 @@ Highcharts.chart('chart3', {
 
      
   },
+  responsive: {
+    rules: [{
+        condition: {
+            maxWidth: 400
+        },
+        chartOptions: {
+            legend: {
+                align: 'center',
+                verticalAlign: 'bottom',
+                layout: 'horizontal'
+            }
+        }
+    }]
+},
     exporting: {
         buttons: {
             contextButton: {
