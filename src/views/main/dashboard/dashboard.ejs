@@ -104,8 +104,9 @@
         </div>
       </div>
      
+     
       <!-- Start load page -->
-  
+      <%- include('../loadpage/load-scada.ejs') -%>
       <!-- End load page -->
    
 </body>
@@ -169,36 +170,7 @@
     background: darken(#e5ddcb, 10%);
   }
 }
-.box {
-  transition: all 0.3s;
-    width: 225px;
-    perspective-origin: 25% 50%;
-    height: 105px;
-    position: absolute;
-    cursor: pointer;
-    transform: rotate3d(-9,-5,7,-67deg)
-}
-.box .center {
-  display: flex;
-  align-items: center;
-}
-.center {
-  height: 100%;
-  font-weight: bold;
-  font-size: 2em;
-  color: white;
-}
-.box a:hover {
-  text-decoration: none;
-  color:#fff;
-}
-.box:hover {
 
-  transition: .3s;
-  background:#114237c9;
-  /* box-shadow: -1px 1px 35px 5px rgba(0, 0, 0, 0.75); */
-  z-index: 999;
-}
 /*.full_screen.color_1{
   
 }

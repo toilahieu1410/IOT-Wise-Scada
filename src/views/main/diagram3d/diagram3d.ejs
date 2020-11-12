@@ -33,7 +33,7 @@
     
           <div class="content-image" style="background:url(../images/background/home-page.png) no-repeat center ;background-size: contain;width:100%;min-height: calc(100vh - 200px);">
             <div class="flex-container">
-              <div class="box_1 color_1 box flexFont">
+              <div class="box_1 color_1 box-diagram flexFont">
                 <div class="center ">
                   <a class="collapsible-header waves-effect arrow-r" href="/homepage" style="width:100%; height: 100%;justify-content: center;align-items: center;display: flex;">
                      <p></p>
@@ -94,7 +94,7 @@
       </div>
      
       <!-- Start load page -->
-  
+      <%- include('../loadpage/load-scada.ejs') -%>
       <!-- End load page -->
    
 </body>
@@ -113,7 +113,7 @@
     flex-direction: column;
 }
   #view {
-    position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
@@ -155,7 +155,7 @@
     background: darken(#e5ddcb, 10%);
   }
 }
-.box {
+.box-diagram {
   transition: all 0.3s;
     width: 12%;
     perspective-origin: 25% 50%;
@@ -164,7 +164,7 @@
     cursor: pointer;
     transform: rotate3d(-9,-5,7,-67deg)
 }
-.box .center {
+.box-diagram .center {
   display: flex;
   align-items: center;
 }
@@ -174,11 +174,11 @@
   font-size: 2em;
   color: white;
 }
-.box a:hover {
+.box-diagram a:hover {
   text-decoration: none;
   color:#fff;
 }
-.box:hover {
+.box-diagram:hover {
 
   transition: .3s;
   background:transparent;
@@ -314,7 +314,7 @@ $box4 = $('box_2');
 $box4 = $('box_3');
 $box4 = $('box_4');
 
-$('.box').click(function() {
+$('.box-diagram').click(function() {
   $(this).addClass('box_full');
      //$(this).addClass('fade_me');
 
@@ -326,8 +326,8 @@ $('.box').click(function() {
 $('a').click(function() {
   event.stopPropagation();
   $(".is_visible").addClass("is_hidden").removeClass("is_visible");
-  $(this).closest('.box').removeClass('box_full');
-  $(".box").not(this).removeClass("fade_me");
+  $(this).closest('.box-diagram').removeClass('box_full');
+  $(".box-diagram").not(this).removeClass("fade_me");
 });
 
 $(document).ready(function() {
