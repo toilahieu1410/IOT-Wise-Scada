@@ -27,9 +27,9 @@
     <!-- include('navbar'); -->
 
     <%- include('../navbar/navbar.ejs') %>
-      <div class="main-panel flexFont" style="top:0;left: 0;right: 0;bottom: 0;height: 100vh;">
+      <div class="main-panel1 " style="top:0;left: 0;right: 0;bottom: 0;height: 100vh;">
         <div class="se-pre-con"></div> 
-        <div class="content-wrapper" id="content-wrapper"  style="padding:2.5rem 2.5rem">
+        <div class="content-wrapper " id="content-wrapper"  style="padding:2.5rem 2.5rem">
         <div class="content-detail d-inline-block" style="overflow-y: auto;max-height: calc(100vh - 80px);min-width: 355px;">
           <% let dataTotal = ['Main-Office', 'Office', 'Boilder', 'Factory'] %>
           <% for(let item=0; item<dataTotal.length; item++){ %>
@@ -78,7 +78,7 @@
           </div>
           <% } %>
         </div>
-          <div class="content-image" style="background:url(../images/background/home-page.png) no-repeat;background-size: contain;width:100%;margin:50px;background-position: center;">
+          <div class="content-image flexFont" style="background:url(../images/background/home-page.png) no-repeat;background-size: contain;width:100%;margin:50px;background-position: center;">
             <div class="flex-container">
               <div class="box_1 color_1 box-diagram ">
                 <div class="center ">
@@ -147,7 +147,7 @@
 </body>
 <script>
   flexFont = function () {
-    var divs = document.getElementsByClassName("flexFont");
+    var divs = document.getElementsByClassName("content-wrapper");
     for(var i = 0; i < divs.length; i++) {
         var relFontsize = divs[i].offsetWidth*0.5;
         divs[i].style.fontsize = relFontsize+'px';
@@ -218,7 +218,7 @@ window.onresize = function(event) {
   position: relative;
 }
 .color_1 {
-  background:red;
+  background:transparent;
   &:hover,
   &.box_full {
     background: darken(#524656, 10%);
@@ -250,10 +250,10 @@ window.onresize = function(event) {
 }
 .box-diagram {
   transition: all 0.3s;
-    width: 24vh;
-    perspective-origin: 25% 50%;
-    min-height: 8em;
-    position: relative;
+    width: 15vw;
+    perspective-origin: 250% 150%;
+    padding-bottom: 8%;
+    position: absolute;
     cursor: pointer;
     transform: rotate3d(-8,-6,7,-70deg);
 
@@ -339,9 +339,8 @@ window.onresize = function(event) {
   display: none;
 }
 .box_1 {
-  display: inline-block;
-  bottom: -185px;
-    left: 38%;
+    top: 44%;
+    left: 53%;
 }
 
 .box_2 {
