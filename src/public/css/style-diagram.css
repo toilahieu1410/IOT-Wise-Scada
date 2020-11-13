@@ -56,26 +56,26 @@ p {
 }
 #form-fan {
   position: absolute;
-  top: 45rem;
-  left: 6em;
+  top: 33rem;
+  left: 5em;
   display: inline-block;
 }
 #form-fan-mini1 {
-  position: relative;
-  top: 38rem;
-  left: 11.8em;
+  position: absolute;
+  top: 32rem;
+  left: 10.5em;
   display: inline-block;
 }
 #form-fan-mini2 {
-  position: relative;
-  top: 38rem;
-  left: 14.5em;
+  position: absolute;
+  top: 32rem;
+  left: 13.5em;
   display: inline-block;
 }
 #form-fan-mini3 {
-  position: relative;
-  top: 33rem;
-  left: 12em;
+  position: absolute;
+  top: 27rem;
+  left: 11.3em;
   display: inline-block;
 }
 .detail-grid {
@@ -250,8 +250,122 @@ label.control-label.col-md-7 {
   background-color: #176866e3;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
 }
+@media screen and (max-width: 1399px) and (min-width:1301px) {
+  #form-fan {
+    position: absolute;
+    top: 33rem;
+    left: 5em;
+    display: inline-block;
+  }
+  #form-fan-mini1 {
+    position: absolute;
+    top: 32rem;
+    left: 10.5em;
+    display: inline-block;
+  }
+  #form-fan-mini2 {
+    position: absolute;
+    top: 32rem;
+    left: 13.5em;
+    display: inline-block;
+  }
+  #form-fan-mini3 {
+    position: absolute;
+    top: 27rem;
+    left: 11.3em;
+    display: inline-block;
+  }
+  #form-fan-mini3 img {
+    width: 150px !important;
+  }
+ }
+@media screen and (max-width: 1300px) and (min-width:1270px) {
+  #form-fan {
+    position: absolute;
+    top: 9em !important;
+      left: 6.5em !important;
+    display: inline-block;
+  }
+  #form-fan-mini1 {
+    position: relative;
+    top: 8em !important;
+      left: 12em !important;
+    display: inline-block;
+  }
+  #form-fan-mini2 {
+    position: relative;
+    top: 8em !important;
+      left: 14.5em !important;
+    display: inline-block;
+  }
+  #form-fan-mini3 {
+    position: relative;
+    top: 7em !important;
+      left: 12em !important;
+    display: inline-block;
+  }
+  #form-fan-mini3 img {
+    width: 150px !important;
+  }
+ }
+ @media screen and (max-width: 1269px) and (min-width:1200px) {
+  #form-fan {
+    position: absolute;
+    top: 9em !important;
+      left: 6.5em !important;
+    display: inline-block;
+  }
+  #form-fan-mini1 {
+    position: relative;
+    top: 8em !important;
+      left: 12em !important;
+    display: inline-block;
+  }
+  #form-fan-mini2 {
+    position: relative;
+    top: 8em !important;
+      left: 14.5em !important;
+    display: inline-block;
+  }
+  #form-fan-mini3 {
+    position: relative;
+    top: 7em !important;
+      left: 12em !important;
+    display: inline-block;
+  }
+  #form-fan-mini3 img {
+    width: 150px !important;
+  }
+  }
+@media screen and (max-width: 1399px) and (min-width:1200px) { 
+  .box_1 {
+    top: 50% !important;
+    left: 60% !important;
+}
+.box-diagram {
+  width: 12vw !important;
+  padding-bottom: 6% !important;
+}
 
+}
 @media screen and (max-width: 1199px) and (min-width:992px) {
+  .pump-station {
+    font-size: 14px !important;
+    min-width: 130px !important;
+  }
+  .dashboard {
+    min-width: 260px !important;
+    max-height: 250px;
+}
+  .content-detail {
+    min-width: 285px !important;
+  }
+  .list-station .list-1,.list-station .list-3 {
+    font-size: 13px;
+  }
+  .list-station .list-1 .title p,.list-station .list-3 .title p{
+    min-width: 70px !important;
+  }
   .run-action-scada {
     line-height: 15px !important;
   }
@@ -259,12 +373,12 @@ label.control-label.col-md-7 {
     font-size: 22px !important;
   }
   .box_1 {
-    top: 332px !important;
-    left: 40% !important;
+    top: 51% !important;
+    left: 60% !important;
 }
 .box-diagram {
-  width: 18% !important;
-  height: 80px !important;
+  width: 12vw !important;
+  padding-bottom: 6% !important;
 }
 .navbar-expand-lg .navbar-collapse {
   min-width: auto !important;
