@@ -35,84 +35,87 @@
   <body>
     <div class="main-panel" id="main-panel">
       <div class="se-pre-con"></div>
-      <div class="chart-query">
-        <div class="form-chart-data">
-          <div class="col-md-12" style="margin: 25px 0 10px 0">
-            <div class="row">
-              <%- include('./includeChart/title.ejs') %>
-              <div class="form-chart-head d-flex">
-                <div class="col-md-8" >
-                  <%- include('./includeChart/table.ejs') %> <%-
-                  include('./includeChart/exportExcel.ejs') %>
-                </div>
-                <div class="col-md-4">
-                  <div class="row">
-                    <div class="form-chart w-100 d-block">
-                      <figure class="">
-                        <div
-                          id="chart2"
-                          name="chart2"
-                        
-                        ></div>
-                      </figure>
-                      <figure class="">
-                        <div
-                          id="chart3"
-                          name="chart3"
-                
-                        ></div>
-                      </figure>
+      <div id="content-wrapper" class="content-wrapper"  >
+        <div class="chart-query">
+          <div class="form-chart-data">
+            <div class="col-md-12" style="margin: 25px 0 10px 0">
+              <div class="row">
+                <%- include('./includeChart/title.ejs') %>
+                <div class="form-chart-head d-flex">
+                  <div class="col-md-8" >
+                    <%- include('./includeChart/table.ejs') %> <%-
+                    include('./includeChart/exportExcel.ejs') %>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="row">
+                      <div class="form-chart w-100 d-block">
+                        <figure class="">
+                          <div
+                            id="chart2"
+                            name="chart2"
+                          
+                          ></div>
+                        </figure>
+                        <figure class="">
+                          <div
+                            id="chart3"
+                            name="chart3"
+                  
+                          ></div>
+                        </figure>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-12">
-            <div class="row">
-              <div class="form-horizonal w-100">
-                  <div class="form-group">
-                      <div class="row">
-                        <Div class="col-md-4">
-                            <figure class="">
-                              <div
-                                id="chart4"
-                                name="chart4"
-                          
-                              ></div>
-                            </figure>
-                          </Div>
-                          <div class="col-md-4">
-                            <figure class="">
-                              <div
-                                id="chart5"
-                                name="chart5"
-                  
-                              ></div>
-                            </figure>
-                          </div>
-                          <div class="col-md-4">
-                            <figure class="">
-                              <div
-                                id="chart1"
-                                name="chart1"
-                   
-                              ></div>
-                            </figure>
-                          </div>
-                      </div>
+            <div class="col-md-12">
+              <div class="row">
+                <div class="form-horizonal w-100">
+                    <div class="form-group">
+                        <div class="row">
+                          <Div class="col-md-4">
+                              <figure class="">
+                                <div
+                                  id="chart4"
+                                  name="chart4"
+                            
+                                ></div>
+                              </figure>
+                            </Div>
+                            <div class="col-md-4">
+                              <figure class="">
+                                <div
+                                  id="chart5"
+                                  name="chart5"
+                    
+                                ></div>
+                              </figure>
+                            </div>
+                            <div class="col-md-4">
+                              <figure class="">
+                                <div
+                                  id="chart1"
+                                  name="chart1"
+                     
+                                ></div>
+                              </figure>
+                            </div>
+                        </div>
+              
+                    </div>
             
-                  </div>
-          
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+   
     </div>
 
     <!-- load page -->
-    <%- include('../loadpage/loadpage.ejs') -%>
+    <%- include('../loadpage/load-scada.ejs') -%>
   </body>
 
   <script>

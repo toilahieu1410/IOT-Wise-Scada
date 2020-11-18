@@ -83,10 +83,10 @@
     animation: spin 2s infinite alternate;
     border-bottom-color: #ccc;
   }
-  #main-panel {
+  /* #main-panel {
       display: none;
   
-  }
+  } */
    .se-pre-con {
     background: #cccccc5c;
       position: fixed;
