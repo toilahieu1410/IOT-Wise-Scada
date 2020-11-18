@@ -29,7 +29,7 @@
     <%- include('../navbar/navbar.ejs') %>
       <div class="main-panel1 " style="top:0;left: 0;right: 0;bottom: 0;height: 100vh;">
         <div class="se-pre-con"></div> 
-        <div class="content-wrapper " id="content-wrapper"  style="padding:2.5rem 2.5rem">
+        <div class="content-wrapper " id="content-wrapper"  style="padding:2.5rem 2.5rem;display: flex !important;">
         <div class="content-detail d-inline-block" style="overflow-y: auto;max-height: calc(100vh - 80px);min-width: 355px;">
           <% let dataTotal = ['Main-Office', 'Office', 'Boilder', 'Factory'] %>
           <% for(let item=0; item<dataTotal.length; item++){ %>
@@ -141,7 +141,7 @@
       </div>
      
       <!-- Start load page -->
-      <%- include('../loadpage/load-scada.ejs') -%>
+      <%- include('../loadpage/load-alarm.ejs') -%>
       <!-- End load page -->
    
 </body>
