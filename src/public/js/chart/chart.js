@@ -215,13 +215,29 @@ Highcharts.chart('chart2', {
     responsive: {
         rules: [{
             condition: {
-                maxWidth: 400
+                maxWidth: 500
             },
             chartOptions: {
                 legend: {
                     align: 'center',
                     verticalAlign: 'bottom',
                     layout: 'horizontal'
+                },
+                yAxis: {
+                    labels: {
+                        align: 'left',
+                        x: 0,
+                        y: -5
+                    },
+                    title: {
+                        text: null
+                    }
+                },
+                subtitle: {
+                    text: null
+                },
+                credits: {
+                    enabled: false
                 }
             }
         }]
@@ -345,20 +361,7 @@ Highcharts.chart('chart3', {
 
      
   },
-  responsive: {
-    rules: [{
-        condition: {
-            maxWidth: 400
-        },
-        chartOptions: {
-            legend: {
-                align: 'center',
-                verticalAlign: 'bottom',
-                layout: 'horizontal'
-            }
-        }
-    }]
-},
+
     exporting: {
         buttons: {
             contextButton: {
@@ -412,7 +415,37 @@ Highcharts.chart('chart3', {
         name: 'Áp suất hơi',
         data: apSuatHoi,
         color:'#464fb96e'
-    }]
+    }],
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    layout: 'horizontal'
+                },
+                yAxis: {
+                    labels: {
+                        align: 'left',
+                        x: 0,
+                        y: -5
+                    },
+                    title: {
+                        text: null
+                    }
+                },
+                subtitle: {
+                    text: null
+                },
+                credits: {
+                    enabled: false
+                }
+            }
+        }]
+    },
 });
 
 // Bieu do chan khong buong dot
