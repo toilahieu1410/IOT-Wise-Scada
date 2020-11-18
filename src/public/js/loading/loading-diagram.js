@@ -14,7 +14,7 @@ function onReady(callback) {
 }
 
 function show(id, value) {
-    document.getElementById(id).style.display = value ? 'flex' : 'none';
+    document.getElementById(id).style.display = value ? 'block' : 'none';
 }
 onReady(function () {
     show('content-wrapper', true);
