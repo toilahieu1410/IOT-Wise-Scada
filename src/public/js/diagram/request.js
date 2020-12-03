@@ -34,41 +34,41 @@ socket.on('requestApi', function (getDataDiagram) {
     $("#dv25").html(getDataDiagram.resetThanCongDon);
 
     if(getDataDiagram.statusQuatOxy === 0) {
-        $('#form-fan').html('<img src="../images/background/quat-01.png" width="90" style="position: absolute;" class="img-scada"/>')
-        $('#form-fan-mini3').html('<img src="../images/background/lua-scada.png" width="200" style="position: absolute;" class="img-scada"/>')
+        $('#form-fan').html('<img src="../images/background/quat-01.png"  style="position: relative;" class="img-scada"/>')
+        $('#form-fan-mini3').html('<img src="../images/background/lua-scada.png" width="180" style="position: relative;" class="img-scada"/>')
 
     } else {
-        $('#form-fan').html('<img src="../images/background/quat.gif" width="90" style="position: absolute;" class="img-scada"/>')
-        $('#form-fan-mini3').html('<img src="../images/background/lua-scada.gif" width="200" style="position: absolute;" class="img-scada"/>')
+        $('#form-fan').html('<img src="../images/background/quat.gif"  style="position: relative;" class="img-scada"/>')
+        $('#form-fan-mini3').html('<img src="../images/background/lua-scada.gif" width="180" style="position: relative;" class="img-scada"/>')
     }
 
     if(getDataDiagram.statusQuatDay === 0) {
-        $('#form-fan-mini1').html('<img src="../images/background/quat-01.png" width="50" style="position: absolute;" class="img-scada"/>')
+        $('#form-fan-mini1').html('<img src="../images/background/quat-01.png" width="50" style="position: relative;" class="img-scada"/>')
     } else {
-        $('#form-fan-mini1').html('<img src="../images/background/quat.gif" width="50" style="position: absolute;" class="img-scada"/>')
+        $('#form-fan-mini1').html('<img src="../images/background/quat.gif" width="50" style="position: relative;" class="img-scada"/>')
     }
 
     if(getDataDiagram.statusQuatHut === 0) {
-        $('#form-fan-mini2').html('<img src="../images/background/quat-01.png" width="50" style="position: absolute;" class="img-scada"/>')
+        $('#form-fan-mini2').html('<img src="../images/background/quat-01.png" width="50" style="position: relative;" class="img-scada"/>')
     } else {
-        $('#form-fan-mini2').html('<img src="../images/background/quat.gif" width="50" style="position: absolute;" class="img-scada"/>')
+        $('#form-fan-mini2').html('<img src="../images/background/quat.gif" width="50" style="position: relative;" class="img-scada"/>')
     }
 })
 
-flexFont = function () {
-    var divs = document.getElementsByClassName("main-panel");
-    for(var i = 0; i < divs.length; i++) {
-        var relFontsize = divs[i].offsetWidth*0.05;
-        divs[i].style.fontSize = relFontsize+'px';
-    }
-};
+// flexFont = function () {
+//     var divs = document.getElementsByClassName("main-panel");
+//     for(var i = 0; i < divs.length; i++) {
+//         var relFontsize = divs[i].offsetWidth*0.05;
+//         divs[i].style.fontSize = relFontsize+'px';
+//     }
+// };
 
-window.onload = function(event) {
-    flexFont();
-};
-window.onresize = function(event) {
-    flexFont();
-};
+// window.onload = function(event) {
+//     flexFont();
+// };
+// window.onresize = function(event) {
+//     flexFont();
+// };
 // $(document).ready(function(){
 //     $('#btnResetThanCongDon').click(function(){
 //         socket.emit('resetThanCongDon', $('#exampleInputPassword1').val());

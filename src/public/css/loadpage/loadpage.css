@@ -6,7 +6,7 @@
     display: flex ;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-            flex-direction: column;
+            flex-direction: column; 
     -webkit-box-align: center;
             align-items: center;
     -webkit-box-pack: center;
@@ -83,10 +83,10 @@
     animation: spin 2s infinite alternate;
     border-bottom-color: #ccc;
   }
-  #main-panel {
+  /* #main-panel {
       display: none;
   
-  }
+  } */
    .se-pre-con {
     background: #cccccc5c;
       position: fixed;

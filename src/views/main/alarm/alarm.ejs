@@ -1,61 +1,124 @@
-
 <html lang="en">
-<head>
+  <head>
     <title>Wise Scada</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/css/mdb.min.css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/style-alarm.css" >
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/css/mdb.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-alarm.css" />
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/jquery.min.js"
+    ></script>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/mdb.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/mdb.min.js"
+    ></script>
+  </head>
+  <%- include('./../navbar/navbar.ejs') %>
 
-</head>
-    <%- include('./../navbar/navbar.ejs') %>
+  <body>
+    <div class="main-panel" id="main-panel">
+      <div class="se-pre-con"></div>
+      <div class="content-wrapper" id="content-wrapper" style="margin: 0rem 1.5rem">
+        <main style="position: relative">
+          <input id="tab1" type="radio" name="tabs" checked />
+          <label for="tab1"
+            ><i class="fa fa-chart-bar" style="font-size: 26px; color: #fff"></i
+          ></label>
 
-<body>
-  <div class="main-panel" id="main-panel">
-    <div class="se-pre-con"></div> 
-    <div class="content-wrapper" style="margin:0rem 1.5rem">
-      <main style="position: relative;">
-          <input id="tab1" type="radio" name="tabs" checked>
-          <label for="tab1"><i class="fa fa-chart-bar" style="font-size: 26px;color:#fff"></i></label>
-            
-          <input id="tab2" type="radio" name="tabs">
-          <label for="tab2"><i class="fa fa-table" style="font-size: 26px;color:#fff"></i> </label>
+          <input id="tab2" type="radio" name="tabs" />
+          <label for="tab2"
+            ><i class="fa fa-table" style="font-size: 26px; color: #fff"></i>
+          </label>
 
           <form action="/alarm/query" method="post">
-            <div class="search-datetime" style="position: absolute;right:0;display: flex;top:0">
-              <div  class="form-group input-with-post-icon " style="display:flex;position: relative;">
-            
-                <input id="date-picker-example" style="color:#fff;background:transparent;border:none;box-shadow:none;border-radius: 0;border-bottom:2px solid #fff;" id="start-date-alarm" name="startDateAlarm" class="form-control datepicker" autocomplete="off">
-                <i class="fas fa-calendar input-prefix" style="font-size: 20px;color:#fff;position: absolute;right:0"></i> 
-            </div>
-    
-                <button type="submit" class="btn btn-search" href="/alarm/query" style="background-color: #114237ab;font-size: 16px;color: white;margin:1rem 0;margin-left: 20px;top:-22px;position: relative;"><img width="25" src="../images/icons/icon_wise-white/search.png"/></button>
+            <div
+              class="search-datetime"
+              style="position: absolute; right: 0; display: flex; top: 0"
+            >
+              <div
+                class="form-group input-with-post-icon"
+                style="display: flex; position: relative"
+              >
+                <input
+                  id="date-picker-example"
+                  style="
+                    color: #fff;
+                    background: transparent;
+                    border: none;
+                    box-shadow: none;
+                    border-radius: 0;
+                    border-bottom: 2px solid #fff;
+                  "
+                  id="start-date-alarm"
+                  name="startDateAlarm"
+                  class="form-control datepicker"
+                  autocomplete="off"
+                />
+                <i
+                  class="fas fa-calendar input-prefix"
+                  style="
+                    font-size: 20px;
+                    color: #fff;
+                    position: absolute;
+                    right: 0;
+                  "
+                ></i>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-search"
+                href="/alarm/query"
+                style="
+                  background-color: #114237ab;
+                  font-size: 16px;
+                  color: white;
+                  margin: 1rem 0;
+                  margin-left: 20px;
+                  top: -22px;
+                  position: relative;
+                "
+              >
+                <img
+                  width="25"
+                  src="../images/icons/icon_wise-white/search.png"
+                />
+              </button>
             </div>
           </form>
 
-      <%- include('./section/section1.ejs') %>
-      <%- include('./section/section2.ejs') %>
+          <%- include('./section/section1.ejs') %> <%-
+          include('./section/section2.ejs') %>
 
-      <!-- pagination -->
-      <%- include('./pagination/pagination.ejs') %>
+          <!-- pagination -->
+          <%- include('./pagination/pagination.ejs') %>
+        </main>
+      </div>
+    </div>
 
-      </main>
-  </div>
-  </div>
+    <!-- load page -->
+    <%- include('./../loadpage/load-alarm.ejs') -%>
 
-      <!-- load page -->
-      <%- include('./../loadpage/load-alarm.ejs') -%>
-
-      <script src="../js/alarm/alarm.js"></script>
-</body>
+    <script src="../js/alarm/alarm.js"></script>
+  </body>
 </html>
