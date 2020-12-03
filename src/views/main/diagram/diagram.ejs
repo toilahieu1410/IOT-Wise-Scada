@@ -56,6 +56,7 @@
             <div class="item" style="display:inline-block" >
               <div class="handle">
                 <div class="user-account">
+                  
                   <!-- <h3 style="text-align: center;padding-top: 10px;margin-bottom: 0;"><i class="fa fa-user" style="margin-right: 5px;"></i></h3> -->
                       <div style="text-align: left;" class="detail-grid">
                         <div class="header-title" style="display:flex;justify-content:space-between;border-bottom:2px solid #ffffff40;padding-bottom:10px;">
@@ -71,6 +72,7 @@
                           <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian trễ tắt quạt hút:</strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeStopQuatHut %></span>
                           <strong style="display: inline-block; min-width: 220px;font-size:18px">Thời gian luân phiên bơm: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].timeLuanPhienBom %></span>
                           <strong style="display: inline-block; min-width: 220px;font-size:18px">Khối lượng than cộng dồn: </strong><span style="font-size:18px;font-weight:bold"><%= getSetup[0].khoiLuongThanCongDon %></span>
+                          
                           <div class="reset" style="display:flex;margin-top:20px">
                             <strong style="display: inline-block; min-width: 220px;font-size:18px;float: left;">Reset than cộng dồn:</strong>
                             <button href="#" type="button" data-toggle="modal" class="resetSetup" data-target="#resetSetupModal" >
@@ -80,6 +82,18 @@
                           </div>
                         </div>
                       </div>
+
+                      <div style="text-align: left;" class="detail-grid">
+                        <div class="run-action-scada" style="line-height: 30px;">
+                          <div ><button id="qh1off" class="resetControl"><span></span></button></div>
+                          <div ><button id="qh1on" class="resetControl"><span></span></button></div>
+                          <div ><button id="qh2off" class="resetControl"><span></span></button></div>
+                          <div ><button id="qh2on" class="resetControl"><span></span></button></div>
+                          <div ><button id="qh3off" class="resetControl"><span></span></button></div>
+                          <div ><button id="qh3on" class="resetControl"><span></span></button></div>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -157,6 +171,7 @@
                                     </div>
                                   </div>
                               </div>
+                              
                               <div class="modal-footer" style="border-top:none;justify-content: center;">
                                 <button type="submit" class="wise_btn wise_btn-action"><img src="../images/icons/icon_wise-white/save1.png" width="25px">Save</button>
                               </div>
@@ -183,6 +198,7 @@
                                 <!-- <label for="exampleInputPassword1">Reset</label> -->
                                 <button type="submit" class="wise_btn wise_btn-action">Reset</button>
                               </div>
+
                           </div>
                           </form>
 

@@ -1,6 +1,11 @@
 import {home} from '../../controllers/index';
 import request from 'request';
 import {pushSocketIdToArray, emitNotifyToArray, removeSocketIdFromArray} from '../../helpers/socketHelper';
+import MqttHandler from '../../config/connectMQTT';
+
+let mqttClient = new MqttHandler();
+mqttClient.connect();
+
 let diagram = (io) => {
     // let clients = {};
     io.on('connection', (socket) => {
@@ -15,6 +20,10 @@ let diagram = (io) => {
         
             })
         }, 500);
+
+        socket.on('qh1', function(data){
+            mqttClient.controlQuatOxy(JSON.stringify(data))
+        })
 
         // socket.on('disconnect', () => {
         //     // Xoa socket khi tat may

@@ -3,7 +3,6 @@ import request from 'request';
 import MqttHandler from './../config/connectMQTT';
 import moment from 'moment';
 import _ from 'lodash';
-import { body } from 'express-validator';
 
 //Connect MQTT
 let mqttClient = new MqttHandler();
