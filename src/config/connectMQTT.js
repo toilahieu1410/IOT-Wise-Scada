@@ -46,6 +46,9 @@ class MqttHandler {
   sendMessageSetup(message) {
     this.mqttClient.publish(process.env.MQTT_TOPIC_SETUP, message);
   };
+  controlQuatOxy(message) {
+    this.mqttClient.publish(process.env.MQTT_TOPIC_CONTROL, message);
+  }
 
 }
 
