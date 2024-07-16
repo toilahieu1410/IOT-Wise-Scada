@@ -15,7 +15,7 @@ README.md
 
 # misc
 .DS_Store
-/sh/.env.sh
+/sh/env.sh
 .env.local
 .env.development.local
 .env.test.local
