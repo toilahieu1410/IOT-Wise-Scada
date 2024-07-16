@@ -1,9 +1,9 @@
 # config app
-export APP_HOST=10.10.15.155
-export APP_PORT=8002
+export APP_HOST=10.10.15.151
+export APP_PORT=8003
 # config Database env
 export DB_CONNECTION=mongodb
-export DB_HOST=10.10.15.155
+export DB_HOST=10.10.15.162
 export DB_PORT=27017
 export DB_NAME=Scada
 export DB_USERNAME=""
